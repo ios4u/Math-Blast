@@ -189,6 +189,7 @@
 		527883801721F31000EF9AD4 /* cemse_e.png in Resources */ = {isa = PBXBuildFile; fileRef = 5278837D1721F31000EF9AD4 /* cemse_e.png */; };
 		527883811721F31000EF9AD4 /* cemse_m.png in Resources */ = {isa = PBXBuildFile; fileRef = 5278837E1721F31000EF9AD4 /* cemse_m.png */; };
 		5278838317221EDE00EF9AD4 /* cemse_s.png in Resources */ = {isa = PBXBuildFile; fileRef = 5278838217221EDE00EF9AD4 /* cemse_s.png */; };
+		527883871722FB4100EF9AD4 /* cemse.png in Resources */ = {isa = PBXBuildFile; fileRef = 527883861722FB4100EF9AD4 /* cemse.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -569,6 +570,7 @@
 		5278837D1721F31000EF9AD4 /* cemse_e.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cemse_e.png; path = MathBlast/images/cemse_e.png; sourceTree = "<group>"; };
 		5278837E1721F31000EF9AD4 /* cemse_m.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cemse_m.png; path = MathBlast/images/cemse_m.png; sourceTree = "<group>"; };
 		5278838217221EDE00EF9AD4 /* cemse_s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cemse_s.png; path = MathBlast/images/cemse_s.png; sourceTree = "<group>"; };
+		527883861722FB4100EF9AD4 /* cemse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cemse.png; path = MathBlast/images/cemse.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1182,6 +1184,7 @@
 		5278837B1721F2C100EF9AD4 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				527883861722FB4100EF9AD4 /* cemse.png */,
 				5278837C1721F31000EF9AD4 /* cemse_c.png */,
 				5278837D1721F31000EF9AD4 /* cemse_e.png */,
 				5278838217221EDE00EF9AD4 /* cemse_s.png */,
@@ -1259,6 +1262,7 @@
 				527883801721F31000EF9AD4 /* cemse_e.png in Resources */,
 				527883811721F31000EF9AD4 /* cemse_m.png in Resources */,
 				5278838317221EDE00EF9AD4 /* cemse_s.png in Resources */,
+				527883871722FB4100EF9AD4 /* cemse.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
