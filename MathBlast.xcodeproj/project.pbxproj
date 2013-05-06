@@ -185,11 +185,13 @@
 		527883701721E99400EF9AD4 /* IntroLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5278836F1721E99400EF9AD4 /* IntroLayer.mm */; };
 		527883731721E99400EF9AD4 /* GLES-Render.mm in Sources */ = {isa = PBXBuildFile; fileRef = 527883721721E99400EF9AD4 /* GLES-Render.mm */; };
 		527883751721E99400EF9AD4 /* blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = 527883741721E99400EF9AD4 /* blocks.png */; };
-		5278837F1721F31000EF9AD4 /* cemse_c.png in Resources */ = {isa = PBXBuildFile; fileRef = 5278837C1721F31000EF9AD4 /* cemse_c.png */; };
-		527883801721F31000EF9AD4 /* cemse_e.png in Resources */ = {isa = PBXBuildFile; fileRef = 5278837D1721F31000EF9AD4 /* cemse_e.png */; };
-		527883811721F31000EF9AD4 /* cemse_m.png in Resources */ = {isa = PBXBuildFile; fileRef = 5278837E1721F31000EF9AD4 /* cemse_m.png */; };
-		5278838317221EDE00EF9AD4 /* cemse_s.png in Resources */ = {isa = PBXBuildFile; fileRef = 5278838217221EDE00EF9AD4 /* cemse_s.png */; };
-		527883871722FB4100EF9AD4 /* cemse.png in Resources */ = {isa = PBXBuildFile; fileRef = 527883861722FB4100EF9AD4 /* cemse.png */; };
+		527885DE1723193100EF9AD4 /* Title.m in Sources */ = {isa = PBXBuildFile; fileRef = 527885DD1723193100EF9AD4 /* Title.m */; };
+		527885E6172319A400EF9AD4 /* cemse_c-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 527885E0172319A400EF9AD4 /* cemse_c-ipadhd.png */; };
+		527885E7172319A400EF9AD4 /* cemse_c.png in Resources */ = {isa = PBXBuildFile; fileRef = 527885E1172319A400EF9AD4 /* cemse_c.png */; };
+		527885E8172319A400EF9AD4 /* cemse_e.png in Resources */ = {isa = PBXBuildFile; fileRef = 527885E2172319A400EF9AD4 /* cemse_e.png */; };
+		527885E9172319A400EF9AD4 /* cemse_m.png in Resources */ = {isa = PBXBuildFile; fileRef = 527885E3172319A400EF9AD4 /* cemse_m.png */; };
+		527885EA172319A400EF9AD4 /* cemse_s.png in Resources */ = {isa = PBXBuildFile; fileRef = 527885E4172319A400EF9AD4 /* cemse_s.png */; };
+		527885EB172319A400EF9AD4 /* cemse.png in Resources */ = {isa = PBXBuildFile; fileRef = 527885E5172319A400EF9AD4 /* cemse.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -566,11 +568,14 @@
 		527883711721E99400EF9AD4 /* GLES-Render.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GLES-Render.h"; sourceTree = "<group>"; };
 		527883721721E99400EF9AD4 /* GLES-Render.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "GLES-Render.mm"; sourceTree = "<group>"; };
 		527883741721E99400EF9AD4 /* blocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blocks.png; path = Resources/blocks.png; sourceTree = "<group>"; };
-		5278837C1721F31000EF9AD4 /* cemse_c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cemse_c.png; path = MathBlast/images/cemse_c.png; sourceTree = "<group>"; };
-		5278837D1721F31000EF9AD4 /* cemse_e.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cemse_e.png; path = MathBlast/images/cemse_e.png; sourceTree = "<group>"; };
-		5278837E1721F31000EF9AD4 /* cemse_m.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cemse_m.png; path = MathBlast/images/cemse_m.png; sourceTree = "<group>"; };
-		5278838217221EDE00EF9AD4 /* cemse_s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cemse_s.png; path = MathBlast/images/cemse_s.png; sourceTree = "<group>"; };
-		527883861722FB4100EF9AD4 /* cemse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cemse.png; path = MathBlast/images/cemse.png; sourceTree = "<group>"; };
+		527885DC1723193100EF9AD4 /* Title.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Title.h; sourceTree = "<group>"; };
+		527885DD1723193100EF9AD4 /* Title.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Title.m; sourceTree = "<group>"; };
+		527885E0172319A400EF9AD4 /* cemse_c-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cemse_c-ipadhd.png"; path = "MathBlast/images/Introimages/cemse_c-ipadhd.png"; sourceTree = "<group>"; };
+		527885E1172319A400EF9AD4 /* cemse_c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cemse_c.png; path = MathBlast/images/Introimages/cemse_c.png; sourceTree = "<group>"; };
+		527885E2172319A400EF9AD4 /* cemse_e.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cemse_e.png; path = MathBlast/images/Introimages/cemse_e.png; sourceTree = "<group>"; };
+		527885E3172319A400EF9AD4 /* cemse_m.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cemse_m.png; path = MathBlast/images/Introimages/cemse_m.png; sourceTree = "<group>"; };
+		527885E4172319A400EF9AD4 /* cemse_s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cemse_s.png; path = MathBlast/images/Introimages/cemse_s.png; sourceTree = "<group>"; };
+		527885E5172319A400EF9AD4 /* cemse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cemse.png; path = MathBlast/images/Introimages/cemse.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -631,6 +636,8 @@
 			children = (
 				5278836E1721E99400EF9AD4 /* IntroLayer.h */,
 				5278836F1721E99400EF9AD4 /* IntroLayer.mm */,
+				527885DC1723193100EF9AD4 /* Title.h */,
+				527885DD1723193100EF9AD4 /* Title.m */,
 				5278837B1721F2C100EF9AD4 /* images */,
 				527881481721E98E00EF9AD4 /* Resources */,
 				527881601721E98F00EF9AD4 /* libs */,
@@ -1184,14 +1191,23 @@
 		5278837B1721F2C100EF9AD4 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				527883861722FB4100EF9AD4 /* cemse.png */,
-				5278837C1721F31000EF9AD4 /* cemse_c.png */,
-				5278837D1721F31000EF9AD4 /* cemse_e.png */,
-				5278838217221EDE00EF9AD4 /* cemse_s.png */,
-				5278837E1721F31000EF9AD4 /* cemse_m.png */,
+				527885DF1723199200EF9AD4 /* IntroImages */,
 			);
 			name = images;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		527885DF1723199200EF9AD4 /* IntroImages */ = {
+			isa = PBXGroup;
+			children = (
+				527885E0172319A400EF9AD4 /* cemse_c-ipadhd.png */,
+				527885E1172319A400EF9AD4 /* cemse_c.png */,
+				527885E2172319A400EF9AD4 /* cemse_e.png */,
+				527885E3172319A400EF9AD4 /* cemse_m.png */,
+				527885E4172319A400EF9AD4 /* cemse_s.png */,
+				527885E5172319A400EF9AD4 /* cemse.png */,
+			);
+			name = IntroImages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1258,11 +1274,12 @@
 				5278815F1721E98F00EF9AD4 /* iTunesArtwork in Resources */,
 				527882B51721E99200EF9AD4 /* ChangeLog in Resources */,
 				527883751721E99400EF9AD4 /* blocks.png in Resources */,
-				5278837F1721F31000EF9AD4 /* cemse_c.png in Resources */,
-				527883801721F31000EF9AD4 /* cemse_e.png in Resources */,
-				527883811721F31000EF9AD4 /* cemse_m.png in Resources */,
-				5278838317221EDE00EF9AD4 /* cemse_s.png in Resources */,
-				527883871722FB4100EF9AD4 /* cemse.png in Resources */,
+				527885E6172319A400EF9AD4 /* cemse_c-ipadhd.png in Resources */,
+				527885E7172319A400EF9AD4 /* cemse_c.png in Resources */,
+				527885E8172319A400EF9AD4 /* cemse_e.png in Resources */,
+				527885E9172319A400EF9AD4 /* cemse_m.png in Resources */,
+				527885EA172319A400EF9AD4 /* cemse_s.png in Resources */,
+				527885EB172319A400EF9AD4 /* cemse.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1429,6 +1446,7 @@
 				5278836A1721E99400EF9AD4 /* AppDelegate.mm in Sources */,
 				527883701721E99400EF9AD4 /* IntroLayer.mm in Sources */,
 				527883731721E99400EF9AD4 /* GLES-Render.mm in Sources */,
+				527885DE1723193100EF9AD4 /* Title.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

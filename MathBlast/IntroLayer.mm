@@ -48,24 +48,6 @@
         
         _winSize = [CCDirector sharedDirector].winSize;
         
-        
-		
-//		// ask director for the window size
-//		
-//		CCSprite *background;
-//		
-//		if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ) {
-//			background = [CCSprite spriteWithFile:@"Default.png"];
-//			background.rotation = 90;
-//		} else {
-//			background = [CCSprite spriteWithFile:@"Default-Landscape~ipad.png"];
-//		}
-//		background.position = ccp(size.width/2, size.height/2);
-//		
-//		// add the label as a child to this Layer
-//		[self addChild: background];
-        
-        
         [self animateIntro];
 	}
 	
@@ -153,6 +135,18 @@
      [CCSequence actions:
       [CCDelayTime actionWithDuration:2.3],
       [CCFadeIn actionWithDuration:1],
+      nil]];
+    
+    CCLabelTTF *label3 = [CCLabelTTF labelWithString:@"Presents" fontName:@"Avenir" fontSize:25];
+    [self addChild:label3 z:0];
+    [label3 setColor:ccc3(0,0,0)];
+    label3.position = ccp( _winSize.width/2, _winSize.height * .35);
+    label3.opacity = 0;
+    
+    [label3 runAction:
+     [CCSequence actions:
+      [CCDelayTime actionWithDuration:4],
+      [CCFadeIn actionWithDuration:2],
       nil]];
 
 }
