@@ -9,6 +9,7 @@
 
 // Import the interfaces
 #import "IntroLayer.h"
+#import "SandBox.h"
 
 
 #pragma mark - IntroLayer
@@ -148,7 +149,18 @@
       [CCDelayTime actionWithDuration:4],
       [CCFadeIn actionWithDuration:2],
       nil]];
+    
+    [self scheduleOnce:@selector(exitScene) delay:7];
 
+}
+
+-(void) exitScene
+{
+    // Reload the current scene
+    [[CCDirector sharedDirector] replaceScene:
+     [CCTransitionFade transitionWithDuration:2
+                                        scene:[SandBox node]]];
+    //[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
 }
 
 -(void) onEnter
