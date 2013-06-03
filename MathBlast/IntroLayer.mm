@@ -15,6 +15,7 @@
 #pragma mark - IntroLayer
 
 // HelloWorldLayer implementation
+@end
 @implementation IntroLayer
 {
     CGSize _winSize;
@@ -150,7 +151,7 @@
       [CCFadeIn actionWithDuration:2],
       nil]];
     
-    [self scheduleOnce:@selector(exitScene) delay:7];
+    [self scheduleOnce:@selector(exitScene) delay:2];
 
 }
 

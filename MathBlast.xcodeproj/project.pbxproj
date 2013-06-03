@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		520136AE175BF4D9001AFECF /* SandBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 520136AD175BF4D9001AFECF /* SandBox.m */; };
+		520136B5175C018C001AFECF /* SandBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 520136B4175C018C001AFECF /* SandBox.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		52013880175C1A07001AFECF /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 5201387F175C1A07001AFECF /* circle.png */; };
+		52013882175C1AF6001AFECF /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 52013881175C1AF6001AFECF /* line.png */; };
 		527881361721E98E00EF9AD4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 527881351721E98E00EF9AD4 /* QuartzCore.framework */; };
 		527881381721E98E00EF9AD4 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 527881371721E98E00EF9AD4 /* OpenGLES.framework */; };
 		5278813A1721E98E00EF9AD4 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 527881391721E98E00EF9AD4 /* OpenAL.framework */; };
@@ -186,7 +188,7 @@
 		527883701721E99400EF9AD4 /* IntroLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5278836F1721E99400EF9AD4 /* IntroLayer.mm */; };
 		527883731721E99400EF9AD4 /* GLES-Render.mm in Sources */ = {isa = PBXBuildFile; fileRef = 527883721721E99400EF9AD4 /* GLES-Render.mm */; };
 		527883751721E99400EF9AD4 /* blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = 527883741721E99400EF9AD4 /* blocks.png */; };
-		527885DE1723193100EF9AD4 /* Title.m in Sources */ = {isa = PBXBuildFile; fileRef = 527885DD1723193100EF9AD4 /* Title.m */; };
+		527885DE1723193100EF9AD4 /* Title.m in Sources */ = {isa = PBXBuildFile; fileRef = 527885DD1723193100EF9AD4 /* Title.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		527885E6172319A400EF9AD4 /* cemse_c-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 527885E0172319A400EF9AD4 /* cemse_c-ipadhd.png */; };
 		527885E7172319A400EF9AD4 /* cemse_c.png in Resources */ = {isa = PBXBuildFile; fileRef = 527885E1172319A400EF9AD4 /* cemse_c.png */; };
 		527885E8172319A400EF9AD4 /* cemse_e.png in Resources */ = {isa = PBXBuildFile; fileRef = 527885E2172319A400EF9AD4 /* cemse_e.png */; };
@@ -196,8 +198,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		520136AC175BF4D9001AFECF /* SandBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SandBox.h; sourceTree = "<group>"; };
-		520136AD175BF4D9001AFECF /* SandBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SandBox.m; sourceTree = "<group>"; };
+		520136B3175C018C001AFECF /* SandBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SandBox.h; path = ../SandBox.h; sourceTree = "<group>"; };
+		520136B4175C018C001AFECF /* SandBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SandBox.m; path = ../SandBox.m; sourceTree = "<group>"; };
+		5201387F175C1A07001AFECF /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = circle.png; path = MathBlast/images/circle.png; sourceTree = "<group>"; };
+		52013881175C1AF6001AFECF /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = line.png; path = MathBlast/images/line.png; sourceTree = "<group>"; };
 		527881321721E98E00EF9AD4 /* MathBlast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MathBlast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		527881351721E98E00EF9AD4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		527881371721E98E00EF9AD4 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -622,8 +626,8 @@
 		520136AF175BF4DF001AFECF /* SandBox */ = {
 			isa = PBXGroup;
 			children = (
-				520136AC175BF4D9001AFECF /* SandBox.h */,
-				520136AD175BF4D9001AFECF /* SandBox.m */,
+				520136B3175C018C001AFECF /* SandBox.h */,
+				520136B4175C018C001AFECF /* SandBox.m */,
 			);
 			name = SandBox;
 			sourceTree = "<group>";
@@ -1220,6 +1224,8 @@
 		5278837B1721F2C100EF9AD4 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				52013881175C1AF6001AFECF /* line.png */,
+				5201387F175C1A07001AFECF /* circle.png */,
 				527885DF1723199200EF9AD4 /* IntroImages */,
 			);
 			name = images;
@@ -1309,6 +1315,8 @@
 				527885E9172319A400EF9AD4 /* cemse_m.png in Resources */,
 				527885EA172319A400EF9AD4 /* cemse_s.png in Resources */,
 				527885EB172319A400EF9AD4 /* cemse.png in Resources */,
+				52013880175C1A07001AFECF /* circle.png in Resources */,
+				52013882175C1AF6001AFECF /* line.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1476,7 +1484,7 @@
 				527883701721E99400EF9AD4 /* IntroLayer.mm in Sources */,
 				527883731721E99400EF9AD4 /* GLES-Render.mm in Sources */,
 				527885DE1723193100EF9AD4 /* Title.m in Sources */,
-				520136AE175BF4D9001AFECF /* SandBox.m in Sources */,
+				520136B5175C018C001AFECF /* SandBox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
