@@ -1,7 +1,7 @@
 Math-Blast
 ==========
 
-Addition matching game iOS (like Bejeweled)
+iOS Addition matching game (like Bejeweled)
 
 ****UNDER CURRENT DEVELOPMENT****
 
