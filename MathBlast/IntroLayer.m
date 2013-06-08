@@ -9,15 +9,17 @@
 
 // Import the interfaces
 #import "IntroLayer.h"
+#import "DrawLayer.h"
 #import "SandBox.h"
 
 
 #pragma mark - IntroLayer
 
 // HelloWorldLayer implementation
-@end
 @implementation IntroLayer
 {
+    
+    //private variables
     CGSize _winSize;
     CCSprite *_cemse_c;
     CCSprite *_cemse_e;
@@ -25,6 +27,8 @@
     CCSprite *_cemse_m;
     CCSprite *_cemse_s;
     CCSprite *_cemse;
+    
+    
 }
 
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
@@ -36,8 +40,11 @@
 	// 'layer' is an autorelease object.
 	IntroLayer *layer = [IntroLayer node];
 	
+    //DrawLayer *sand = [DrawLayer node];
+        
 	// add layer as a child to scene
 	[scene addChild: layer];
+    //[scene addChild:sand];
 	
 	// return the scene
 	return scene;
@@ -49,6 +56,7 @@
 	if( (self=[super init])) {
         
         _winSize = [CCDirector sharedDirector].winSize;
+        
         
         [self animateIntro];
 	}
@@ -159,7 +167,7 @@
 {
     // Reload the current scene
     [[CCDirector sharedDirector] replaceScene:
-     [CCTransitionFade transitionWithDuration:2
+     [CCTransitionFade transitionWithDuration:1
                                         scene:[SandBox node]]];
     //[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
 }

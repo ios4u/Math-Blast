@@ -185,7 +185,7 @@
 		527883611721E99400EF9AD4 /* b2Rope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 527883601721E99400EF9AD4 /* b2Rope.cpp */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		527883671721E99400EF9AD4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 527883661721E99400EF9AD4 /* main.m */; };
 		5278836A1721E99400EF9AD4 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 527883691721E99400EF9AD4 /* AppDelegate.mm */; };
-		527883701721E99400EF9AD4 /* IntroLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5278836F1721E99400EF9AD4 /* IntroLayer.mm */; };
+		527883701721E99400EF9AD4 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5278836F1721E99400EF9AD4 /* IntroLayer.m */; };
 		527883731721E99400EF9AD4 /* GLES-Render.mm in Sources */ = {isa = PBXBuildFile; fileRef = 527883721721E99400EF9AD4 /* GLES-Render.mm */; };
 		527883751721E99400EF9AD4 /* blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = 527883741721E99400EF9AD4 /* blocks.png */; };
 		527885DE1723193100EF9AD4 /* Title.m in Sources */ = {isa = PBXBuildFile; fileRef = 527885DD1723193100EF9AD4 /* Title.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -195,11 +195,14 @@
 		527885E9172319A400EF9AD4 /* cemse_m.png in Resources */ = {isa = PBXBuildFile; fileRef = 527885E3172319A400EF9AD4 /* cemse_m.png */; };
 		527885EA172319A400EF9AD4 /* cemse_s.png in Resources */ = {isa = PBXBuildFile; fileRef = 527885E4172319A400EF9AD4 /* cemse_s.png */; };
 		527885EB172319A400EF9AD4 /* cemse.png in Resources */ = {isa = PBXBuildFile; fileRef = 527885E5172319A400EF9AD4 /* cemse.png */; };
+		52843115175D2747001E16BC /* red_gem.png in Resources */ = {isa = PBXBuildFile; fileRef = 52843114175D2747001E16BC /* red_gem.png */; };
+		528D2DA317639B3300108BC0 /* Gems.m in Sources */ = {isa = PBXBuildFile; fileRef = 528D2DA217639B3300108BC0 /* Gems.m */; };
+		528D3261175D15EC0052D730 /* DrawLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 528D3260175D15EC0052D730 /* DrawLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		520136B3175C018C001AFECF /* SandBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SandBox.h; path = ../SandBox.h; sourceTree = "<group>"; };
-		520136B4175C018C001AFECF /* SandBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SandBox.m; path = ../SandBox.m; sourceTree = "<group>"; };
+		520136B3175C018C001AFECF /* SandBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SandBox.h; sourceTree = "<group>"; };
+		520136B4175C018C001AFECF /* SandBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SandBox.m; sourceTree = "<group>"; };
 		5201387F175C1A07001AFECF /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = circle.png; path = MathBlast/images/circle.png; sourceTree = "<group>"; };
 		52013881175C1AF6001AFECF /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = line.png; path = MathBlast/images/line.png; sourceTree = "<group>"; };
 		527881321721E98E00EF9AD4 /* MathBlast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MathBlast.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -571,7 +574,7 @@
 		527883681721E99400EF9AD4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		527883691721E99400EF9AD4 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		5278836E1721E99400EF9AD4 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
-		5278836F1721E99400EF9AD4 /* IntroLayer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = IntroLayer.mm; sourceTree = "<group>"; };
+		5278836F1721E99400EF9AD4 /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
 		527883711721E99400EF9AD4 /* GLES-Render.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GLES-Render.h"; sourceTree = "<group>"; };
 		527883721721E99400EF9AD4 /* GLES-Render.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "GLES-Render.mm"; sourceTree = "<group>"; };
 		527883741721E99400EF9AD4 /* blocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blocks.png; path = Resources/blocks.png; sourceTree = "<group>"; };
@@ -583,6 +586,11 @@
 		527885E3172319A400EF9AD4 /* cemse_m.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cemse_m.png; path = MathBlast/images/Introimages/cemse_m.png; sourceTree = "<group>"; };
 		527885E4172319A400EF9AD4 /* cemse_s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cemse_s.png; path = MathBlast/images/Introimages/cemse_s.png; sourceTree = "<group>"; };
 		527885E5172319A400EF9AD4 /* cemse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cemse.png; path = MathBlast/images/Introimages/cemse.png; sourceTree = "<group>"; };
+		52843114175D2747001E16BC /* red_gem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = red_gem.png; path = MathBlast/images/red_gem.png; sourceTree = "<group>"; };
+		528D2DA117639B3300108BC0 /* Gems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gems.h; sourceTree = "<group>"; };
+		528D2DA217639B3300108BC0 /* Gems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gems.m; sourceTree = "<group>"; };
+		528D325F175D15EC0052D730 /* DrawLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawLayer.h; path = MathBlast/DrawLayer.h; sourceTree = SOURCE_ROOT; };
+		528D3260175D15EC0052D730 /* DrawLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DrawLayer.m; path = MathBlast/DrawLayer.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -609,7 +617,7 @@
 			isa = PBXGroup;
 			children = (
 				5278836E1721E99400EF9AD4 /* IntroLayer.h */,
-				5278836F1721E99400EF9AD4 /* IntroLayer.mm */,
+				5278836F1721E99400EF9AD4 /* IntroLayer.m */,
 			);
 			name = IntroScreen;
 			sourceTree = "<group>";
@@ -628,6 +636,10 @@
 			children = (
 				520136B3175C018C001AFECF /* SandBox.h */,
 				520136B4175C018C001AFECF /* SandBox.m */,
+				528D2DA117639B3300108BC0 /* Gems.h */,
+				528D2DA217639B3300108BC0 /* Gems.m */,
+				528D325F175D15EC0052D730 /* DrawLayer.h */,
+				528D3260175D15EC0052D730 /* DrawLayer.m */,
 			);
 			name = SandBox;
 			sourceTree = "<group>";
@@ -1224,6 +1236,7 @@
 		5278837B1721F2C100EF9AD4 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				52843114175D2747001E16BC /* red_gem.png */,
 				52013881175C1AF6001AFECF /* line.png */,
 				5201387F175C1A07001AFECF /* circle.png */,
 				527885DF1723199200EF9AD4 /* IntroImages */,
@@ -1317,6 +1330,7 @@
 				527885EB172319A400EF9AD4 /* cemse.png in Resources */,
 				52013880175C1A07001AFECF /* circle.png in Resources */,
 				52013882175C1AF6001AFECF /* line.png in Resources */,
+				52843115175D2747001E16BC /* red_gem.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1481,10 +1495,12 @@
 				527883611721E99400EF9AD4 /* b2Rope.cpp in Sources */,
 				527883671721E99400EF9AD4 /* main.m in Sources */,
 				5278836A1721E99400EF9AD4 /* AppDelegate.mm in Sources */,
-				527883701721E99400EF9AD4 /* IntroLayer.mm in Sources */,
+				527883701721E99400EF9AD4 /* IntroLayer.m in Sources */,
 				527883731721E99400EF9AD4 /* GLES-Render.mm in Sources */,
 				527885DE1723193100EF9AD4 /* Title.m in Sources */,
 				520136B5175C018C001AFECF /* SandBox.m in Sources */,
+				528D3261175D15EC0052D730 /* DrawLayer.m in Sources */,
+				528D2DA317639B3300108BC0 /* Gems.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
