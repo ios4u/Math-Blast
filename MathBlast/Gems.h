@@ -12,12 +12,16 @@
 @interface Gems : CCSprite
 
 @property (nonatomic) int value;
-@property (nonatomic) CGPoint* point;
+@property (nonatomic) CGPoint point;
 @property (strong, nonatomic) CCSprite* gem;
 @property (nonatomic) bool touched;
 
 -(id)initWithValueAndPosition: (int)val :(CGPoint)point;
 
 -(void)animateSprite;
+
+-(void)moveSpriteDown;
+
+-(void)removeGem;
 
 @end

@@ -9,6 +9,9 @@
 #import "SandBox.h"
 #import "DrawLayer.h"
 #import "Gems.h"
+#import "GameBoard.h"
+#import "GameGrid.h"
+#import "Background.h"
 @implementation SandBox{
     
     CGPoint locationBegin;
@@ -21,6 +24,10 @@
     bool resetBool;
     
     NSMutableArray *spriteArray;
+    
+    GameBoard *gameBoard;
+    
+    Background *bckLayer;
     
 }
 
@@ -62,6 +69,12 @@
         self.touchEnabled = YES;
         setOrientation = YES;
         
+        bckLayer = [Background node];
+        [self addChild:bckLayer z:-1];
+        
+        gameBoard = [[GameBoard alloc] init];        
+        NSLog(@"gameboard size: %d", [gameBoard.allPoints count]);
+        
         //DrawLayer *sand = [DrawLayer node];
         //[self addChild:sand];
         
@@ -72,115 +85,19 @@
     return self;
 }
 
+//generates gems on the game board
 -(void) gemify
 {
-//    CCSprite *red_gem = [CCSprite spriteWithFile:@"red_gem.png"];
-//    red_gem.position = ccp(400,400);
-//    [self addChild:red_gem];
-//    [spriteArray addObject:red_gem];
-//    
-//    CCSprite *red_gem2 = [CCSprite spriteWithFile:@"red_gem.png"];
-//    red_gem2.position = ccp(480,400);
-//    [self addChild:red_gem2];
-//    [spriteArray addObject:red_gem2];
-//    
-//    CCSprite *red_gem3 = [CCSprite spriteWithFile:@"red_gem.png"];
-//    red_gem3.position = ccp(560,400);
-//    [self addChild:red_gem3];
-//    [spriteArray addObject:red_gem3];
-//    
-//    CCSprite *red_gem4 = [CCSprite spriteWithFile:@"red_gem.png"];
-//    red_gem4.position = ccp(640,400);
-//    [self addChild:red_gem4];
-//    [spriteArray addObject:red_gem4];
-//    
-//    CCSprite *red_gem5 = [CCSprite spriteWithFile:@"red_gem.png"];
-//    red_gem5.position = ccp(400,320);
-//    [self addChild:red_gem5];
-//    [spriteArray addObject:red_gem5];
-//    
-//    CCSprite *red_gem6 = [CCSprite spriteWithFile:@"red_gem.png"];
-//    red_gem6.position = ccp(480,320);
-//    [self addChild:red_gem6];
-//    [spriteArray addObject:red_gem6];
-//   
-//    CCSprite *red_gem7 = [CCSprite spriteWithFile:@"red_gem.png"];
-//    red_gem7.position = ccp(560,320);
-//    [self addChild:red_gem7];
-//    [spriteArray addObject:red_gem7];
-//    
-//    CCSprite *red_gem8 = [CCSprite spriteWithFile:@"red_gem.png"];
-//    red_gem8.position = ccp(640,320);
-//    [self addChild:red_gem8];
-//    [spriteArray addObject:red_gem8];
-//    
-//    CCSprite *red_gem9 = [CCSprite spriteWithFile:@"red_gem.png"];
-//    red_gem9.position = ccp(400,480);
-//    [self addChild:red_gem9];
-//    [spriteArray addObject:red_gem9];
-//    
-//    CCSprite *red_gem10 = [CCSprite spriteWithFile:@"red_gem.png"];
-//    red_gem10.position = ccp(480,480);
-//    [self addChild:red_gem10];
-//    [spriteArray addObject:red_gem10];
-//    
-//    CCSprite *red_gem11 = [CCSprite spriteWithFile:@"red_gem.png"];
-//    red_gem11.position = ccp(560,480);
-//    [self addChild:red_gem11];
-//    [spriteArray addObject:red_gem11];
-//    
-//    CCSprite *red_gem12 = [CCSprite spriteWithFile:@"red_gem.png"];
-//    red_gem12.position = ccp(640,480);
-//    [self addChild:red_gem12];
-//    [spriteArray addObject:red_gem12];
+    for (GameGrid *gg in gameBoard.allPoints) {
+        int r = arc4random() % 2;
+        if(!gg.hasGem){
+            Gems *redGem = [[Gems alloc] initWithValueAndPosition:r :gg.gridPoint];
+            [self addChild:redGem.gem];
+            gg.hasGem = YES;
+            [spriteArray addObject:redGem];
+        }
+    }
     
-    Gems *redGem = [[Gems alloc] initWithValueAndPosition:1 :ccp(400,400)];
-    [self addChild:redGem.gem];
-    [spriteArray addObject:redGem];
-    
-    Gems *redGem2 = [[Gems alloc] initWithValueAndPosition:1 :ccp(480,400)];
-    [self addChild:redGem2.gem];
-    [spriteArray addObject:redGem2];
-    
-    Gems *redGem3 = [[Gems alloc] initWithValueAndPosition:1 :ccp(560,400)];
-    [self addChild:redGem3.gem];
-    [spriteArray addObject:redGem3];
-    
-    Gems *redGem4 = [[Gems alloc] initWithValueAndPosition:1 :ccp(640,400)];
-    [self addChild:redGem4.gem];
-    [spriteArray addObject:redGem4];
-    
-    Gems *redGem5 = [[Gems alloc] initWithValueAndPosition:1 :ccp(400,480)];
-    [self addChild:redGem5.gem];
-    [spriteArray addObject:redGem5];
-    
-    Gems *redGem6 = [[Gems alloc] initWithValueAndPosition:1 :ccp(480,480)];
-    [self addChild:redGem6.gem];
-    [spriteArray addObject:redGem6];
-    
-    Gems *redGem7 = [[Gems alloc] initWithValueAndPosition:1 :ccp(560,480)];
-    [self addChild:redGem7.gem];
-    [spriteArray addObject:redGem7];
-    
-    Gems *redGem8 = [[Gems alloc] initWithValueAndPosition:1 :ccp(640,480)];
-    [self addChild:redGem8.gem];
-    [spriteArray addObject:redGem8];
-    
-    Gems *redGem9 = [[Gems alloc] initWithValueAndPosition:1 :ccp(400,320)];
-    [self addChild:redGem9.gem];
-    [spriteArray addObject:redGem9];
-    
-    Gems *redGem10 = [[Gems alloc] initWithValueAndPosition:1 :ccp(480,320)];
-    [self addChild:redGem10.gem];
-    [spriteArray addObject:redGem10];
-    
-    Gems *redGem11 = [[Gems alloc] initWithValueAndPosition:1 :ccp(560,320)];
-    [self addChild:redGem11.gem];
-    [spriteArray addObject:redGem11];
-    
-    Gems *redGem12 = [[Gems alloc] initWithValueAndPosition:1 :ccp(640,320)];
-    [self addChild:redGem12.gem];
-    [spriteArray addObject:redGem12];
 }
 
 
@@ -189,7 +106,6 @@
     
     
     UITouch *touch = [touches anyObject];
-    //    if( touch ) {
     locationBegin = [touch locationInView: [touch view]];
     locationBegin = [[CCDirector sharedDirector] convertToGL:locationBegin];
     locationEnd = [touch locationInView: [touch view]];
@@ -241,8 +157,58 @@
     isHorizontal = 0;
     isVertical = 0;
     
-    [self resetGemSize];
+    [self resetGems];
     
+}
+
+-(void)resetGems
+{
+    NSMutableArray *toDelete = [NSMutableArray array];
+    for (Gems *sprite in spriteArray) {
+        if(sprite.touched){
+            
+            //remove sprite from board
+            [sprite removeGem];
+            [toDelete addObject:sprite];
+            
+            //update board
+            for (GameGrid *gg in gameBoard.allPoints) {
+                if(sprite.point.x == gg.gridPoint.x && sprite.point.y == gg.gridPoint.y){
+                    gg.hasGem = NO;
+                }
+            }
+        }
+    }
+    
+    // Remove from array
+    [spriteArray removeObjectsInArray:toDelete];
+    
+    bool emptySpace = YES;
+    while (emptySpace) {
+        emptySpace = NO;
+        //fill empty spaces
+        for (Gems *sprite in spriteArray) {
+            for (GameGrid *gg in gameBoard.allPoints) {
+                if(sprite.point.x == gg.gridPoint.x && (sprite.point.y - gg.gridPoint.y) == 71 && !gg.hasGem){
+                    NSLog(@"Will move down");
+                    for (GameGrid *gg in gameBoard.allPoints) {
+                        if(sprite.point.x == gg.gridPoint.x && sprite.point.y == gg.gridPoint.y){
+                            gg.hasGem = NO;
+                        }
+                    }
+                    sprite.point = gg.gridPoint;
+                    [sprite moveSpriteDown];
+                    gg.hasGem = YES;
+                    emptySpace = YES;
+                    
+                }
+            }
+        }
+    }
+    
+    
+    //replace gems
+    [self gemify];
 }
 
 -(void)checkForLineOrientation
@@ -258,20 +224,6 @@
             setOrientation = NO;
         }
     }
-}
-
--(void)resetGemSize
-{
-    NSMutableArray *toDelete = [NSMutableArray array];
-    for (Gems *sprite in spriteArray) {
-        if(sprite.touched){
-            [self removeChild:sprite.gem];
-            [toDelete addObject:sprite];
-        }
-    }
-    
-    // Remove them
-    [spriteArray removeObjectsInArray:toDelete];
 }
 
 -(void)draw

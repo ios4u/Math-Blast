@@ -19,10 +19,11 @@
     if ((self = [super init]))
     {
         _value = val;
-        _point = &point;
+        _point = point;
         switch (val) {
-                //make 
+                //make purple gem
             case 0:
+                [self makePurpleGem];
                 break;
                 
                 //make red gem
@@ -41,26 +42,42 @@
 //contructs the type of gem with its image
 -(void) makeRedGem
 {
-    NSLog(@"Red gem called");
     _gem = [CCSprite spriteWithFile:@"red_gem.png"];
-    //_gem.position = *(_point);
     
     [self animateSprite];
     
 }
 
+-(void) makePurpleGem
+{
+    _gem = [CCSprite spriteWithFile:@"purple_gem.png"];
+    
+    [self animateSprite];
+}
+
 //animates the falling of the gem to the game board
 -(void) animateSprite
 {
-    float moveX = _point->x;
-    float moveY = _point->y;
-    _gem.position = ccp(moveX, moveY * 3);
+    float moveX = _point.x;
+    float moveY = _point.y;
+    _gem.position = ccp(moveX, moveY * 2.5);
     
     [_gem runAction:
      [CCSequence actions:
-      [CCDelayTime actionWithDuration:.4],
-      [CCMoveTo actionWithDuration:1 position:*(_point)],
+      [CCMoveTo actionWithDuration:.7 position:_point],
       nil]];
 }
 
+-(void)moveSpriteDown
+{
+    [_gem runAction:
+     [CCSequence actions:
+      [CCMoveBy actionWithDuration:.3 position:ccp(0, -71)],
+      nil]];
+}
+
+-(void) removeGem
+{
+    [_gem removeFromParent];
+}
 @end
