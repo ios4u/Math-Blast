@@ -208,8 +208,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		520136B3175C018C001AFECF /* SandBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SandBox.h; sourceTree = "<group>"; };
-		520136B4175C018C001AFECF /* SandBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SandBox.m; sourceTree = "<group>"; };
+		520136B3175C018C001AFECF /* SandBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SandBox.h; path = SandBox/SandBox.h; sourceTree = "<group>"; };
+		520136B4175C018C001AFECF /* SandBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SandBox.m; path = SandBox/SandBox.m; sourceTree = "<group>"; };
 		5201387F175C1A07001AFECF /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = circle.png; path = MathBlast/images/circle.png; sourceTree = "<group>"; };
 		52013881175C1AF6001AFECF /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = line.png; path = MathBlast/images/line.png; sourceTree = "<group>"; };
 		527881321721E98E00EF9AD4 /* MathBlast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MathBlast.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -576,17 +576,17 @@
 		527883601721E99400EF9AD4 /* b2Rope.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = b2Rope.cpp; path = libs/Box2D/Rope/b2Rope.cpp; sourceTree = "<group>"; };
 		527883621721E99400EF9AD4 /* b2Rope.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = b2Rope.h; path = libs/Box2D/Rope/b2Rope.h; sourceTree = "<group>"; };
 		527883631721E99400EF9AD4 /* LICENSE_Box2D.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE_Box2D.txt; path = libs/LICENSE_Box2D.txt; sourceTree = "<group>"; };
-		527883651721E99400EF9AD4 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
-		527883661721E99400EF9AD4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		527883681721E99400EF9AD4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		527883691721E99400EF9AD4 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
-		5278836E1721E99400EF9AD4 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
-		5278836F1721E99400EF9AD4 /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
-		527883711721E99400EF9AD4 /* GLES-Render.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GLES-Render.h"; sourceTree = "<group>"; };
-		527883721721E99400EF9AD4 /* GLES-Render.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "GLES-Render.mm"; sourceTree = "<group>"; };
+		527883651721E99400EF9AD4 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Prefix.pch; path = Misc/Prefix.pch; sourceTree = "<group>"; };
+		527883661721E99400EF9AD4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Misc/main.m; sourceTree = "<group>"; };
+		527883681721E99400EF9AD4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Misc/AppDelegate.h; sourceTree = "<group>"; };
+		527883691721E99400EF9AD4 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = Misc/AppDelegate.mm; sourceTree = "<group>"; };
+		5278836E1721E99400EF9AD4 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IntroLayer.h; path = Intro_Screen/IntroLayer.h; sourceTree = "<group>"; };
+		5278836F1721E99400EF9AD4 /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = IntroLayer.m; path = Intro_Screen/IntroLayer.m; sourceTree = "<group>"; };
+		527883711721E99400EF9AD4 /* GLES-Render.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "GLES-Render.h"; path = "Misc/GLES-Render.h"; sourceTree = "<group>"; };
+		527883721721E99400EF9AD4 /* GLES-Render.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = "GLES-Render.mm"; path = "Misc/GLES-Render.mm"; sourceTree = "<group>"; };
 		527883741721E99400EF9AD4 /* blocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blocks.png; path = Resources/blocks.png; sourceTree = "<group>"; };
-		527885DC1723193100EF9AD4 /* Title.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Title.h; sourceTree = "<group>"; };
-		527885DD1723193100EF9AD4 /* Title.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Title.m; sourceTree = "<group>"; };
+		527885DC1723193100EF9AD4 /* Title.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Title.h; path = Title_Screen/Title.h; sourceTree = "<group>"; };
+		527885DD1723193100EF9AD4 /* Title.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Title.m; path = Title_Screen/Title.m; sourceTree = "<group>"; };
 		527885E0172319A400EF9AD4 /* cemse_c-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cemse_c-ipadhd.png"; path = "MathBlast/images/Introimages/cemse_c-ipadhd.png"; sourceTree = "<group>"; };
 		527885E1172319A400EF9AD4 /* cemse_c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cemse_c.png; path = MathBlast/images/Introimages/cemse_c.png; sourceTree = "<group>"; };
 		527885E2172319A400EF9AD4 /* cemse_e.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cemse_e.png; path = MathBlast/images/Introimages/cemse_e.png; sourceTree = "<group>"; };
@@ -594,20 +594,20 @@
 		527885E4172319A400EF9AD4 /* cemse_s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cemse_s.png; path = MathBlast/images/Introimages/cemse_s.png; sourceTree = "<group>"; };
 		527885E5172319A400EF9AD4 /* cemse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cemse.png; path = MathBlast/images/Introimages/cemse.png; sourceTree = "<group>"; };
 		52843114175D2747001E16BC /* red_gem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = red_gem.png; path = MathBlast/images/red_gem.png; sourceTree = "<group>"; };
-		528D2DA117639B3300108BC0 /* Gems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gems.h; sourceTree = "<group>"; };
-		528D2DA217639B3300108BC0 /* Gems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gems.m; sourceTree = "<group>"; };
-		528D2DA71763BE1C00108BC0 /* GameBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameBoard.h; path = ../GameBoard.h; sourceTree = "<group>"; };
-		528D2DA81763BE1C00108BC0 /* GameBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameBoard.m; path = ../GameBoard.m; sourceTree = "<group>"; };
-		528D2DAA1763C3F300108BC0 /* GameGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameGrid.h; sourceTree = "<group>"; };
-		528D2DAB1763C3F300108BC0 /* GameGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameGrid.m; sourceTree = "<group>"; };
+		528D2DA117639B3300108BC0 /* Gems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gems.h; path = Gems/Gems.h; sourceTree = "<group>"; };
+		528D2DA217639B3300108BC0 /* Gems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Gems.m; path = Gems/Gems.m; sourceTree = "<group>"; };
+		528D2DA71763BE1C00108BC0 /* GameBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameBoard.h; path = GameBoard/GameBoard.h; sourceTree = "<group>"; };
+		528D2DA81763BE1C00108BC0 /* GameBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameBoard.m; path = GameBoard/GameBoard.m; sourceTree = "<group>"; };
+		528D2DAA1763C3F300108BC0 /* GameGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameGrid.h; path = GameBoard/GameGrid.h; sourceTree = "<group>"; };
+		528D2DAB1763C3F300108BC0 /* GameGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameGrid.m; path = GameBoard/GameGrid.m; sourceTree = "<group>"; };
 		528D2DAD1763E5A600108BC0 /* purple_gem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = purple_gem.png; path = MathBlast/images/purple_gem.png; sourceTree = "<group>"; };
 		528D2DAF17641A7200108BC0 /* back1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = back1.jpg; path = MathBlast/images/back1.jpg; sourceTree = "<group>"; };
-		528D2DB317641CEA00108BC0 /* Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Background.h; sourceTree = "<group>"; };
-		528D2DB417641CEA00108BC0 /* Background.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Background.m; sourceTree = "<group>"; };
+		528D2DB317641CEA00108BC0 /* Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Background.h; path = GameBoard/Background.h; sourceTree = "<group>"; };
+		528D2DB417641CEA00108BC0 /* Background.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Background.m; path = GameBoard/Background.m; sourceTree = "<group>"; };
 		528D2DB6176420E400108BC0 /* bckgrid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bckgrid.png; path = MathBlast/images/bckgrid.png; sourceTree = "<group>"; };
 		528D2DB81764314400108BC0 /* red_gem2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = red_gem2.png; path = MathBlast/images/red_gem2.png; sourceTree = "<group>"; };
-		528D325F175D15EC0052D730 /* DrawLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawLayer.h; path = MathBlast/DrawLayer.h; sourceTree = SOURCE_ROOT; };
-		528D3260175D15EC0052D730 /* DrawLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DrawLayer.m; path = MathBlast/DrawLayer.m; sourceTree = SOURCE_ROOT; };
+		528D325F175D15EC0052D730 /* DrawLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawLayer.h; path = MathBlast/SandBox/DrawLayer.h; sourceTree = SOURCE_ROOT; };
+		528D3260175D15EC0052D730 /* DrawLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DrawLayer.m; path = MathBlast/SandBox/DrawLayer.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1605,7 +1605,7 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = MathBlast/Prefix.pch;
+				GCC_PREFIX_HEADER = MathBlast/Misc/Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"CC_ENABLE_BOX2D_INTEGRATION=1",
 					DEBUG,
@@ -1631,7 +1631,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = MathBlast/Prefix.pch;
+				GCC_PREFIX_HEADER = MathBlast/Misc/Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"CC_ENABLE_BOX2D_INTEGRATION=1",
 					NDEBUG,
