@@ -10,6 +10,13 @@
 		520136B5175C018C001AFECF /* SandBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 520136B4175C018C001AFECF /* SandBox.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		52013880175C1A07001AFECF /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 5201387F175C1A07001AFECF /* circle.png */; };
 		52013882175C1AF6001AFECF /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 52013881175C1AF6001AFECF /* line.png */; };
+		526F7AEF176504AC00817C61 /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = 526F7AEE176504AC00817C61 /* Timer.m */; };
+		526F7AF117650F0E00817C61 /* timerBorder.png in Resources */ = {isa = PBXBuildFile; fileRef = 526F7AF017650F0E00817C61 /* timerBorder.png */; };
+		526F7AF317651B6500817C61 /* detailBorder.png in Resources */ = {isa = PBXBuildFile; fileRef = 526F7AF217651B6500817C61 /* detailBorder.png */; };
+		526F7AF517651E8300817C61 /* treasureChest.png in Resources */ = {isa = PBXBuildFile; fileRef = 526F7AF417651E8300817C61 /* treasureChest.png */; };
+		526F7AF7176522DE00817C61 /* back2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 526F7AF6176522DE00817C61 /* back2.jpg */; };
+		526F7AFA17653B5200817C61 /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = 526F7AF917653B5200817C61 /* Score.m */; };
+		526F7AFC176627AE00817C61 /* green_gem.png in Resources */ = {isa = PBXBuildFile; fileRef = 526F7AFB176627AE00817C61 /* green_gem.png */; };
 		527881361721E98E00EF9AD4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 527881351721E98E00EF9AD4 /* QuartzCore.framework */; };
 		527881381721E98E00EF9AD4 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 527881371721E98E00EF9AD4 /* OpenGLES.framework */; };
 		5278813A1721E98E00EF9AD4 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 527881391721E98E00EF9AD4 /* OpenAL.framework */; };
@@ -203,7 +210,6 @@
 		528D2DB017641A7200108BC0 /* back1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 528D2DAF17641A7200108BC0 /* back1.jpg */; };
 		528D2DB517641CEA00108BC0 /* Background.m in Sources */ = {isa = PBXBuildFile; fileRef = 528D2DB417641CEA00108BC0 /* Background.m */; };
 		528D2DB7176420E400108BC0 /* bckgrid.png in Resources */ = {isa = PBXBuildFile; fileRef = 528D2DB6176420E400108BC0 /* bckgrid.png */; };
-		528D2DB91764314400108BC0 /* red_gem2.png in Resources */ = {isa = PBXBuildFile; fileRef = 528D2DB81764314400108BC0 /* red_gem2.png */; };
 		528D3261175D15EC0052D730 /* DrawLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 528D3260175D15EC0052D730 /* DrawLayer.m */; };
 /* End PBXBuildFile section */
 
@@ -212,6 +218,15 @@
 		520136B4175C018C001AFECF /* SandBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SandBox.m; path = SandBox/SandBox.m; sourceTree = "<group>"; };
 		5201387F175C1A07001AFECF /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = circle.png; path = MathBlast/images/circle.png; sourceTree = "<group>"; };
 		52013881175C1AF6001AFECF /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = line.png; path = MathBlast/images/line.png; sourceTree = "<group>"; };
+		526F7AED176504AC00817C61 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
+		526F7AEE176504AC00817C61 /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
+		526F7AF017650F0E00817C61 /* timerBorder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = timerBorder.png; path = MathBlast/images/timerBorder.png; sourceTree = "<group>"; };
+		526F7AF217651B6500817C61 /* detailBorder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = detailBorder.png; path = MathBlast/images/detailBorder.png; sourceTree = "<group>"; };
+		526F7AF417651E8300817C61 /* treasureChest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = treasureChest.png; path = MathBlast/images/treasureChest.png; sourceTree = "<group>"; };
+		526F7AF6176522DE00817C61 /* back2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = back2.jpg; path = MathBlast/images/back2.jpg; sourceTree = "<group>"; };
+		526F7AF817653B5200817C61 /* Score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Score.h; sourceTree = "<group>"; };
+		526F7AF917653B5200817C61 /* Score.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Score.m; sourceTree = "<group>"; };
+		526F7AFB176627AE00817C61 /* green_gem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = green_gem.png; path = MathBlast/images/green_gem.png; sourceTree = "<group>"; };
 		527881321721E98E00EF9AD4 /* MathBlast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MathBlast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		527881351721E98E00EF9AD4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		527881371721E98E00EF9AD4 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -605,7 +620,6 @@
 		528D2DB317641CEA00108BC0 /* Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Background.h; path = GameBoard/Background.h; sourceTree = "<group>"; };
 		528D2DB417641CEA00108BC0 /* Background.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Background.m; path = GameBoard/Background.m; sourceTree = "<group>"; };
 		528D2DB6176420E400108BC0 /* bckgrid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bckgrid.png; path = MathBlast/images/bckgrid.png; sourceTree = "<group>"; };
-		528D2DB81764314400108BC0 /* red_gem2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = red_gem2.png; path = MathBlast/images/red_gem2.png; sourceTree = "<group>"; };
 		528D325F175D15EC0052D730 /* DrawLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawLayer.h; path = MathBlast/SandBox/DrawLayer.h; sourceTree = SOURCE_ROOT; };
 		528D3260175D15EC0052D730 /* DrawLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DrawLayer.m; path = MathBlast/SandBox/DrawLayer.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -1253,9 +1267,13 @@
 		5278837B1721F2C100EF9AD4 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				528D2DB81764314400108BC0 /* red_gem2.png */,
+				526F7AF217651B6500817C61 /* detailBorder.png */,
+				526F7AF417651E8300817C61 /* treasureChest.png */,
+				526F7AF017650F0E00817C61 /* timerBorder.png */,
+				526F7AF6176522DE00817C61 /* back2.jpg */,
 				528D2DAF17641A7200108BC0 /* back1.jpg */,
 				528D2DAD1763E5A600108BC0 /* purple_gem.png */,
+				526F7AFB176627AE00817C61 /* green_gem.png */,
 				528D2DB6176420E400108BC0 /* bckgrid.png */,
 				52843114175D2747001E16BC /* red_gem.png */,
 				52013881175C1AF6001AFECF /* line.png */,
@@ -1282,12 +1300,16 @@
 		528D2DB117641C9F00108BC0 /* GameBoard */ = {
 			isa = PBXGroup;
 			children = (
+				526F7AED176504AC00817C61 /* Timer.h */,
+				526F7AEE176504AC00817C61 /* Timer.m */,
 				528D2DA71763BE1C00108BC0 /* GameBoard.h */,
 				528D2DA81763BE1C00108BC0 /* GameBoard.m */,
 				528D2DAA1763C3F300108BC0 /* GameGrid.h */,
 				528D2DAB1763C3F300108BC0 /* GameGrid.m */,
 				528D2DB317641CEA00108BC0 /* Background.h */,
 				528D2DB417641CEA00108BC0 /* Background.m */,
+				526F7AF817653B5200817C61 /* Score.h */,
+				526F7AF917653B5200817C61 /* Score.m */,
 			);
 			name = GameBoard;
 			sourceTree = "<group>";
@@ -1377,7 +1399,11 @@
 				528D2DAE1763E5A600108BC0 /* purple_gem.png in Resources */,
 				528D2DB017641A7200108BC0 /* back1.jpg in Resources */,
 				528D2DB7176420E400108BC0 /* bckgrid.png in Resources */,
-				528D2DB91764314400108BC0 /* red_gem2.png in Resources */,
+				526F7AF117650F0E00817C61 /* timerBorder.png in Resources */,
+				526F7AF317651B6500817C61 /* detailBorder.png in Resources */,
+				526F7AF517651E8300817C61 /* treasureChest.png in Resources */,
+				526F7AF7176522DE00817C61 /* back2.jpg in Resources */,
+				526F7AFC176627AE00817C61 /* green_gem.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1551,6 +1577,8 @@
 				528D2DA91763BE1C00108BC0 /* GameBoard.m in Sources */,
 				528D2DAC1763C3F300108BC0 /* GameGrid.m in Sources */,
 				528D2DB517641CEA00108BC0 /* Background.m in Sources */,
+				526F7AEF176504AC00817C61 /* Timer.m in Sources */,
+				526F7AFA17653B5200817C61 /* Score.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

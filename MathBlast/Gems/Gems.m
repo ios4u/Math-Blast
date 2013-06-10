@@ -32,7 +32,8 @@
                 break;
                 
                 //make
-            case 2: 
+            case 2:
+                [self makeGreenGem];
                 break;
         }
     }
@@ -51,6 +52,13 @@
 -(void) makePurpleGem
 {
     _gem = [CCSprite spriteWithFile:@"purple_gem.png"];
+    
+    [self animateSprite];
+}
+
+-(void) makeGreenGem
+{
+    _gem = [CCSprite spriteWithFile:@"green_gem.png"];
     
     [self animateSprite];
 }
@@ -77,6 +85,24 @@
 }
 
 -(void) removeGem
+{
+    //make disappearing animation
+    [_gem runAction:
+     [CCSequence actions:
+      [CCMoveTo actionWithDuration:.5 position:ccp(78, 560)],
+      nil]];
+    
+    [_gem runAction:
+     [CCSequence actions:
+      [CCEaseOut actionWithAction:
+       [CCScaleTo actionWithDuration:.5 scale:.3] rate:.3],
+        [CCCallFuncN actionWithTarget:self selector:@selector(remove)],
+      nil]];
+    
+    
+}
+
+-(void) remove
 {
     [_gem removeFromParent];
 }

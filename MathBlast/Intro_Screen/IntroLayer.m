@@ -159,7 +159,7 @@
       [CCFadeIn actionWithDuration:2],
       nil]];
     
-    [self scheduleOnce:@selector(exitScene) delay:2];
+    [self scheduleOnce:@selector(exitScene) delay:.2];
 
 }
 
