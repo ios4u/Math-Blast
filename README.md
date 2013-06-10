@@ -3,28 +3,26 @@ Math-Blast
 
 iOS Addition matching game (like Bejeweled)
 
---------------------------------------------------
+## Features
 
 Math Blast allows children and adults to practice various skills and become more comfortable with math and numbers. Math Blast's goals are to allow players to:
 
-  -- Practice addition and subtraction
+  * **Practice**  addition and subtraction
   
-  -- Develop strategies to balance short term and long term performance
+  * **Develop** strategies to balance short term and long term performance
   
-  -- Practice time management
+  * **Practice** time management
   
-  -- Decrease math anxiety
+  * **Decrease** math anxiety
   
-  -- Associate math with having fun!
+  * **Associate** math with having fun!
 
----------------------------------------------------
+## Under Current Development
 
-****UNDER CURRENT DEVELOPMENT****
+  * Keep up with this project right here. 
 
-You can keep up with this project here. 
-
-SCREENSHOTS:
-____________
+## ScreenShots
+_________________________________________
 
 ![Alt text](screen1.png "Screenshot 1")
 
