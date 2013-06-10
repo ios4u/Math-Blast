@@ -22,11 +22,6 @@ Math Blast allows children and adults to practice various skills and become more
   * Keep up with this project right here. 
 
 ## ScreenShots
-_________________________________________
-
-![Alt text](screen1.png "Screenshot 1")
-
-![Alt text](screen2.png "Screenshot 2")
 
 ![Alt text](screen3.png "Screenshot 3")
 
