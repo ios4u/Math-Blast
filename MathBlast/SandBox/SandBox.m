@@ -17,6 +17,8 @@
 @implementation SandBox{
     
     CGPoint locationBegin;
+    CGPoint locationBeginSection;
+    CGPoint locationEndLine;
     CGPoint locationEnd;
     CGPoint locationReset;
     
@@ -109,10 +111,12 @@
     for (GameGrid *gg in gameBoard.allPoints) {
         int r = arc4random() % 3;
         if(!gg.hasGem){
-            Gems *redGem = [[Gems alloc] initWithValueAndPosition:r :gg.gridPoint];
-            [self addChild:redGem.gem];
+            Gems *newGem = [[Gems alloc] initWithValueAndPosition:r :gg.gridPoint];
+            [self addChild:newGem.gem z:-1];
             gg.hasGem = YES;
-            [spriteArray addObject:redGem];
+            newGem.gem.scale = .8;
+            [spriteArray addObject:newGem];
+            
         }
     }
     
@@ -130,15 +134,22 @@
         locationBegin = [touch locationInView: [touch view]];
         locationBegin = [[CCDirector sharedDirector] convertToGL:locationBegin];
         
-        //find center of the gem
+        //find center of gem
         for (Gems *sprite in spriteArray) {
             if (CGRectContainsPoint(sprite.gem.boundingBox, ccp(locationBegin.x, locationBegin.y))) {
                 locationBegin = sprite.point;
             }
         }
-        if(locationBegin.x < 365){
-            locationBegin.x = 365.0;
+        //if touch is not a gem
+        if(locationBegin.x < 370){
+            locationBegin.x = 370.0;
         }
+        locationBeginSection = locationBegin;
+        locationEnd = locationBeginSection;
+        
+        //NSLog(@"LocaBeginSec %fx , %fy" , locationBeginSection.x, locationBeginSection.y);
+        //NSLog(@"LocaBeginSec %fx , %fy" , locationBegin.x, locationBegin.y);
+
         
     }
 }
@@ -160,32 +171,46 @@
         locationEnd = [touch locationInView: [touch view]];
         locationEnd = [[CCDirector sharedDirector] convertToGL:locationEnd];
         
-        [self checkForLineOrientation];
-        
+               
+        //for every sprite, check if it was touched. Then do some point calculation
         for (Gems *sprite in spriteArray) {
-            if(isHorizontal){
-                if (CGRectContainsPoint(sprite.gem.boundingBox, ccp(locationEnd.x, locationBegin.y))) {
-                    //NSLog(@"Sprite Touched!");
-                    locationEnd = sprite.point;
-                    sprite.gem.scale = 1.3;
-                    sprite.touched = YES;
-                }else{
-                   // NSLog(@"Sprite Not Touched");
-                    sprite.gem.scale = 1.0;
+       
+            if (CGRectContainsPoint(sprite.gem.boundingBox, ccp(locationEnd.x, locationEnd.y))){
+                //NSLog(@"LocBeginSec : %f" , locationBeginSection.y);
+                //NSLog(@"LocEnd : %f" , locationEnd.x);
+                
+                sprite.gem.scale = 1.3;
+                sprite.touched = YES;
+                
+                //check for orientation
+                //if horizontal
+                if((locationBeginSection.x < sprite.point.x || locationBeginSection.x > sprite.point.x) && (locationBeginSection.y == sprite.point.y)){
+                    if(isVertical){
+                        isVertical = NO;
+                        locationBegin = locationBeginSection;
+                    }
+                    isHorizontal = YES;
+                    locationBeginSection = sprite.point;
+                    locationEndLine = locationBeginSection;
                 }
-            }else if (isVertical){
-                if (CGRectContainsPoint(sprite.gem.boundingBox, ccp(locationBegin.x, locationEnd.y))) {
-                    //NSLog(@"Sprite Touched!");
-                    locationEnd = sprite.point;
-                    sprite.gem.scale = 1.3;
-                    sprite.touched = YES;
-
-                }else{
-                    //NSLog(@"Sprite Not Touched");
-                    sprite.gem.scale = 1.0;
-
+                //if vertical
+                else if((locationBeginSection.y < sprite.point.y || locationBeginSection.y > sprite.point.y) && (locationBeginSection.x == sprite.point.x)){
+                    if(isHorizontal){
+                        isHorizontal = NO;
+                        locationBegin = locationBeginSection;
+                    }
+                    isVertical = YES;
+                    locationBeginSection = sprite.point;
+                    locationEndLine = locationBeginSection;
+                }
+                //if diagonal
+                else if ((locationBeginSection.x < sprite.point.x || locationBeginSection.x > sprite.point.x) && (locationBeginSection.y < sprite.point.y || locationBeginSection.y > sprite.point.y)){
+                    sprite.gem.scale = 1;
+                    sprite.touched = NO;
                 }
             }
+            
+            //NSLog(@"LocEnd : %f" , locationEnd.y);
         }
     }
     
@@ -199,16 +224,14 @@
     }
     else {
         //[self removeAllChildren];
-        //locationBegin = locationReset;
+        locationBegin = locationReset;
         locationEnd = locationReset;
         
-        setOrientation = YES;
-        isHorizontal = 0;
-        isVertical = 0;
+        isHorizontal = NO;
+        isVertical = NO;
         
         [self gemLogic];
     }
-    
 }
 
 -(void)gemLogic
@@ -274,7 +297,7 @@
 {
     for (Gems *sprite in spriteArray) {
         sprite.touched = NO;
-        sprite.gem.scale = 1.0;
+        sprite.gem.scale = .8;
     }
 }
 
@@ -304,23 +327,6 @@
     }
 }
 
--(void)checkForLineOrientation
-{
-    if(setOrientation){
-        if(locationBegin.x - 25 > locationEnd.x || locationBegin.x + 25 < locationEnd.x)
-        {
-            isHorizontal = YES;
-            isVertical = NO;
-            //setOrientation = NO;
-        }
-        else if(locationBegin.y - 25 > locationEnd.y || locationBegin.y + 25 < locationEnd.y){
-            isVertical = YES;
-            isHorizontal = NO;
-            //setOrientation = NO;
-        }
-    }
-}
-
 - (void)shakeScreen:(int)times {
     if(locationBegin.x == 365) { return; }
     id shakeLow = [CCMoveBy
@@ -344,14 +350,11 @@
     ccDrawColor4F(hhh.r, hhh.g, hhh.b, hhh.a);
     glLineWidth(3);
     
-    if(isHorizontal){
-        CGPoint verts[] = { ccp(locationBegin.x,locationBegin.y), ccp(locationEnd.x,locationEnd.y) };
+    if(isHorizontal || isVertical){
+        CGPoint verts[] = { locationBegin, locationEndLine };
         ccDrawLine(verts[0], verts[1]);
     }
-    else if(isVertical){
-        CGPoint verts[] = { ccp(locationBegin.x,locationBegin.y), ccp(locationEnd.x,locationEnd.y) };
-        ccDrawLine(verts[0], verts[1]);
-    }
+
 }
 
 

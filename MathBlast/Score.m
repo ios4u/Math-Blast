@@ -13,6 +13,7 @@
 {
     CCLabelTTF *score;
     int targetScore;
+    CCSprite *goodLabel;
 }
 
 -(id) init
@@ -36,6 +37,7 @@
 -(void) addScore: (int)scoreForTurn
 {
     targetScore = _gemScore + scoreForTurn;
+    [self animateSuperlative];
     [self schedule:@selector(updateScore)];
 }
 
@@ -55,5 +57,23 @@
         [self unschedule:@selector(updateScore)]; //...unschedule us
     }
 
+}
+
+-(void) animateSuperlative
+{
+    goodLabel = [CCSprite spriteWithFile:@"good.png"];
+    goodLabel.position = ccp(400, 400);
+    [self addChild:goodLabel];
+    
+    [goodLabel runAction:
+     [CCSequence actions:
+      [CCFadeOut actionWithDuration:1],
+      [CCCallFuncN actionWithTarget:self selector:@selector(removeLabel)], nil]];
+
+}
+
+-(void) removeLabel
+{
+    [self removeChild:goodLabel cleanup:YES];
 }
 @end
