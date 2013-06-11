@@ -84,7 +84,7 @@
       nil]];
 }
 
--(void) removeGem
+-(void) putGemInTreasureChest
 {
     //make disappearing animation
     [_gem runAction:
@@ -100,6 +100,15 @@
       nil]];
     
     
+}
+
+-(void) endLevelAnimation
+{
+    [_gem runAction:
+     [CCSequence actions:
+      [CCMoveBy actionWithDuration:2 position:ccp(0, -1000)],
+      [CCCallFuncN actionWithTarget:self selector:@selector(remove)],
+      nil]];
 }
 
 -(void) remove

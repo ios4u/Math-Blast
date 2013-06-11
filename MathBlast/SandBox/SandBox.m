@@ -24,8 +24,8 @@
     
     bool isHorizontal;
     bool isVertical;
-    bool setOrientation;
     bool resetBool;
+    bool endLevel;
     
     NSMutableArray *spriteArray;
     
@@ -77,29 +77,30 @@
     if( (self=[super init] )) {
         
         self.touchEnabled = YES;
-        setOrientation = YES;
         
         //add background
         bckLayer = [Background node];
-        [self addChild:bckLayer z:-1];
+        [self addChild:bckLayer z:-3];
         
         //add logic to game (game grid)
         gameBoard = [[GameBoard alloc] init];        
         NSLog(@"gameboard size: %d", [gameBoard.allPoints count]);
         
+        timer = [Timer node];
+        [self addChild:timer z:-2];
+        
         //add scoring
         score = [Score node];
-        [self addChild:score];
+        [self addChild:score z:1];
         
         //DrawLayer *sand = [DrawLayer node];
         //[self addChild:sand];
-        
-        timer = [Timer node];
-        [self addChild:timer z:0];
+
         
         targetLevelSum = 4;
         spriteArray = [[NSMutableArray alloc] init];
-        [self gemify];
+        [self scheduleUpdate];
+        [self scheduleOnce:@selector(gemify) delay:6];
 
     }
     return self;
@@ -112,7 +113,7 @@
         int r = arc4random() % 3;
         if(!gg.hasGem){
             Gems *newGem = [[Gems alloc] initWithValueAndPosition:r :gg.gridPoint];
-            [self addChild:newGem.gem z:-1];
+            [self addChild:newGem.gem z:0];
             gg.hasGem = YES;
             newGem.gem.scale = .8;
             [spriteArray addObject:newGem];
@@ -125,6 +126,7 @@
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    if(endLevel) { return; }//end level if timer expires
     NSSet *multiTouch = [event allTouches];
     if( [multiTouch count] > 1) {
         return;
@@ -156,6 +158,8 @@
 
 -(void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    
+    if(endLevel){ return; }//end level if timer expires
     
     UITouch *touch = [touches anyObject];
     NSSet *multiTouch = [event allTouches];
@@ -218,6 +222,8 @@
 
 -(void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    if(endLevel) { return; }//end level if timer expires
+    
     NSSet *multiTouch = [event allTouches];
     if( [multiTouch count] > 1) {
         return;
@@ -259,7 +265,7 @@
             if(sprite.touched){
                 
                 //remove sprite from board
-                [sprite removeGem];
+                [sprite putGemInTreasureChest];
                 [toDelete addObject:sprite];
                 
                 //update board
@@ -276,8 +282,9 @@
         
         //calculate score if the right gem sum
         NSArray *distinctArray =  [[NSSet setWithArray:distinctGems] allObjects];
-        int scoreForTurn = (targetLevelSum + totalGemsTouched) * [distinctArray count];
-        [score addScore:scoreForTurn];
+        int distinct = [distinctArray count];
+        int scoreForTurn = (targetLevelSum * totalGemsTouched) * distinct;
+        [score addScore:scoreForTurn :locationEndLine : totalGemsTouched :distinct];
         
         //move gems down to empty spaces
         [self fillEmptySpacesWithGems];
@@ -343,8 +350,25 @@
     [self runAction:shakeAction];
 }
 
+-(void) update:(ccTime)delta
+{
+    //do end level animations if level is over
+    if(timer.totalSeconds == 0){
+        endLevel = YES;
+        [self resetGemSize];
+        [self unscheduleUpdate];
+        
+        for (Gems *sprite in spriteArray) {
+            [sprite endLevelAnimation];
+        }
+        [score didEndLevel];
+        [spriteArray removeAllObjects];
+    }
+}
+
 -(void)draw
 {
+    if(endLevel){ return; }
     ccColor4B hhh = ccc4(158,0,158, 128);
     
     ccDrawColor4F(hhh.r, hhh.g, hhh.b, hhh.a);

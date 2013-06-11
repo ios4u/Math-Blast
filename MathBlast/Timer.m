@@ -32,16 +32,28 @@
 {
     CCLabelTTF *timerLabel = [CCLabelTTF labelWithString:@"Timer:" fontName:@"Avenir-Heavy" fontSize:25];
     timerLabel.color = ccWHITE;
-    timerLabel.position = ccp(85, 670);
+    timerLabel.position = ccp(-500, 670);
     [self addChild:timerLabel];
     
     
     timer = [CCLabelTTF labelWithString:@"2:00" fontName:@"Avenir-Heavy" fontSize:70];
-    timer.position = ccp( 215,658);
+    timer.position = ccp( -300,658);
     timer.color = ccGREEN;
     [self addChild:timer z:1];
+    
+    [timerLabel runAction:
+     [CCSequence actions:
+      [CCDelayTime actionWithDuration:2],
+      [CCMoveTo actionWithDuration:3 position:ccp(85, 694)],
+      nil]];
+    
+    [timer runAction:
+     [CCSequence actions:
+      [CCDelayTime actionWithDuration:2],
+      [CCMoveTo actionWithDuration:3 position:ccp(215, 682)],
+      nil]];
 
-    [self schedule:@selector(countTime) interval:1];
+    [self schedule:@selector(countTime) interval:1 repeat:-1 delay:7];
 
 }
 

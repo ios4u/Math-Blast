@@ -13,5 +13,7 @@
 
 @property (nonatomic) int gemScore;
 
--(void) addScore: (int) scoreForTurn;
+-(void) addScore:(int)scoreForTurn :(CGPoint) location :(int) totalGemsTouched :(int)distinct;
+
+-(void) didEndLevel;
 @end

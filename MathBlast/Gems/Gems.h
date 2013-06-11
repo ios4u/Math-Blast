@@ -22,6 +22,8 @@
 
 -(void)moveSpriteDown;
 
--(void)removeGem;
+-(void)putGemInTreasureChest;
+
+-(void)endLevelAnimation;
 
 @end
