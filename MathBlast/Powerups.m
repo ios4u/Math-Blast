@@ -7,6 +7,7 @@
 //
 
 #import "Powerups.h"
+#import "Gems.h"
 
 
 @implementation Powerups
@@ -39,11 +40,11 @@
     
     [transformPowerup runAction:
      [CCSequence actions:
-      [CCDelayTime actionWithDuration:4],
+      [CCDelayTime actionWithDuration:10],
       [CCScaleTo actionWithDuration:0 scale:2],
       [CCScaleTo actionWithDuration:.5 scale:.7], nil]];
     
-    [self scheduleOnce:@selector(addSparkEmitter) delay:4];
+    [self scheduleOnce:@selector(addSparkEmitter) delay:10.1];
 }
 
 -(void) addSparkEmitter
@@ -55,4 +56,8 @@
     
 }
 
++(void)applyTransformPowerup:(NSMutableArray *)arrayOfSprites
+{
+    
+}
 @end

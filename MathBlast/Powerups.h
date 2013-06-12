@@ -15,4 +15,6 @@
 
 -(id)initWithValue: (int)val;
 
++(void)applyTransformPowerup: (NSMutableArray*)arrayOfSprites;
+
 @end

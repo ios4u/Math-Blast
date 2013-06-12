@@ -20,7 +20,7 @@
     // Apple recommends to re-assign "self" with the "super" return value
     if( (self=[super init] )) {
         
-        _totalSeconds = 120;
+        _totalSeconds = 10;
 
         [self setupTimer];
         

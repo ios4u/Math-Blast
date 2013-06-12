@@ -39,9 +39,6 @@
     Score *score;
     
     int targetLevelSum;
-    
-    Powerups *powerUp;
-    
 }
 
 
@@ -287,7 +284,7 @@
         NSArray *distinctArray =  [[NSSet setWithArray:distinctGems] allObjects];
         int distinct = [distinctArray count];
         int scoreForTurn = (targetLevelSum * totalGemsTouched) * distinct;
-        [score addScore:scoreForTurn :locationEndLine : totalGemsTouched :distinct];
+        [score addScore:scoreForTurn :locationEndLine : totalGemsTouched :distinct :timer.totalSeconds];
         
         //move gems down to empty spaces
         [self fillEmptySpacesWithGems];

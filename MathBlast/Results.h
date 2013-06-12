@@ -11,6 +11,6 @@
 
 @interface Results : CCLayer
 
--(void) displayResults;
+-(void) displayResultBoard:(int)totalGemsCollected :(int)longestCombo :(int)timeLeft;
 
 @end

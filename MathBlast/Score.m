@@ -16,6 +16,9 @@
     CCLabelTTF *score;
     int targetScore;
     int scoreForTurn;
+    int totalGemsCollected;
+    int combo;
+    int timeLeft;
     
     CCSprite *goodLabel;
     CCSprite *greatLabel;
@@ -63,11 +66,13 @@
       nil]];
 }
 
--(void) addScore: (int)scoreTurn :(CGPoint)location :(int)totalGemsTouched :(int)distinct
+-(void) addScore: (int)scoreTurn :(CGPoint)location :(int)totalGemsTouched :(int)distinct :(int)time
 {
     //get scores
     scoreForTurn = scoreTurn;
     targetScore = _gemScore + scoreForTurn;
+    totalGemsCollected = totalGemsCollected + totalGemsTouched;
+    if(totalGemsTouched > combo){ combo = totalGemsTouched; NSLog(@"combo %d" , combo); }
     
     //animate floating scores
     if(totalGemsTouched > 1 && totalGemsTouched <= 3){
@@ -92,8 +97,12 @@
     //animate score counter
     [self schedule:@selector(updateScore)];
     
+    if(!turnOffProgress){
+        timeLeft = time;
+    }
+    
     //animate progress bar
-    float progress = (targetScore * 1.0) / 500.0 * 100.0;
+    float progress = (targetScore * 1.0) / 3.0 * 100.0;
     if(progress > 100.0){ progress = 100; }
     [self fillProgressBar:progress];
 }
@@ -311,7 +320,7 @@
 -(void) didEndLevel
 {
     //display result screen
-    [result displayResults];
+    [result displayResultBoard:totalGemsCollected :combo :timeLeft];
     
     //make powerup if applicable
     Powerups *pow = [[Powerups alloc] initWithValue:1];
