@@ -14,6 +14,7 @@
 #import "Background.h"
 #import "Timer.h"
 #import "Score.h"
+#import "Powerups.h"
 @implementation SandBox{
     
     CGPoint locationBegin;
@@ -38,6 +39,8 @@
     Score *score;
     
     int targetLevelSum;
+    
+    Powerups *powerUp;
     
 }
 
@@ -289,7 +292,7 @@
         //move gems down to empty spaces
         [self fillEmptySpacesWithGems];
         
-    }else{
+    }else{//wrong sum
         //reset gem size
         [self resetGemSize];
         //shake screen
@@ -350,7 +353,7 @@
     [self runAction:shakeAction];
 }
 
--(void) update:(ccTime)delta
+-(void) update:(ccTime)delta //keeps track if level was completed
 {
     //do end level animations if level is over
     if(timer.totalSeconds == 0){

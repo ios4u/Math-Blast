@@ -30,14 +30,12 @@
     results.scale = 1.05;
     results.position = ccp(winSize.width/2 , -500);
     //results.opacity = 200;
-    [self addChild:results];
+    [self addChild:results z:-1];
     
     [results runAction:
      [CCSequence actions:
-      [CCDelayTime actionWithDuration:2],
+      [CCDelayTime actionWithDuration:1.5],
       [CCMoveTo actionWithDuration:1 position:ccp(winSize.width/2 , winSize.height/2)],
                    nil]];
-    
 }
-
 @end

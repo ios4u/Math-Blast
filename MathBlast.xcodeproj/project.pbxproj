@@ -31,6 +31,10 @@
 		526F7B1F1767D28E00817C61 /* progressBar2.png in Resources */ = {isa = PBXBuildFile; fileRef = 526F7B1E1767D28E00817C61 /* progressBar2.png */; };
 		526F7B211767E24A00817C61 /* black.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 526F7B201767E24A00817C61 /* black.jpg */; };
 		526F7B231767E72C00817C61 /* resultBoard.png in Resources */ = {isa = PBXBuildFile; fileRef = 526F7B221767E72C00817C61 /* resultBoard.png */; };
+		526F7B251768289900817C61 /* transform.png in Resources */ = {isa = PBXBuildFile; fileRef = 526F7B241768289900817C61 /* transform.png */; };
+		526F7B28176828B600817C61 /* Powerups.m in Sources */ = {isa = PBXBuildFile; fileRef = 526F7B27176828B600817C61 /* Powerups.m */; };
+		526F7B2B17682DF200817C61 /* powerup.plist in Resources */ = {isa = PBXBuildFile; fileRef = 526F7B2917682DF200817C61 /* powerup.plist */; };
+		526F7B2C17682DF200817C61 /* powerup.png in Resources */ = {isa = PBXBuildFile; fileRef = 526F7B2A17682DF200817C61 /* powerup.png */; };
 		527881361721E98E00EF9AD4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 527881351721E98E00EF9AD4 /* QuartzCore.framework */; };
 		527881381721E98E00EF9AD4 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 527881371721E98E00EF9AD4 /* OpenGLES.framework */; };
 		5278813A1721E98E00EF9AD4 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 527881391721E98E00EF9AD4 /* OpenAL.framework */; };
@@ -256,6 +260,11 @@
 		526F7B1E1767D28E00817C61 /* progressBar2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = progressBar2.png; path = MathBlast/images/progressBar2.png; sourceTree = "<group>"; };
 		526F7B201767E24A00817C61 /* black.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = black.jpg; path = MathBlast/images/black.jpg; sourceTree = "<group>"; };
 		526F7B221767E72C00817C61 /* resultBoard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = resultBoard.png; path = MathBlast/images/resultBoard.png; sourceTree = "<group>"; };
+		526F7B241768289900817C61 /* transform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = transform.png; path = MathBlast/images/transform.png; sourceTree = "<group>"; };
+		526F7B26176828B600817C61 /* Powerups.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Powerups.h; sourceTree = "<group>"; };
+		526F7B27176828B600817C61 /* Powerups.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Powerups.m; sourceTree = "<group>"; };
+		526F7B2917682DF200817C61 /* powerup.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = powerup.plist; path = emitters/powerup.plist; sourceTree = "<group>"; };
+		526F7B2A17682DF200817C61 /* powerup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = powerup.png; path = emitters/powerup.png; sourceTree = "<group>"; };
 		527881321721E98E00EF9AD4 /* MathBlast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MathBlast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		527881351721E98E00EF9AD4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		527881371721E98E00EF9AD4 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -707,6 +716,8 @@
 			children = (
 				526F7B101767090B00817C61 /* clear.plist */,
 				526F7B161767A3EB00817C61 /* progress.plist */,
+				526F7B2917682DF200817C61 /* powerup.plist */,
+				526F7B2A17682DF200817C61 /* powerup.png */,
 				526F7B171767A3EB00817C61 /* progress.png */,
 			);
 			name = Emitters;
@@ -719,6 +730,8 @@
 				526F7AF917653B5200817C61 /* Score.m */,
 				526F7B1B1767C3B900817C61 /* Results.h */,
 				526F7B1C1767C3B900817C61 /* Results.m */,
+				526F7B26176828B600817C61 /* Powerups.h */,
+				526F7B27176828B600817C61 /* Powerups.m */,
 			);
 			name = Scoring;
 			sourceTree = "<group>";
@@ -1321,6 +1334,7 @@
 			children = (
 				526F7B0A1766F8C400817C61 /* back3.jpg */,
 				526F7AF217651B6500817C61 /* detailBorder.png */,
+				526F7B241768289900817C61 /* transform.png */,
 				526F7B1217679A1000817C61 /* progressBar.png */,
 				526F7B201767E24A00817C61 /* black.jpg */,
 				526F7B221767E72C00817C61 /* resultBoard.png */,
@@ -1477,6 +1491,9 @@
 				526F7B1F1767D28E00817C61 /* progressBar2.png in Resources */,
 				526F7B211767E24A00817C61 /* black.jpg in Resources */,
 				526F7B231767E72C00817C61 /* resultBoard.png in Resources */,
+				526F7B251768289900817C61 /* transform.png in Resources */,
+				526F7B2B17682DF200817C61 /* powerup.plist in Resources */,
+				526F7B2C17682DF200817C61 /* powerup.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1653,6 +1670,7 @@
 				526F7AEF176504AC00817C61 /* Timer.m in Sources */,
 				526F7AFA17653B5200817C61 /* Score.m in Sources */,
 				526F7B1D1767C3B900817C61 /* Results.m in Sources */,
+				526F7B28176828B600817C61 /* Powerups.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

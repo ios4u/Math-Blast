@@ -8,6 +8,7 @@
 
 #import "Score.h"
 #import "Results.h"
+#import "Powerups.h"
 
 
 @implementation Score
@@ -39,6 +40,8 @@
     if( (self=[super init] )) {
         [self setupScore];
         [self setupProgressBar];
+        
+        _arrayOfPowerups = [[NSMutableArray alloc] init];
         
         result = [Results node];
         [self addChild:result z:2];
@@ -307,7 +310,14 @@
 
 -(void) didEndLevel
 {
+    //display result screen
     [result displayResults];
+    
+    //make powerup if applicable
+    Powerups *pow = [[Powerups alloc] initWithValue:1];
+    [_arrayOfPowerups addObject:pow];
+    [self addChild:pow z:3];
+    
 }
 
 -(void) removeLabel

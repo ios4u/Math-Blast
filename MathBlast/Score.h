@@ -12,6 +12,7 @@
 @interface Score : CCLayer 
 
 @property (nonatomic) int gemScore;
+@property (strong, nonatomic) NSMutableArray *arrayOfPowerups;
 
 -(void) addScore:(int)scoreForTurn :(CGPoint) location :(int) totalGemsTouched :(int)distinct;
 
