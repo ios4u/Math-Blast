@@ -157,6 +157,8 @@
     total.tag = 10;
     [self addChild:total];
     
+    _totalSum = tot;
+    
     //animate totalGems score
     [total runAction:
      [CCSequence actions:

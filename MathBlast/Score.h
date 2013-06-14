@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "GameController.h"
+#import "LevelManager.h"
 
 @interface Score : CCLayer 
 
@@ -17,7 +18,7 @@
 @property (nonatomic) int level;
 @property (nonatomic) int levelTarget;
 
--(void) addScore:(int)scoreForTurn :(CGPoint) location :(int) totalGemsTouched :(int)distinct :(int)time;
+-(void) addScore:(int)scoreForTurn :(CGPoint) location :(int) totalGemsTouched :(int)distinct :(int)time :(LevelManager*)lm;
 
 -(void) didEndLevel:(GameController*)gc;
 @end

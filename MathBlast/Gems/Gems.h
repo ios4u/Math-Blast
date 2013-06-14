@@ -26,4 +26,6 @@
 
 -(void)endLevelAnimation;
 
+-(void)performTransform;
+
 @end

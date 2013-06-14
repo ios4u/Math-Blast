@@ -7,7 +7,7 @@
 //
 
 #import "GameController.h"
-#import "LevelManager.h"
+#import "DrawLayer.h"
 #import "Gems.h"
 #import "GameBoard.h"
 #import "GameGrid.h"
@@ -40,8 +40,6 @@
     Timer *timer;
     
     Score *score;
-    
-    LevelManager *levelManager;
 }
 
 
@@ -102,32 +100,20 @@
         spriteArray = [[NSMutableArray alloc] init];
         drawArrayBegin = [[NSMutableArray alloc] init];
         drawArrayEnd = [[NSMutableArray alloc] init];
-        endLevel = YES;
-        [self setupLevelManager];
         [self scheduleUpdate];
         [self scheduleOnce:@selector(gemify) delay:6];
-        [self scheduleOnce:@selector(startLevel) delay:6];
         
     }
     return self;
 }
 
-- (void)setupLevelManager {
-    levelManager = [[LevelManager alloc] init];
-    [levelManager nextStage];
-}
-
--(void) startLevel
-{
-    endLevel = NO;
-}
-
 //generates gems on the game board
 -(void) gemify
 {
+    NSLog(@"gemify");
+
     for (GameGrid *gg in gameBoard.allPoints) {
-        int gemran = [levelManager floatForProp:@"gem"];
-        int r = arc4random() % gemran;
+        int r = arc4random() % 3;
         if(!gg.hasGem){
             Gems *newGem = [[Gems alloc] initWithValueAndPosition:r :gg.gridPoint];
             [self addChild:newGem.gem z:-2];
@@ -314,7 +300,7 @@
         NSArray *distinctArray =  [[NSSet setWithArray:distinctGems] allObjects];
         int distinct = [distinctArray count];
         int scoreForTurn = (score.levelTarget * totalGemsTouched) * distinct;
-        [score addScore:scoreForTurn :locationEndLine : totalGemsTouched :distinct :timer.totalSeconds :levelManager];
+        [score addScore:scoreForTurn :locationEndLine : totalGemsTouched :distinct :timer.totalSeconds];
         
         //move gems down to empty spaces
         [self fillEmptySpacesWithGems];
@@ -393,18 +379,12 @@
         }
         [score didEndLevel:self];
         [spriteArray removeAllObjects];
-        [drawArrayBegin removeAllObjects];
-        [drawArrayEnd removeAllObjects];
-        locationBegin = locationReset;
-        locationEnd = locationReset;
-        isHorizontal = NO;
-        isVertical = NO;
     }
 }
 
 -(void) startNextLevel
 {
-    [self scheduleOnce:@selector(startLevel) delay:6];
+    endLevel = NO;
     timer.totalSeconds = 120;
     [timer startTimer];
     
@@ -413,20 +393,9 @@
         gg.hasGem = NO;
     }
     
-    //start level again
+    
     [self scheduleUpdate];
-    [levelManager nextStage];
     [self scheduleOnce:@selector(gemify) delay:6];
-    [self scheduleOnce:@selector(makePowerupsLive) delay:7]; //makes powerups live
-}
-
--(void) makePowerupsLive
-{
-    for (Powerups *powerup in score.arrayOfPowerups) {
-        powerup.isLive = YES;
-        [powerup setLive:YES];
-        [powerup setGems:spriteArray];//passes gem pointer
-    }
 }
 
 -(void)draw

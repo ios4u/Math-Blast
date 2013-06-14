@@ -16,6 +16,8 @@
     CCSprite *transformPowerup;
     CCParticleSystemQuad* emitter;
     CCParticleSystemQuad *emitterSet;
+    CCMenu *transformMenuButton;
+    NSMutableArray *allGems;
 }
 
 
@@ -43,6 +45,7 @@
 {
     transformPowerup = [CCSprite spriteWithFile:@"transform.png"];
     transformPowerup.scale = 0;
+    transformPowerup.tag = 10;
     transformPowerup.position = ccp(160 , 125);
     [self addChild:transformPowerup z:1];
     
@@ -87,6 +90,7 @@
       [CCScaleTo actionWithDuration:.5 scale:.48],
       [CCCallFuncN actionWithTarget:self selector:@selector(remove)],
       [CCCallFuncN actionWithTarget:self selector:@selector(emitterSet)],
+      [CCCallFuncN actionWithTarget:self selector:@selector(setButton)],
       nil]];
 }
 
@@ -100,14 +104,93 @@
     [self addChild:emitterSet z:0];
 }
 
+-(void) setButton
+{
+    [self removeChild:transformPowerup cleanup:YES];
+//    NSLog(@"transformTapped!");
+//    CCSprite *bt = [CCSprite spriteWithFile:@"bigArrow.png"];
+//    
+//    CCMenuItemSprite *power = [CCMenuItemSprite itemWithNormalSprite:bt selectedSprite:nil target:self selector:@selector(transformTapped)];
+//    NSLog(@"transformTapped!");
+//
+//    
+//    power.position = ccp(100, 294);
+//    NSLog(@"transformTapped!");
+//
+//    
+//    CCMenu *applyPower = [CCMenu menuWithItems:power, nil];
+//    NSLog(@"transformTapped!");
+//
+//    
+//    applyPower.position = CGPointZero;
+//    NSLog(@"transformTapped!");
+//
+//    applyPower.scale = 0;
+//    NSLog(@"transformTapped!");
+//
+//    
+//    [self addChild:applyPower z:10];
+    
+    CCSprite *transformSprite = [CCSprite spriteWithFile:@"transform.png"];
+    
+    CCMenuItemSprite *menuSprite = [CCMenuItemSprite itemWithNormalSprite:transformSprite selectedSprite:nil target:self selector:@selector(transformTapped)];
+    
+    transformMenuButton = [CCMenu menuWithItems:menuSprite, nil];
+    
+    transformMenuButton.position = ccp(-178, 95);
+    transformMenuButton.scale = .48;
+    transformMenuButton.tag = 10;
+    
+    [self addChild:transformMenuButton z:5];
+    
+    [transformMenuButton setEnabled:NO];
+    
+    
+}
+
+-(void) setLive:(BOOL*)live
+{
+    [transformMenuButton setEnabled:live];
+}
+
+-(void) transformTapped
+{
+    [transformMenuButton runAction:
+     [CCFadeOut actionWithDuration:1]];
+    
+    [transformMenuButton runAction:
+     [CCScaleTo actionWithDuration:1 scale:.8]];
+    
+    [transformMenuButton runAction:
+     [CCSequence actions:
+      [CCMoveBy actionWithDuration:1 position:ccp(180, 150)],
+      [CCCallFuncN actionWithTarget:self selector:@selector(remove)],
+      nil]];
+    
+    _wasUsed = YES;
+    
+    [self applyTransformPowerup];
+}
+
+-(void) setGems:(NSMutableArray *)arrayOfSprites
+{
+    allGems = arrayOfSprites;
+}
+
 -(void) remove
 {
     [self removeChildByTag:10 cleanup:YES];
 }
 
-+(void)applyTransformPowerup:(NSMutableArray *)arrayOfSprites
+-(void)applyTransformPowerup
 {
-    
+    //this powerup sets random gems to 0
+    for (Gems *sprite in allGems) {
+        int r = arc4random() % 2;
+        if(r == 1){
+            [sprite performTransform];
+        }
+    }
 }
 
 -(void)isPositioned

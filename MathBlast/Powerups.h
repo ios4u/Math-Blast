@@ -14,13 +14,18 @@
 @property (nonatomic) int powerType;
 @property (nonatomic) bool ready;
 @property (nonatomic) bool isLive;
+@property (nonatomic) bool wasUsed;
 
 -(id)initWithValue: (int)val;
-
-+(void)applyTransformPowerup: (NSMutableArray*)arrayOfSprites;
 
 -(void)snapToPosition;
 
 -(void)isPositioned;
+
+-(void) setButton;
+
+-(void) setLive:(BOOL*)live;
+
+-(void) setGems:(NSMutableArray *)arrayOfSprites;
 
 @end

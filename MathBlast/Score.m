@@ -22,6 +22,7 @@
     int totalGemsCollected;
     int combo;
     int timeLeft;
+    int levelScore;
     
     CCSprite *goodLabel;
     CCSprite *greatLabel;
@@ -33,6 +34,7 @@
     
     CCProgressTimer* progressBar;
     CCSprite * progressSprite;
+    CCSprite *progressDone;
     bool turnOffProgress;
     
     Results *result;
@@ -102,13 +104,14 @@
 
 }
 
--(void) addScore: (int)scoreTurn :(CGPoint)location :(int)totalGemsTouched :(int)distinct :(int)time
+-(void) addScore: (int)scoreTurn :(CGPoint)location :(int)totalGemsTouched :(int)distinct :(int)time :(LevelManager*)lm
 {
     //get scores
     scoreForTurn = scoreTurn;
     targetScore = _gemScore + scoreForTurn;
     totalGemsCollected = totalGemsCollected + totalGemsTouched;
-    if(totalGemsTouched > combo){ combo = totalGemsTouched; NSLog(@"combo %d" , combo); }
+    levelScore = levelScore + scoreTurn;
+    if(totalGemsTouched > combo){ combo = totalGemsTouched; }
     
     //animate floating scores
     if(totalGemsTouched > 1 && totalGemsTouched <= 3){
@@ -138,7 +141,8 @@
     }
     
     //animate progress bar
-    float progress = (targetScore * 1.0) / 500.0 * 100.0;
+    int target = [lm floatForProp:@"target"];
+    float progress = (levelScore * 1.0) / target * 100.0;
     if(progress > 100.0){ progress = 100; }
     [self fillProgressBar:progress];
 }
@@ -339,7 +343,7 @@
         [progressBar runAction:progressTo];
         
         if(perc == 100.0){
-            CCSprite *progressDone = [CCSprite spriteWithFile:@"progressBar2.png"];
+            progressDone = [CCSprite spriteWithFile:@"progressBar2.png"];
             progressDone.position = ccp(670, -170);
             [self addChild:progressDone z:1];
             [progressDone runAction:
@@ -357,13 +361,25 @@
 {
     result = [Results node];
     [self addChild:result z:2];
-    result.tag = 10;
+    result.tag = 20;
     
     //pass in GameController
     gc = gameC;
     
     //display result screen
     [result displayResultBoard:totalGemsCollected :combo :timeLeft];
+    
+    //set powerup idle and remove used
+    NSMutableArray *temp = [[NSMutableArray alloc] init];
+    for (Powerups *pow in _arrayOfPowerups) {
+        [pow setLive:NO];
+        if(!pow.wasUsed){
+            [temp addObject:pow];
+        }else{//remove it
+            [self removeChild:pow];
+        } 
+    }
+    _arrayOfPowerups = temp;
     
     //make powerup if applicable
     if([_arrayOfPowerups count] < 1){
@@ -407,6 +423,7 @@
 
 -(void) nextLevelTapped
 {
+    
     [result runAction:
      [CCSequence actions:
       [CCDelayTime actionWithDuration:.5],
@@ -427,6 +444,11 @@
         [[_arrayOfPowerups lastObject] isPositioned];
     }
     
+    //update results
+    targetScore = targetScore + result.totalSum;
+    _gemScore = targetScore;
+    score.string = [NSString stringWithFormat:@"%d", targetScore];
+    
     _level++;
     _levelTarget++;
     levelLabel.string = [NSString stringWithFormat:@"%d" , _level];
@@ -438,11 +460,25 @@
     //reorder powerup Z
     [self reorderChild:[_arrayOfPowerups lastObject] z:1];
     
+    //cleanup
+    [self scheduleOnce:@selector(removeResults) delay:6];
+    [self removeChild:nextLevel cleanup:YES];
+    [self removeChild:progressDone];
+    
+    levelScore = 0;
+    turnOffProgress = NO;
+    [self fillProgressBar:0.0];
+    
     
 }
 
 -(void) removeLabel
 {
     [self removeChildByTag:10 cleanup:YES];
+}
+
+-(void) removeResults
+{
+    [self removeChildByTag:20];
 }
 @end

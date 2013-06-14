@@ -226,6 +226,10 @@
 		52889EDB176A43F8005CA0F3 /* bigArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 52889EDA176A43F8005CA0F3 /* bigArrow.png */; };
 		52889EE2176A8202005CA0F3 /* powerupSet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52889EE0176A8202005CA0F3 /* powerupSet.plist */; };
 		52889EE3176A8202005CA0F3 /* powerupSet.png in Resources */ = {isa = PBXBuildFile; fileRef = 52889EE1176A8202005CA0F3 /* powerupSet.png */; };
+		52889EE6176B271E005CA0F3 /* LevelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 52889EE5176B271E005CA0F3 /* LevelManager.m */; };
+		52889EE8176B2745005CA0F3 /* Levels.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52889EE7176B2745005CA0F3 /* Levels.plist */; };
+		52889EEA176B3C92005CA0F3 /* five_gem.png in Resources */ = {isa = PBXBuildFile; fileRef = 52889EE9176B3C92005CA0F3 /* five_gem.png */; };
+		52889EEC176B414B005CA0F3 /* three_gem.png in Resources */ = {isa = PBXBuildFile; fileRef = 52889EEB176B414B005CA0F3 /* three_gem.png */; };
 		528D2DA317639B3300108BC0 /* Gems.m in Sources */ = {isa = PBXBuildFile; fileRef = 528D2DA217639B3300108BC0 /* Gems.m */; };
 		528D2DA91763BE1C00108BC0 /* GameBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 528D2DA81763BE1C00108BC0 /* GameBoard.m */; };
 		528D2DAC1763C3F300108BC0 /* GameGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = 528D2DAB1763C3F300108BC0 /* GameGrid.m */; };
@@ -233,7 +237,6 @@
 		528D2DB017641A7200108BC0 /* back1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 528D2DAF17641A7200108BC0 /* back1.jpg */; };
 		528D2DB517641CEA00108BC0 /* Background.m in Sources */ = {isa = PBXBuildFile; fileRef = 528D2DB417641CEA00108BC0 /* Background.m */; };
 		528D2DB7176420E400108BC0 /* bckgrid.png in Resources */ = {isa = PBXBuildFile; fileRef = 528D2DB6176420E400108BC0 /* bckgrid.png */; };
-		528D3261175D15EC0052D730 /* DrawLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 528D3260175D15EC0052D730 /* DrawLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -651,12 +654,17 @@
 		527885E5172319A400EF9AD4 /* cemse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cemse.png; path = MathBlast/images/Introimages/cemse.png; sourceTree = "<group>"; };
 		52843114175D2747001E16BC /* red_gem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = red_gem.png; path = MathBlast/images/red_gem.png; sourceTree = "<group>"; };
 		52889ED3176917F2005CA0F3 /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
-		52889ED4176917F2005CA0F3 /* GameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameController.m; sourceTree = "<group>"; };
+		52889ED4176917F2005CA0F3 /* GameController.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = GameController.m; sourceTree = "<group>"; };
 		52889ED6176A24E1005CA0F3 /* detailMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = detailMenu.png; path = MathBlast/images/detailMenu.png; sourceTree = "<group>"; };
 		52889ED8176A2AFB005CA0F3 /* scoreBorder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scoreBorder.png; path = MathBlast/images/scoreBorder.png; sourceTree = "<group>"; };
 		52889EDA176A43F8005CA0F3 /* bigArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bigArrow.png; path = MathBlast/images/bigArrow.png; sourceTree = "<group>"; };
 		52889EE0176A8202005CA0F3 /* powerupSet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = powerupSet.plist; path = emitters/powerupSet.plist; sourceTree = "<group>"; };
 		52889EE1176A8202005CA0F3 /* powerupSet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = powerupSet.png; path = emitters/powerupSet.png; sourceTree = "<group>"; };
+		52889EE4176B271E005CA0F3 /* LevelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelManager.h; sourceTree = "<group>"; };
+		52889EE5176B271E005CA0F3 /* LevelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelManager.m; sourceTree = "<group>"; };
+		52889EE7176B2745005CA0F3 /* Levels.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Levels.plist; sourceTree = "<group>"; };
+		52889EE9176B3C92005CA0F3 /* five_gem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = five_gem.png; path = MathBlast/images/five_gem.png; sourceTree = "<group>"; };
+		52889EEB176B414B005CA0F3 /* three_gem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = three_gem.png; path = MathBlast/images/three_gem.png; sourceTree = "<group>"; };
 		528D2DA117639B3300108BC0 /* Gems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gems.h; path = Gems/Gems.h; sourceTree = "<group>"; };
 		528D2DA217639B3300108BC0 /* Gems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Gems.m; path = Gems/Gems.m; sourceTree = "<group>"; };
 		528D2DA71763BE1C00108BC0 /* GameBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameBoard.h; path = GameBoard/GameBoard.h; sourceTree = "<group>"; };
@@ -668,8 +676,6 @@
 		528D2DB317641CEA00108BC0 /* Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Background.h; path = GameBoard/Background.h; sourceTree = "<group>"; };
 		528D2DB417641CEA00108BC0 /* Background.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Background.m; path = GameBoard/Background.m; sourceTree = "<group>"; };
 		528D2DB6176420E400108BC0 /* bckgrid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bckgrid.png; path = MathBlast/images/bckgrid.png; sourceTree = "<group>"; };
-		528D325F175D15EC0052D730 /* DrawLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawLayer.h; path = MathBlast/SandBox/DrawLayer.h; sourceTree = SOURCE_ROOT; };
-		528D3260175D15EC0052D730 /* DrawLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DrawLayer.m; path = MathBlast/SandBox/DrawLayer.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -713,10 +719,11 @@
 		520136AF175BF4DF001AFECF /* GameController */ = {
 			isa = PBXGroup;
 			children = (
+				52889EE7176B2745005CA0F3 /* Levels.plist */,
 				52889ED3176917F2005CA0F3 /* GameController.h */,
 				52889ED4176917F2005CA0F3 /* GameController.m */,
-				528D325F175D15EC0052D730 /* DrawLayer.h */,
-				528D3260175D15EC0052D730 /* DrawLayer.m */,
+				52889EE4176B271E005CA0F3 /* LevelManager.h */,
+				52889EE5176B271E005CA0F3 /* LevelManager.m */,
 			);
 			name = GameController;
 			sourceTree = "<group>";
@@ -1345,6 +1352,8 @@
 			isa = PBXGroup;
 			children = (
 				52889ED8176A2AFB005CA0F3 /* scoreBorder.png */,
+				52889EEB176B414B005CA0F3 /* three_gem.png */,
+				52889EE9176B3C92005CA0F3 /* five_gem.png */,
 				52889ED6176A24E1005CA0F3 /* detailMenu.png */,
 				52889EDA176A43F8005CA0F3 /* bigArrow.png */,
 				526F7B0A1766F8C400817C61 /* back3.jpg */,
@@ -1514,6 +1523,9 @@
 				52889EDB176A43F8005CA0F3 /* bigArrow.png in Resources */,
 				52889EE2176A8202005CA0F3 /* powerupSet.plist in Resources */,
 				52889EE3176A8202005CA0F3 /* powerupSet.png in Resources */,
+				52889EE8176B2745005CA0F3 /* Levels.plist in Resources */,
+				52889EEA176B3C92005CA0F3 /* five_gem.png in Resources */,
+				52889EEC176B414B005CA0F3 /* three_gem.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1681,7 +1693,6 @@
 				527883701721E99400EF9AD4 /* IntroLayer.m in Sources */,
 				527883731721E99400EF9AD4 /* GLES-Render.mm in Sources */,
 				527885DE1723193100EF9AD4 /* Title.m in Sources */,
-				528D3261175D15EC0052D730 /* DrawLayer.m in Sources */,
 				528D2DA317639B3300108BC0 /* Gems.m in Sources */,
 				528D2DA91763BE1C00108BC0 /* GameBoard.m in Sources */,
 				528D2DAC1763C3F300108BC0 /* GameGrid.m in Sources */,
@@ -1691,6 +1702,7 @@
 				526F7B1D1767C3B900817C61 /* Results.m in Sources */,
 				526F7B28176828B600817C61 /* Powerups.m in Sources */,
 				52889ED5176917F2005CA0F3 /* GameController.m in Sources */,
+				52889EE6176B271E005CA0F3 /* LevelManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

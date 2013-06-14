@@ -18,22 +18,29 @@
 {
     if ((self = [super init]))
     {
-        _value = val;
         _point = point;
         switch (val) {
                 //make purple gem
             case 0:
                 [self makePurpleGem];
+                _value = 0;
                 break;
                 
                 //make red gem
             case 1:
                 [self makeRedGem];
+                _value = 1;
                 break;
                 
                 //make
             case 2:
                 [self makeGreenGem];
+                _value = 2;
+                break;
+                
+            case 3:
+                [self makeThreeGem];
+                _value = 3;
                 break;
         }
     }
@@ -59,6 +66,13 @@
 -(void) makeGreenGem
 {
     _gem = [CCSprite spriteWithFile:@"green_gem.png"];
+    
+    [self animateSprite];
+}
+
+-(void) makeThreeGem
+{
+    _gem = [CCSprite spriteWithFile:@"three_gem.png"];
     
     [self animateSprite];
 }
@@ -114,5 +128,12 @@
 -(void) remove
 {
     [_gem removeFromParent];
+}
+
+-(void)performTransform
+{
+    self.value = 0;
+    
+    [_gem setTexture:[[CCTextureCache sharedTextureCache] addImage:@"purple_gem.png"]];
 }
 @end

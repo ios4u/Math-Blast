@@ -11,6 +11,8 @@
 
 @interface Results : CCLayer
 
+@property (nonatomic) int totalSum;
+
 -(void) displayResultBoard:(int)totalGemsCollected :(int)longestCombo :(int)timeLeft;
 
 @end
