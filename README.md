@@ -32,14 +32,15 @@ Math Blast allows children and adults to practice various skills and become more
 
   * Keep up with this project right here. 
 
-**Still To Implement:**
------------------------------------------
+## **Still To Implement:**
+
   * Sound
   * Menu
   * High Score
   * Game Center
   * Hints & Tips / Instructions
   * Track player progress
+  * More powerups
 
 ## ScreenShots
 
