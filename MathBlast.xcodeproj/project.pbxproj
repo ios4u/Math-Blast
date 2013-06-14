@@ -230,6 +230,10 @@
 		52889EE8176B2745005CA0F3 /* Levels.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52889EE7176B2745005CA0F3 /* Levels.plist */; };
 		52889EEA176B3C92005CA0F3 /* five_gem.png in Resources */ = {isa = PBXBuildFile; fileRef = 52889EE9176B3C92005CA0F3 /* five_gem.png */; };
 		52889EEC176B414B005CA0F3 /* three_gem.png in Resources */ = {isa = PBXBuildFile; fileRef = 52889EEB176B414B005CA0F3 /* three_gem.png */; };
+		52889EF0176B9D64005CA0F3 /* pauseMenuButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 52889EEF176B9D64005CA0F3 /* pauseMenuButton.png */; };
+		52889EF2176B9D92005CA0F3 /* pauseMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 52889EF1176B9D92005CA0F3 /* pauseMenu.png */; };
+		52889EF5176BAB46005CA0F3 /* gameoverMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 52889EF3176BAB46005CA0F3 /* gameoverMenu.png */; };
+		52889EF6176BAB46005CA0F3 /* mainMenuButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 52889EF4176BAB46005CA0F3 /* mainMenuButton.png */; };
 		528D2DA317639B3300108BC0 /* Gems.m in Sources */ = {isa = PBXBuildFile; fileRef = 528D2DA217639B3300108BC0 /* Gems.m */; };
 		528D2DA91763BE1C00108BC0 /* GameBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 528D2DA81763BE1C00108BC0 /* GameBoard.m */; };
 		528D2DAC1763C3F300108BC0 /* GameGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = 528D2DAB1763C3F300108BC0 /* GameGrid.m */; };
@@ -665,6 +669,10 @@
 		52889EE7176B2745005CA0F3 /* Levels.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Levels.plist; sourceTree = "<group>"; };
 		52889EE9176B3C92005CA0F3 /* five_gem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = five_gem.png; path = MathBlast/images/five_gem.png; sourceTree = "<group>"; };
 		52889EEB176B414B005CA0F3 /* three_gem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = three_gem.png; path = MathBlast/images/three_gem.png; sourceTree = "<group>"; };
+		52889EEF176B9D64005CA0F3 /* pauseMenuButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pauseMenuButton.png; path = MathBlast/images/pauseMenuButton.png; sourceTree = "<group>"; };
+		52889EF1176B9D92005CA0F3 /* pauseMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pauseMenu.png; path = MathBlast/images/pauseMenu.png; sourceTree = "<group>"; };
+		52889EF3176BAB46005CA0F3 /* gameoverMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gameoverMenu.png; path = MathBlast/images/gameoverMenu.png; sourceTree = "<group>"; };
+		52889EF4176BAB46005CA0F3 /* mainMenuButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mainMenuButton.png; path = MathBlast/images/mainMenuButton.png; sourceTree = "<group>"; };
 		528D2DA117639B3300108BC0 /* Gems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gems.h; path = Gems/Gems.h; sourceTree = "<group>"; };
 		528D2DA217639B3300108BC0 /* Gems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Gems.m; path = Gems/Gems.m; sourceTree = "<group>"; };
 		528D2DA71763BE1C00108BC0 /* GameBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameBoard.h; path = GameBoard/GameBoard.h; sourceTree = "<group>"; };
@@ -1352,6 +1360,10 @@
 			isa = PBXGroup;
 			children = (
 				52889ED8176A2AFB005CA0F3 /* scoreBorder.png */,
+				52889EF3176BAB46005CA0F3 /* gameoverMenu.png */,
+				52889EF4176BAB46005CA0F3 /* mainMenuButton.png */,
+				52889EEF176B9D64005CA0F3 /* pauseMenuButton.png */,
+				52889EF1176B9D92005CA0F3 /* pauseMenu.png */,
 				52889EEB176B414B005CA0F3 /* three_gem.png */,
 				52889EE9176B3C92005CA0F3 /* five_gem.png */,
 				52889ED6176A24E1005CA0F3 /* detailMenu.png */,
@@ -1526,6 +1538,10 @@
 				52889EE8176B2745005CA0F3 /* Levels.plist in Resources */,
 				52889EEA176B3C92005CA0F3 /* five_gem.png in Resources */,
 				52889EEC176B414B005CA0F3 /* three_gem.png in Resources */,
+				52889EF0176B9D64005CA0F3 /* pauseMenuButton.png in Resources */,
+				52889EF2176B9D92005CA0F3 /* pauseMenu.png in Resources */,
+				52889EF5176BAB46005CA0F3 /* gameoverMenu.png in Resources */,
+				52889EF6176BAB46005CA0F3 /* mainMenuButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -40,7 +40,11 @@
     Results *result;
     CCMenu *nextLevel;
     
+    LevelManager *levelManager;
+    
     GameController *gc;
+    
+    CGSize winSize;
 
 }
 
@@ -50,6 +54,7 @@
     // Apple recommends to re-assign "self" with the "super" return value
     if( (self=[super init] )) {
         
+        winSize = [CCDirector sharedDirector].winSize;
         _level = 1;
         _levelTarget = 4;
         [self setupScore];
@@ -111,6 +116,7 @@
     targetScore = _gemScore + scoreForTurn;
     totalGemsCollected = totalGemsCollected + totalGemsTouched;
     levelScore = levelScore + scoreTurn;
+    levelManager = lm;
     if(totalGemsTouched > combo){ combo = totalGemsTouched; }
     
     //animate floating scores
@@ -141,7 +147,7 @@
     }
     
     //animate progress bar
-    int target = [lm floatForProp:@"target"];
+    int target = [levelManager floatForProp:@"target"];
     float progress = (levelScore * 1.0) / target * 100.0;
     if(progress > 100.0){ progress = 100; }
     [self fillProgressBar:progress];
@@ -359,36 +365,47 @@
 
 -(void) didEndLevel:(GameController*) gameC
 {
-    result = [Results node];
-    [self addChild:result z:2];
-    result.tag = 20;
     
-    //pass in GameController
-    gc = gameC;
-    
-    //display result screen
-    [result displayResultBoard:totalGemsCollected :combo :timeLeft];
-    
-    //set powerup idle and remove used
-    NSMutableArray *temp = [[NSMutableArray alloc] init];
-    for (Powerups *pow in _arrayOfPowerups) {
-        [pow setLive:NO];
-        if(!pow.wasUsed){
-            [temp addObject:pow];
-        }else{//remove it
-            [self removeChild:pow];
-        } 
+    if(!turnOffProgress){//level target not met - lose
+        NSLog(@"You lose");
+        gameC.isGameOver = YES;
+        result = [Results node];
+        [self addChild:result z:2];
+        result.tag = 20;
+        [result gameOver];
     }
-    _arrayOfPowerups = temp;
-    
-    //make powerup if applicable
-    if([_arrayOfPowerups count] < 1){
-        Powerups *pow = [[Powerups alloc] initWithValue:1];
-        [_arrayOfPowerups addObject:pow];
-        [self addChild:pow z:3];
+    else{
+        result = [Results node];
+        [self addChild:result z:2];
+        result.tag = 20;
+        
+        //pass in GameController
+        gc = gameC;
+        
+        //display result screen
+        [result displayResultBoard:totalGemsCollected :combo :timeLeft];
+        
+        //set powerup idle and remove used
+        NSMutableArray *temp = [[NSMutableArray alloc] init];
+        for (Powerups *pow in _arrayOfPowerups) {
+            [pow setLive:NO];
+            if(!pow.wasUsed){
+                [temp addObject:pow];
+            }else{//remove it
+                [self removeChild:pow];
+            } 
+        }
+        _arrayOfPowerups = temp;
+        
+        //make powerup if applicable
+        if([_arrayOfPowerups count] < 1 && [levelManager boolForProp:@"transform"]){
+            Powerups *pow = [[Powerups alloc] initWithValue:1];
+            [_arrayOfPowerups addObject:pow];
+            [self addChild:pow z:3];
+        }
+        
+        [self animateNextLevelButton];
     }
-    
-    [self animateNextLevelButton];
     
 }
 
@@ -458,7 +475,9 @@
     [gc startNextLevel];
     
     //reorder powerup Z
-    [self reorderChild:[_arrayOfPowerups lastObject] z:1];
+    if([_arrayOfPowerups count] != 0){
+        [self reorderChild:[_arrayOfPowerups lastObject] z:1];
+    }
     
     //cleanup
     [self scheduleOnce:@selector(removeResults) delay:6];

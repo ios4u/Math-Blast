@@ -28,4 +28,8 @@
 
 -(void)performTransform;
 
+-(void) hide;
+
+-(void) show;
+
 @end

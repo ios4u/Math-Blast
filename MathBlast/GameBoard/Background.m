@@ -7,20 +7,33 @@
 //
 
 #import "Background.h"
+#import "Gems.h"
 
 //This class manages any background images/ animation
 @implementation Background{
+    
     CGSize _winSize;
+    
+    GameController *gameController;
+    
     CCParticleSystemQuad *emitter;
+    
+    CCSprite *detailMenu;
+    CCMenu *menuMenuButton;
+    CCMenu *menuMenuAlertButton;
+    CCSprite *menuAlert;
+    
+    bool isPaused;
 
 }
 
--(id) init
+-(id) initWithController:(id)gc
 {
     // always call "super" init
     // Apple recommends to re-assign "self" with the "super" return value
     if( (self=[super init] )) {
         _winSize = [CCDirector sharedDirector].winSize;
+        gameController = gc;
         [self setupBackground];
         [self setupGrid];
         [self setupTimerBorder];
@@ -87,7 +100,7 @@
     detailBorder.position = ccp(-200, 275);
     [self addChild:detailBorder];
     
-    CCSprite *detailMenu = [CCSprite spriteWithFile:@"detailMenu.png"];
+    detailMenu = [CCSprite spriteWithFile:@"detailMenu.png"];
     detailMenu.position = ccp(-200, 87);
     [self addChild:detailMenu];
     
@@ -101,6 +114,7 @@
      [CCSequence actions:
       [CCDelayTime actionWithDuration:2],
       [CCMoveTo actionWithDuration:3 position:ccp(175, 87)],
+      [CCCallFuncN actionWithTarget:self selector:@selector(makeMenuLive)],
       nil]];
     
 }
@@ -137,6 +151,70 @@
       [CCDelayTime actionWithDuration:2],
       [CCMoveTo actionWithDuration:3 position:ccp(210, 595)],
       nil]];
+}
+
+-(void) makeMenuLive
+{
+    [self removeChild:detailMenu cleanup:YES];
+    
+    CCSprite *menuButtonSprite = [CCSprite spriteWithFile:@"detailMenu.png"];
+    
+    CCMenuItemSprite *menuSprite = [CCMenuItemSprite itemWithNormalSprite:menuButtonSprite selectedSprite:nil target:self selector:@selector(menuTapped)];
+    
+    menuMenuButton = [CCMenu menuWithItems:menuSprite, nil];
+    
+    menuMenuButton.position = ccp(175, 87);
+    menuMenuButton.scale = 1;
+    menuMenuButton.tag = 10;
+    
+    [self addChild:menuMenuButton z:5];
+    
+    [menuMenuButton setEnabled:YES];
+}
+
+-(void) menuTapped
+{
+    if(!isPaused && !gameController.isGameOver)
+    {
+        for (Gems *sprite in gameController.spriteArray) {
+            [sprite hide];
+        }
+        [self showMenuAlert];
+        [[CCDirector sharedDirector] pause];
+        isPaused = YES;
+        [menuMenuButton setEnabled:NO];
+        [menuMenuAlertButton setEnabled:YES];
+    }
+    else if(isPaused && !gameController.isGameOver){
+        for (Gems *sprite in gameController.spriteArray) {
+            [sprite show];
+        }
+        [[CCDirector sharedDirector] resume];
+        [[CCDirector sharedDirector] startAnimation];
+        isPaused = NO;
+        [menuMenuButton setEnabled:YES];
+        [menuMenuAlertButton setEnabled:NO];
+        [self removeChild:menuMenuAlertButton];
+        [self removeChild:menuAlert];
+    }
+}
+
+-(void) showMenuAlert
+{
+    menuAlert = [CCSprite spriteWithFile:@"pauseMenu.png"];
+    menuAlert.position = ccp(_winSize.width/2, _winSize.height/2);
+    [self addChild:menuAlert z:6];
+    
+    CCSprite *menuButtonAlertSprite = [CCSprite spriteWithFile:@"pauseMenuButton.png"];
+    
+    CCMenuItemSprite *menuAlertSprite = [CCMenuItemSprite itemWithNormalSprite:menuButtonAlertSprite selectedSprite:nil target:self selector:@selector(menuTapped)];
+    
+    menuMenuAlertButton = [CCMenu menuWithItems:menuAlertSprite, nil];
+    
+    menuMenuAlertButton.position = ccp(_winSize.width/2 - 2, _winSize.height/2 - 30);
+    menuMenuAlertButton.tag = 10;
+    
+    [self addChild:menuMenuAlertButton z:6];
 }
 
 @end

@@ -14,6 +14,9 @@
     CGPoint lastTouchPoint;
 }
 
+@property (strong, nonatomic) NSMutableArray *spriteArray;
+@property (nonatomic) bool isGameOver;
+
 -(void) startNextLevel;
 
 // returns a CCScene that contains the HelloWorldLayer as the only child

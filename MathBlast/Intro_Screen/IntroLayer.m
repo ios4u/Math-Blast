@@ -10,6 +10,7 @@
 // Import the interfaces
 #import "IntroLayer.h"
 #import "GameController.h"
+#import "Title.h"
 
 
 #pragma mark - IntroLayer
@@ -167,7 +168,7 @@
     // Reload the current scene
     [[CCDirector sharedDirector] replaceScene:
      [CCTransitionFade transitionWithDuration:2
-                                        scene:[GameController node]]];
+                                        scene:[Title node]]];
     //[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
 }
 

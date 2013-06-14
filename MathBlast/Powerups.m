@@ -107,29 +107,6 @@
 -(void) setButton
 {
     [self removeChild:transformPowerup cleanup:YES];
-//    NSLog(@"transformTapped!");
-//    CCSprite *bt = [CCSprite spriteWithFile:@"bigArrow.png"];
-//    
-//    CCMenuItemSprite *power = [CCMenuItemSprite itemWithNormalSprite:bt selectedSprite:nil target:self selector:@selector(transformTapped)];
-//    NSLog(@"transformTapped!");
-//
-//    
-//    power.position = ccp(100, 294);
-//    NSLog(@"transformTapped!");
-//
-//    
-//    CCMenu *applyPower = [CCMenu menuWithItems:power, nil];
-//    NSLog(@"transformTapped!");
-//
-//    
-//    applyPower.position = CGPointZero;
-//    NSLog(@"transformTapped!");
-//
-//    applyPower.scale = 0;
-//    NSLog(@"transformTapped!");
-//
-//    
-//    [self addChild:applyPower z:10];
     
     CCSprite *transformSprite = [CCSprite spriteWithFile:@"transform.png"];
     
@@ -144,7 +121,6 @@
     [self addChild:transformMenuButton z:5];
     
     [transformMenuButton setEnabled:NO];
-    
     
 }
 

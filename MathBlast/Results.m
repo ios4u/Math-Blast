@@ -7,6 +7,7 @@
 //
 
 #import "Results.h"
+#import "Title.h"
 
 
 @implementation Results{
@@ -165,6 +166,33 @@
       [CCDelayTime actionWithDuration:5],
       [CCScaleTo actionWithDuration:0 scale:20],
       [CCScaleTo actionWithDuration:.5 scale:1], nil]];
+}
+
+-(void) gameOver
+{
+    CCSprite *menuAlert = [CCSprite spriteWithFile:@"gameoverMenu.png"];
+    menuAlert.position = ccp(winSize.width/2, winSize.height/2);
+    [self addChild:menuAlert z:6];
+    
+    CCSprite *menuButtonAlertSprite = [CCSprite spriteWithFile:@"mainMenuButton.png"];
+    
+    CCMenuItemSprite *menuAlertSprite = [CCMenuItemSprite itemWithNormalSprite:menuButtonAlertSprite selectedSprite:nil target:self selector:@selector(menuTapped)];
+    
+    CCMenu *menuMenuAlertButton = [CCMenu menuWithItems:menuAlertSprite, nil];
+    
+    menuMenuAlertButton.position = ccp(winSize.width/2 - 2, winSize.height/2 - 30);
+    menuMenuAlertButton.tag = 10;
+    
+    [self addChild:menuMenuAlertButton z:6];
+
+}
+
+-(void) menuTapped
+{
+    [[CCDirector sharedDirector] replaceScene:
+     [CCTransitionFade transitionWithDuration:2
+                                        scene:[Title node]]];
+
 }
 
 

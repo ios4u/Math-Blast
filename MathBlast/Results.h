@@ -15,4 +15,6 @@
 
 -(void) displayResultBoard:(int)totalGemsCollected :(int)longestCombo :(int)timeLeft;
 
+-(void) gameOver;
+
 @end

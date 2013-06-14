@@ -9,8 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface Title : CCNode {
+@interface Title : CCScene {
     
 }
+
++(CCScene *) scene;
 
 @end

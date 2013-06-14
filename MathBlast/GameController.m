@@ -15,6 +15,7 @@
 #import "Timer.h"
 #import "Score.h"
 #import "Powerups.h"
+#import "Title.h"
 @implementation GameController{
     
     CGPoint locationBegin;
@@ -29,7 +30,6 @@
     bool endLevel;
     bool beginDrawHistory;
     
-    NSMutableArray *spriteArray;
     NSMutableArray *drawArrayBegin;
     NSMutableArray *drawArrayEnd;
     
@@ -82,7 +82,7 @@
         self.touchEnabled = YES;
         
         //add background
-        bckLayer = [Background node];
+        bckLayer = [[Background node] initWithController:self];
         [self addChild:bckLayer z:-5];
         
         //add logic to game (game grid)
@@ -99,7 +99,7 @@
         //DrawLayer *sand = [DrawLayer node];
         //[self addChild:sand];
    
-        spriteArray = [[NSMutableArray alloc] init];
+        _spriteArray = [[NSMutableArray alloc] init];
         drawArrayBegin = [[NSMutableArray alloc] init];
         drawArrayEnd = [[NSMutableArray alloc] init];
         endLevel = YES;
@@ -133,7 +133,7 @@
             [self addChild:newGem.gem z:-2];
             gg.hasGem = YES;
             newGem.gem.scale = .8;
-            [spriteArray addObject:newGem];
+            [_spriteArray addObject:newGem];
             
         }
     }
@@ -154,7 +154,7 @@
         locationBegin = [[CCDirector sharedDirector] convertToGL:locationBegin];
         
         //find center of gem
-        for (Gems *sprite in spriteArray) {
+        for (Gems *sprite in _spriteArray) {
             if (CGRectContainsPoint(sprite.gem.boundingBox, ccp(locationBegin.x, locationBegin.y))) {
                 locationBegin = sprite.point;
             }
@@ -194,7 +194,7 @@
         
         
         //for every sprite, check if it was touched. Then do some point calculation
-        for (Gems *sprite in spriteArray) {
+        for (Gems *sprite in _spriteArray) {
             
             if (CGRectContainsPoint(sprite.gem.boundingBox, ccp(locationEnd.x, locationEnd.y))){
                 //NSLog(@"LocBeginSec : %f" , locationBeginSection.y);
@@ -247,6 +247,8 @@
 
 -(void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    if([[CCDirector sharedDirector] isPaused] ){ return; }
+    
     if(endLevel) { return; }//end level if timer expires
     //ignore multitouch
     NSSet *multiTouch = [event allTouches];
@@ -278,7 +280,7 @@
     NSMutableArray *distinctGems = [[NSMutableArray alloc] init];
     
     //figure out score and if player got sum correct
-    for (Gems *sprite in spriteArray) {
+    for (Gems *sprite in _spriteArray) {
         if(sprite.touched){
             
             //get scoring for turn
@@ -291,7 +293,7 @@
     
     //do gem remove logic if sum is correct
     if(totalGemsValue == score.levelTarget){
-        for (Gems *sprite in spriteArray) {
+        for (Gems *sprite in _spriteArray) {
             if(sprite.touched){
                 
                 //remove sprite from board
@@ -308,7 +310,7 @@
         }
         
         // Remove from array
-        [spriteArray removeObjectsInArray:toDelete];
+        [_spriteArray removeObjectsInArray:toDelete];
         
         //calculate score if the right gem sum
         NSArray *distinctArray =  [[NSSet setWithArray:distinctGems] allObjects];
@@ -332,7 +334,7 @@
 
 -(void) resetGemSize
 {
-    for (Gems *sprite in spriteArray) {
+    for (Gems *sprite in _spriteArray) {
         sprite.touched = NO;
         sprite.gem.scale = .8;
     }
@@ -344,7 +346,7 @@
     while (emptySpace) {
         emptySpace = NO;
         //fill empty spaces
-        for (Gems *sprite in spriteArray) {
+        for (Gems *sprite in _spriteArray) {
             for (GameGrid *gg in gameBoard.allPoints) {
                 if(sprite.point.x == gg.gridPoint.x && (sprite.point.y - gg.gridPoint.y) == 71 && !gg.hasGem){
                     //NSLog(@"Will move down");
@@ -388,11 +390,11 @@
         [self resetGemSize];
         [self unscheduleUpdate];
         
-        for (Gems *sprite in spriteArray) {
+        for (Gems *sprite in _spriteArray) {
             [sprite endLevelAnimation];
         }
         [score didEndLevel:self];
-        [spriteArray removeAllObjects];
+        [_spriteArray removeAllObjects];
         [drawArrayBegin removeAllObjects];
         [drawArrayEnd removeAllObjects];
         locationBegin = locationReset;
@@ -425,7 +427,7 @@
     for (Powerups *powerup in score.arrayOfPowerups) {
         powerup.isLive = YES;
         [powerup setLive:YES];
-        [powerup setGems:spriteArray];//passes gem pointer
+        [powerup setGems:_spriteArray];//passes gem pointer
     }
 }
 

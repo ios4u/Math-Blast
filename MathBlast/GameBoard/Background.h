@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "GameController.h"
 
 @interface Background : CCLayer {
     
 }
+
+-(id)initWithController:(GameController*)gc;
 
 @end

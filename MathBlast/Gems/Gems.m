@@ -125,6 +125,17 @@
       nil]];
 }
 
+-(void) hide
+{
+    _gem.scale = 0;
+
+}
+
+-(void) show
+{
+    _gem.scale = .8;
+}
+
 -(void) remove
 {
     [_gem removeFromParent];

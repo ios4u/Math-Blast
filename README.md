@@ -31,8 +31,8 @@ Math Blast allows children and adults to practice various skills and become more
 ## Under Current Development
 
   * Keep up with this project right here. 
-  * **Still To Implement:**
-  * Sound
+  * **Still To Implement**
+  		• Sound
   * Menu
   * High Score
   * Game Center

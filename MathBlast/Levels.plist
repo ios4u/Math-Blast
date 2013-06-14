@@ -6,6 +6,8 @@
 	<array>
 		<array>
 			<dict>
+				<key>transform</key>
+				<false/>
 				<key>gem</key>
 				<integer>3</integer>
 				<key>bonus</key>
@@ -14,6 +16,8 @@
 				<integer>500</integer>
 			</dict>
 			<dict>
+				<key>transform</key>
+				<true/>
 				<key>gem</key>
 				<integer>3</integer>
 				<key>bonus</key>
@@ -22,6 +26,8 @@
 				<integer>1000</integer>
 			</dict>
 			<dict>
+				<key>transform</key>
+				<false/>
 				<key>gem</key>
 				<integer>4</integer>
 				<key>bonus</key>
@@ -30,6 +36,8 @@
 				<integer>1500</integer>
 			</dict>
 			<dict>
+				<key>transform</key>
+				<true/>
 				<key>gem</key>
 				<integer>4</integer>
 				<key>bonus</key>
@@ -38,6 +46,8 @@
 				<integer>2000</integer>
 			</dict>
 			<dict>
+				<key>transform</key>
+				<false/>
 				<key>gem</key>
 				<integer>4</integer>
 				<key>bonus</key>
@@ -46,6 +56,8 @@
 				<integer>2500</integer>
 			</dict>
 			<dict>
+				<key>transform</key>
+				<true/>
 				<key>gem</key>
 				<integer>4</integer>
 				<key>bonus</key>
@@ -54,6 +66,8 @@
 				<integer>3000</integer>
 			</dict>
 			<dict>
+				<key>transform</key>
+				<false/>
 				<key>gem</key>
 				<integer>4</integer>
 				<key>bonus</key>
@@ -62,6 +76,8 @@
 				<integer>3500</integer>
 			</dict>
 			<dict>
+				<key>transform</key>
+				<true/>
 				<key>gem</key>
 				<integer>4</integer>
 				<key>bonus</key>
@@ -70,6 +86,8 @@
 				<integer>4000</integer>
 			</dict>
 			<dict>
+				<key>transform</key>
+				<false/>
 				<key>gem</key>
 				<integer>4</integer>
 				<key>bonus</key>
@@ -78,6 +96,8 @@
 				<integer>4500</integer>
 			</dict>
 			<dict>
+				<key>transform</key>
+				<true/>
 				<key>gem</key>
 				<integer>4</integer>
 				<key>bonus</key>
@@ -86,6 +106,8 @@
 				<integer>5000</integer>
 			</dict>
 			<dict>
+				<key>transform</key>
+				<false/>
 				<key>gem</key>
 				<integer>4</integer>
 				<key>bonus</key>
@@ -94,54 +116,72 @@
 				<real>5</real>
 			</dict>
 			<dict>
+				<key>transform</key>
+				<true/>
 				<key>bonus</key>
 				<real>12</real>
 				<key>target</key>
 				<real>6</real>
 			</dict>
 			<dict>
+				<key>transform</key>
+				<false/>
 				<key>bonus</key>
 				<real>13</real>
 				<key>target</key>
 				<integer>6500</integer>
 			</dict>
 			<dict>
+				<key>transform</key>
+				<true/>
 				<key>bonus</key>
 				<integer>14000</integer>
 				<key>target</key>
 				<integer>7000</integer>
 			</dict>
 			<dict>
+				<key>transform</key>
+				<false/>
 				<key>bonus</key>
 				<integer>15000</integer>
 				<key>target</key>
 				<integer>7500</integer>
 			</dict>
 			<dict>
+				<key>transform</key>
+				<true/>
 				<key>bonus</key>
 				<integer>16000</integer>
 				<key>target</key>
 				<integer>8000</integer>
 			</dict>
 			<dict>
+				<key>transform</key>
+				<false/>
 				<key>bonus</key>
 				<integer>17000</integer>
 				<key>target</key>
 				<integer>8500</integer>
 			</dict>
 			<dict>
+				<key>transform</key>
+				<true/>
 				<key>bonus</key>
 				<integer>18000</integer>
 				<key>target</key>
 				<integer>9000</integer>
 			</dict>
 			<dict>
+				<key>transform</key>
+				<false/>
 				<key>bonus</key>
 				<integer>19000</integer>
 				<key>target</key>
 				<integer>9500</integer>
 			</dict>
 			<dict>
+				<key>transform</key>
+				<true/>
 				<key>bonus</key>
 				<real>20</real>
 				<key>target</key>
