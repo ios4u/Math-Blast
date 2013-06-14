@@ -36,6 +36,7 @@
     CCSprite *results = [CCSprite spriteWithFile:@"resultBoard.png"];
     results.scale = 1.05;
     results.position = ccp(winSize.width/2 , -500);
+    results.tag = 10;
     //results.opacity = 200;
     [self addChild:results z:-1];
     
@@ -163,6 +164,7 @@
       [CCScaleTo actionWithDuration:0 scale:20],
       [CCScaleTo actionWithDuration:.5 scale:1], nil]];
 }
+
 
 -(void) removeLabel
 {

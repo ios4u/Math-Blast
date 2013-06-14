@@ -13,6 +13,9 @@
 
 @implementation Score
 {
+    CCLabelTTF *levelLabel;
+    CCLabelTTF *levelTargetLabel;
+    
     CCLabelTTF *score;
     int targetScore;
     int scoreForTurn;
@@ -33,6 +36,9 @@
     bool turnOffProgress;
     
     Results *result;
+    CCMenu *nextLevel;
+    
+    GameController *gc;
 
 }
 
@@ -41,13 +47,15 @@
     // always call "super" init
     // Apple recommends to re-assign "self" with the "super" return value
     if( (self=[super init] )) {
+        
+        _level = 1;
+        _levelTarget = 4;
         [self setupScore];
         [self setupProgressBar];
+        [self displayLevel];
         
         _arrayOfPowerups = [[NSMutableArray alloc] init];
-        
-        result = [Results node];
-        [self addChild:result z:2];
+    
     }
     return self;
 }
@@ -64,6 +72,34 @@
       [CCDelayTime actionWithDuration:2],
       [CCMoveTo actionWithDuration:3 position:ccp(212, 558)],
       nil]];
+}
+
+-(void) displayLevel
+{
+    levelLabel = [CCLabelTTF labelWithString:@"1" fontName:@"MarkerFelt-Wide" fontSize:25];
+    levelLabel.anchorPoint = ccp(0,0.5f);
+    levelLabel.color = ccRED;
+    levelLabel.position = ccp(-200, 458);
+    [self addChild:levelLabel];
+    
+    [levelLabel runAction:
+     [CCSequence actions:
+      [CCDelayTime actionWithDuration:2],
+      [CCMoveTo actionWithDuration:3 position:ccp(110, 465)],
+      nil]];
+    
+    levelTargetLabel = [CCLabelTTF labelWithString:@"4" fontName:@"MarkerFelt-Wide" fontSize:65];
+    levelTargetLabel.anchorPoint = ccp(0.5f,0.5f);
+    levelTargetLabel.color = ccGREEN;
+    levelTargetLabel.position = ccp(-200, 430);
+    [self addChild:levelTargetLabel];
+    
+    [levelTargetLabel runAction:
+     [CCSequence actions:
+      [CCDelayTime actionWithDuration:2],
+      [CCMoveTo actionWithDuration:3 position:ccp(256, 430)],
+      nil]];
+
 }
 
 -(void) addScore: (int)scoreTurn :(CGPoint)location :(int)totalGemsTouched :(int)distinct :(int)time
@@ -102,7 +138,7 @@
     }
     
     //animate progress bar
-    float progress = (targetScore * 1.0) / 3.0 * 100.0;
+    float progress = (targetScore * 1.0) / 500.0 * 100.0;
     if(progress > 100.0){ progress = 100; }
     [self fillProgressBar:progress];
 }
@@ -317,15 +353,91 @@
     }
 }
 
--(void) didEndLevel
+-(void) didEndLevel:(GameController*) gameC
 {
+    result = [Results node];
+    [self addChild:result z:2];
+    result.tag = 10;
+    
+    //pass in GameController
+    gc = gameC;
+    
     //display result screen
     [result displayResultBoard:totalGemsCollected :combo :timeLeft];
     
     //make powerup if applicable
-    Powerups *pow = [[Powerups alloc] initWithValue:1];
-    [_arrayOfPowerups addObject:pow];
-    [self addChild:pow z:3];
+    if([_arrayOfPowerups count] < 1){
+        Powerups *pow = [[Powerups alloc] initWithValue:1];
+        [_arrayOfPowerups addObject:pow];
+        [self addChild:pow z:3];
+    }
+    
+    [self animateNextLevelButton];
+    
+}
+
+-(void) animateNextLevelButton
+{
+    
+    CCSprite *arrow = [CCSprite spriteWithFile:@"bigArrow.png"];
+    
+    CCMenuItemSprite *nextLevelItem = [CCMenuItemSprite itemWithNormalSprite:arrow selectedSprite:nil target:self selector:@selector(nextLevelTapped)];
+    
+    nextLevelItem.position = ccp(880, 660);
+    
+    nextLevel = [CCMenu menuWithItems:nextLevelItem, nil];
+    
+    nextLevel.position = CGPointZero;
+    nextLevel.scale = 0;
+    
+    [self addChild:nextLevel z:5];
+    
+    [nextLevel runAction:
+     [CCSequence actions:
+      [CCDelayTime actionWithDuration:5.5],
+      [CCScaleTo actionWithDuration:0 scale:1],
+      nil]];
+    
+    [nextLevel runAction:
+     [CCRepeatForever actionWithAction:
+      [CCFadeOut actionWithDuration:1.5]]];
+    
+}
+
+
+-(void) nextLevelTapped
+{
+    [result runAction:
+     [CCSequence actions:
+      [CCDelayTime actionWithDuration:.5],
+       [CCMoveBy actionWithDuration:.3 position:ccp(-80, 0)],
+       [CCMoveBy actionWithDuration:1 position:ccp(2000, 0)],
+       nil]];
+    
+    [nextLevel runAction:
+     [CCSequence actions:
+      [CCDelayTime actionWithDuration:.5],
+      [CCMoveBy actionWithDuration:.3 position:ccp(-80, 0)],
+      [CCMoveBy actionWithDuration:1 position:ccp(2000, 0)],
+      nil]];
+    
+    //snap into position. If it has already been placed, then ignore.
+    if([[_arrayOfPowerups lastObject] ready] == 0){
+        [[_arrayOfPowerups lastObject] snapToPosition];
+        [[_arrayOfPowerups lastObject] isPositioned];
+    }
+    
+    _level++;
+    _levelTarget++;
+    levelLabel.string = [NSString stringWithFormat:@"%d" , _level];
+    levelTargetLabel.string = [NSString stringWithFormat:@"%d" , _levelTarget];
+    
+    //let gamecontroller know you are starting next level
+    [gc startNextLevel];
+    
+    //reorder powerup Z
+    [self reorderChild:[_arrayOfPowerups lastObject] z:1];
+    
     
 }
 

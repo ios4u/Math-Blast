@@ -20,7 +20,7 @@
     // Apple recommends to re-assign "self" with the "super" return value
     if( (self=[super init] )) {
         
-        _totalSeconds = 10;
+        _totalSeconds = 120;
 
         [self setupTimer];
         
@@ -30,22 +30,22 @@
 
 -(void) setupTimer
 {
-    CCLabelTTF *timerLabel = [CCLabelTTF labelWithString:@"Timer:" fontName:@"Avenir-Heavy" fontSize:25];
-    timerLabel.color = ccWHITE;
-    timerLabel.position = ccp(-500, 670);
-    [self addChild:timerLabel];
+//    CCLabelTTF *timerLabel = [CCLabelTTF labelWithString:@"Timer:" fontName:@"Avenir-Heavy" fontSize:25];
+//    timerLabel.color = ccWHITE;
+//    timerLabel.position = ccp(-500, 694);
+//    [self addChild:timerLabel];
     
     
     timer = [CCLabelTTF labelWithString:@"2:00" fontName:@"Avenir-Heavy" fontSize:70];
-    timer.position = ccp( -300,658);
+    timer.position = ccp( -300,682);
     timer.color = ccGREEN;
     [self addChild:timer z:1];
     
-    [timerLabel runAction:
-     [CCSequence actions:
-      [CCDelayTime actionWithDuration:2],
-      [CCMoveTo actionWithDuration:3 position:ccp(85, 694)],
-      nil]];
+//    [timerLabel runAction:
+//     [CCSequence actions:
+//      [CCDelayTime actionWithDuration:2],
+//      [CCMoveTo actionWithDuration:3 position:ccp(85, 694)],
+//      nil]];
     
     [timer runAction:
      [CCSequence actions:
@@ -101,6 +101,11 @@
         [CCEaseOut actionWithAction:
          [CCScaleTo actionWithDuration:.1 scale:1] rate:.5],
       nil]];
+}
+
+-(void) startTimer
+{
+    [self schedule:@selector(countTime) interval:1 repeat:-1 delay:7];
 }
 
 @end

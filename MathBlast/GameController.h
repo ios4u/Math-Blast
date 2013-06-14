@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface SandBox : CCLayer
+@interface GameController : CCLayer
 {
     CGPoint lastTouchPoint;
 }
+
+-(void) startNextLevel;
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
 //+(CCScene *) scene;

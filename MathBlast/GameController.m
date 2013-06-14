@@ -6,7 +6,7 @@
 //  Copyright 2013 JRamos. All rights reserved.
 //
 
-#import "SandBox.h"
+#import "GameController.h"
 #import "DrawLayer.h"
 #import "Gems.h"
 #import "GameBoard.h"
@@ -15,7 +15,7 @@
 #import "Timer.h"
 #import "Score.h"
 #import "Powerups.h"
-@implementation SandBox{
+@implementation GameController{
     
     CGPoint locationBegin;
     CGPoint locationBeginSection;
@@ -27,8 +27,11 @@
     bool isVertical;
     bool resetBool;
     bool endLevel;
+    bool beginDrawHistory;
     
     NSMutableArray *spriteArray;
+    NSMutableArray *drawArrayBegin;
+    NSMutableArray *drawArrayEnd;
     
     GameBoard *gameBoard;
     
@@ -37,8 +40,6 @@
     Timer *timer;
     
     Score *score;
-    
-    int targetLevelSum;
 }
 
 
@@ -55,16 +56,16 @@
 //{
 //	// 'scene' is an autorelease object.
 //	CCScene *scene = [CCScene node];
-//	
+//
 //	// 'layer' is an autorelease object.
 //	SandBox *layer = [SandBox node];
-//	
+//
 //    DrawLayer *sand = [DrawLayer node];
-//    
+//
 //	// add layer as a child to scene
 //	[scene addChild: layer];
 //    [scene addChild:sand];
-//	
+//
 //	// return the scene
 //	return scene;
 //}
@@ -80,28 +81,28 @@
         
         //add background
         bckLayer = [Background node];
-        [self addChild:bckLayer z:-3];
+        [self addChild:bckLayer z:-5];
         
         //add logic to game (game grid)
-        gameBoard = [[GameBoard alloc] init];        
+        gameBoard = [[GameBoard alloc] init];
         NSLog(@"gameboard size: %d", [gameBoard.allPoints count]);
         
         timer = [Timer node];
-        [self addChild:timer z:-2];
+        [self addChild:timer z:-4];
         
         //add scoring
         score = [Score node];
-        [self addChild:score z:1];
+        [self addChild:score z:-1];
         
         //DrawLayer *sand = [DrawLayer node];
         //[self addChild:sand];
-
-        
-        targetLevelSum = 4;
+   
         spriteArray = [[NSMutableArray alloc] init];
+        drawArrayBegin = [[NSMutableArray alloc] init];
+        drawArrayEnd = [[NSMutableArray alloc] init];
         [self scheduleUpdate];
         [self scheduleOnce:@selector(gemify) delay:6];
-
+        
     }
     return self;
 }
@@ -109,11 +110,13 @@
 //generates gems on the game board
 -(void) gemify
 {
+    NSLog(@"gemify");
+
     for (GameGrid *gg in gameBoard.allPoints) {
         int r = arc4random() % 3;
         if(!gg.hasGem){
             Gems *newGem = [[Gems alloc] initWithValueAndPosition:r :gg.gridPoint];
-            [self addChild:newGem.gem z:0];
+            [self addChild:newGem.gem z:-2];
             gg.hasGem = YES;
             newGem.gem.scale = .8;
             [spriteArray addObject:newGem];
@@ -151,7 +154,7 @@
         
         //NSLog(@"LocaBeginSec %fx , %fy" , locationBeginSection.x, locationBeginSection.y);
         //NSLog(@"LocaBeginSec %fx , %fy" , locationBegin.x, locationBegin.y);
-
+        
         
     }
 }
@@ -175,15 +178,15 @@
         locationEnd = [touch locationInView: [touch view]];
         locationEnd = [[CCDirector sharedDirector] convertToGL:locationEnd];
         
-               
+        
         //for every sprite, check if it was touched. Then do some point calculation
         for (Gems *sprite in spriteArray) {
-       
+            
             if (CGRectContainsPoint(sprite.gem.boundingBox, ccp(locationEnd.x, locationEnd.y))){
                 //NSLog(@"LocBeginSec : %f" , locationBeginSection.y);
                 //NSLog(@"LocEnd : %f" , locationEnd.x);
                 
-                sprite.gem.scale = 1.3;
+                sprite.gem.scale = 1.1;
                 sprite.touched = YES;
                 
                 //check for orientation
@@ -191,6 +194,10 @@
                 if((locationBeginSection.x < sprite.point.x || locationBeginSection.x > sprite.point.x) && (locationBeginSection.y == sprite.point.y)){
                     if(isVertical){
                         isVertical = NO;
+                        //add draw points for history
+                        beginDrawHistory = YES;
+                        [drawArrayBegin addObject:[NSValue valueWithCGPoint:CGPointMake(locationBegin.x, locationBegin.y)]];
+                        [drawArrayEnd addObject:[NSValue valueWithCGPoint:CGPointMake(locationBeginSection.x, locationBeginSection.y)]];
                         locationBegin = locationBeginSection;
                     }
                     isHorizontal = YES;
@@ -201,6 +208,10 @@
                 else if((locationBeginSection.y < sprite.point.y || locationBeginSection.y > sprite.point.y) && (locationBeginSection.x == sprite.point.x)){
                     if(isHorizontal){
                         isHorizontal = NO;
+                        //add draw points for history
+                        beginDrawHistory = YES;
+                        [drawArrayBegin addObject:[NSValue valueWithCGPoint:CGPointMake(locationBegin.x, locationBegin.y)]];
+                        [drawArrayEnd addObject:[NSValue valueWithCGPoint:CGPointMake(locationBeginSection.x, locationBeginSection.y)]];
                         locationBegin = locationBeginSection;
                     }
                     isVertical = YES;
@@ -223,7 +234,7 @@
 -(void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     if(endLevel) { return; }//end level if timer expires
-    
+    //ignore multitouch
     NSSet *multiTouch = [event allTouches];
     if( [multiTouch count] > 1) {
         return;
@@ -236,10 +247,15 @@
         isHorizontal = NO;
         isVertical = NO;
         
+        //remove all draw points in history
+        [drawArrayBegin removeAllObjects];
+        [drawArrayEnd removeAllObjects];
+        
         [self gemLogic];
     }
 }
 
+//apply removal, regeneraton of gem, and scoring logic
 -(void)gemLogic
 {
     NSMutableArray *toDelete = [NSMutableArray array];
@@ -260,7 +276,7 @@
     }
     
     //do gem remove logic if sum is correct
-    if(totalGemsValue == targetLevelSum){
+    if(totalGemsValue == score.levelTarget){
         for (Gems *sprite in spriteArray) {
             if(sprite.touched){
                 
@@ -276,14 +292,14 @@
                 }
             }
         }
-    
+        
         // Remove from array
         [spriteArray removeObjectsInArray:toDelete];
         
         //calculate score if the right gem sum
         NSArray *distinctArray =  [[NSSet setWithArray:distinctGems] allObjects];
         int distinct = [distinctArray count];
-        int scoreForTurn = (targetLevelSum * totalGemsTouched) * distinct;
+        int scoreForTurn = (score.levelTarget * totalGemsTouched) * distinct;
         [score addScore:scoreForTurn :locationEndLine : totalGemsTouched :distinct :timer.totalSeconds];
         
         //move gems down to empty spaces
@@ -335,7 +351,7 @@
 }
 
 - (void)shakeScreen:(int)times {
-    if(locationBegin.x == 365) { return; }
+    if(locationBeginSection.x == 370) { return; }
     id shakeLow = [CCMoveBy
                    actionWithDuration:0.025 position:ccp(0, -2)];
     id shakeLowBack = [shakeLow reverse];
@@ -361,9 +377,25 @@
         for (Gems *sprite in spriteArray) {
             [sprite endLevelAnimation];
         }
-        [score didEndLevel];
+        [score didEndLevel:self];
         [spriteArray removeAllObjects];
     }
+}
+
+-(void) startNextLevel
+{
+    endLevel = NO;
+    timer.totalSeconds = 120;
+    [timer startTimer];
+    
+    //clear gamegrid of gems so that a new level can start
+    for (GameGrid *gg in gameBoard.allPoints) {
+        gg.hasGem = NO;
+    }
+    
+    
+    [self scheduleUpdate];
+    [self scheduleOnce:@selector(gemify) delay:6];
 }
 
 -(void)draw
@@ -377,8 +409,18 @@
     if(isHorizontal || isVertical){
         CGPoint verts[] = { locationBegin, locationEndLine };
         ccDrawLine(verts[0], verts[1]);
+        if(beginDrawHistory){
+            //this draws all previously lines of the same orientation
+            for (int i=0; i<[drawArrayEnd count]; i++) {
+                NSValue *val = [drawArrayBegin objectAtIndex:i];
+                CGPoint p = [val CGPointValue];
+                NSValue *val2 = [drawArrayEnd objectAtIndex:i];
+                CGPoint p2 = [val2 CGPointValue];
+                ccDrawLine(p, p2);
+            }
+        }
     }
-
+    
 }
 
 

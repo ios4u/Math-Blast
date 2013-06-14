@@ -40,7 +40,7 @@
     [emitter runAction:
      [CCSequence actions:
       [CCDelayTime actionWithDuration:2],
-      [CCMoveTo actionWithDuration:3 position:ccp(78, 575)],
+      [CCMoveTo actionWithDuration:3 position:ccp(256  , 430)],
       nil]];
     
     
@@ -83,21 +83,31 @@
 
 -(void) setupDetailBorder
 {
-    CCSprite *detail = [CCSprite spriteWithFile:@"detailBorder.png"];
-    detail.position = ccp(-200, 275);
-    [self addChild:detail];
+    CCSprite *detailBorder = [CCSprite spriteWithFile:@"detailBorder.png"];
+    detailBorder.position = ccp(-200, 275);
+    [self addChild:detailBorder];
     
-    [detail runAction:
+    CCSprite *detailMenu = [CCSprite spriteWithFile:@"detailMenu.png"];
+    detailMenu.position = ccp(-200, 87);
+    [self addChild:detailMenu];
+    
+    [detailBorder runAction:
      [CCSequence actions:
       [CCDelayTime actionWithDuration:2],
       [CCMoveTo actionWithDuration:3 position:ccp(175, 267)],
+      nil]];
+    
+    [detailMenu runAction:
+     [CCSequence actions:
+      [CCDelayTime actionWithDuration:2],
+      [CCMoveTo actionWithDuration:3 position:ccp(175, 87)],
       nil]];
     
 }
 
 -(void) setupScoreBorder
 {
-    CCSprite *score = [CCSprite spriteWithFile:@"timerBorder.png"];
+    CCSprite *score = [CCSprite spriteWithFile:@"scoreBorder.png"];
     score.position = ccp(-200, 570);
     [self addChild:score];
     

@@ -10,7 +10,7 @@
 // Import the interfaces
 #import "IntroLayer.h"
 #import "DrawLayer.h"
-#import "SandBox.h"
+#import "GameController.h"
 
 
 #pragma mark - IntroLayer
@@ -159,7 +159,7 @@
       [CCFadeIn actionWithDuration:2],
       nil]];
     
-    [self scheduleOnce:@selector(exitScene) delay:.2];
+    [self scheduleOnce:@selector(exitScene) delay:.1];
 
 }
 
@@ -167,8 +167,8 @@
 {
     // Reload the current scene
     [[CCDirector sharedDirector] replaceScene:
-     [CCTransitionFade transitionWithDuration:1
-                                        scene:[SandBox node]]];
+     [CCTransitionFade transitionWithDuration:2
+                                        scene:[GameController node]]];
     //[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
 }
 

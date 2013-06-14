@@ -13,5 +13,7 @@
 
 @property (nonatomic) int totalSeconds;
 
+-(void) startTimer;
+
 
 @end
