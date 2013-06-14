@@ -9,9 +9,9 @@ Math-Blast is an educational, addition matching game. Much like Bejeweled, where
 
 Scoring algorithm is as follows:
 
-(Level target number X total gems used) X Distinct gems used
+(Level target number * total gems used) * Distinct gems used
 
-*Level 1 target number starts at 4, and increments after each level.
+Level 1 target number starts at 4, and increments after each level.
 
 
 ## Features
@@ -31,18 +31,23 @@ Math Blast allows children and adults to practice various skills and become more
 ## Under Current Development
 
   * Keep up with this project right here. 
+<<<<<<< HEAD
   * **Still To Implement**
   		• Sound
+=======
+
+## **Still To Implement:**
+
+  * Sound
+>>>>>>> d9babf1d1bc40793a373ad909c6f6c912030ec92
   * Menu
   * High Score
   * Game Center
   * Hints & Tips / Instructions
   * Track player progress
+  * More powerups
+  * Menu Button
 
 ## ScreenShots
-
-![Alt text](screen3.png "Screenshot 3")
-
-![Alt text](screen4.png "Screenshot 4")
 
 ![Alt text](screen5.png "Screenshot 5")
