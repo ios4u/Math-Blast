@@ -41,6 +41,7 @@ Math Blast allows children and adults to practice various skills and become more
   * Hints & Tips / Instructions
   * Track player progress
   * More powerups
+  * Menu Button
 
 ## ScreenShots
 
