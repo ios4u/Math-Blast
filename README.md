@@ -31,7 +31,9 @@ Math Blast allows children and adults to practice various skills and become more
 ## Under Current Development
 
   * Keep up with this project right here. 
-  * **Still To Implement:**
+
+**Still To Implement:**
+-----------------------------------------
   * Sound
   * Menu
   * High Score
@@ -40,9 +42,5 @@ Math Blast allows children and adults to practice various skills and become more
   * Track player progress
 
 ## ScreenShots
-
-![Alt text](screen3.png "Screenshot 3")
-
-![Alt text](screen4.png "Screenshot 4")
 
 ![Alt text](screen5.png "Screenshot 5")
