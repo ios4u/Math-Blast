@@ -79,7 +79,8 @@
 -(void) changeCountDown
 {
     if(countDown == 3){
-        countDownTimer.color = ccRED;
+        countDownTimer.color = ccGREEN;
+        timer.string = @"2:00";
     }
     else if(countDown == 2){
         countDownTimer.color = ccYELLOW;
