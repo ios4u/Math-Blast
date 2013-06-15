@@ -406,7 +406,7 @@
 
 -(void) startNextLevel
 {
-    [self scheduleOnce:@selector(startLevel) delay:8];
+    [self scheduleOnce:@selector(startLevel) delay:10];
     timer.totalSeconds = 120;
     [timer startTimer];
     
@@ -418,8 +418,8 @@
     //start level again
     [self scheduleUpdate];
     [levelManager nextStage];
-    [self scheduleOnce:@selector(gemify) delay:8];
-    [self scheduleOnce:@selector(makePowerupsLive) delay:9]; //makes powerups live
+    [self scheduleOnce:@selector(gemify) delay:10];
+    [self scheduleOnce:@selector(makePowerupsLive) delay:11]; //makes powerups live
 }
 
 -(void) makePowerupsLive
