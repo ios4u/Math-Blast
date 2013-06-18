@@ -51,7 +51,7 @@
     
     [transformPowerup runAction:
      [CCSequence actions:
-      [CCDelayTime actionWithDuration:5],
+      [CCDelayTime actionWithDuration:4],
       [CCScaleTo actionWithDuration:0 scale:2],
       [CCScaleTo actionWithDuration:.5 scale:.7], nil]];
     

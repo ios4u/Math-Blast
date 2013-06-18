@@ -235,6 +235,7 @@
 		5288A155176C0B98005CA0F3 /* excellent.png in Resources */ = {isa = PBXBuildFile; fileRef = 5288A152176C0B98005CA0F3 /* excellent.png */; };
 		5288A156176C0B98005CA0F3 /* good.png in Resources */ = {isa = PBXBuildFile; fileRef = 5288A153176C0B98005CA0F3 /* good.png */; };
 		5288A157176C0B98005CA0F3 /* great.png in Resources */ = {isa = PBXBuildFile; fileRef = 5288A154176C0B98005CA0F3 /* great.png */; };
+		5288A159176E7A79005CA0F3 /* four_gem.png in Resources */ = {isa = PBXBuildFile; fileRef = 5288A158176E7A79005CA0F3 /* four_gem.png */; };
 		528D2DA317639B3300108BC0 /* Gems.m in Sources */ = {isa = PBXBuildFile; fileRef = 528D2DA217639B3300108BC0 /* Gems.m */; };
 		528D2DA91763BE1C00108BC0 /* GameBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 528D2DA81763BE1C00108BC0 /* GameBoard.m */; };
 		528D2DAC1763C3F300108BC0 /* GameGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = 528D2DAB1763C3F300108BC0 /* GameGrid.m */; };
@@ -672,6 +673,7 @@
 		5288A152176C0B98005CA0F3 /* excellent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = excellent.png; sourceTree = "<group>"; };
 		5288A153176C0B98005CA0F3 /* good.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = good.png; sourceTree = "<group>"; };
 		5288A154176C0B98005CA0F3 /* great.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = great.png; sourceTree = "<group>"; };
+		5288A158176E7A79005CA0F3 /* four_gem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = four_gem.png; sourceTree = "<group>"; };
 		528D2DA117639B3300108BC0 /* Gems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gems.h; path = Gems/Gems.h; sourceTree = "<group>"; };
 		528D2DA217639B3300108BC0 /* Gems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Gems.m; path = Gems/Gems.m; sourceTree = "<group>"; };
 		528D2DA71763BE1C00108BC0 /* GameBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameBoard.h; path = GameBoard/GameBoard.h; sourceTree = "<group>"; };
@@ -1410,6 +1412,7 @@
 		5288A144176C0B8F005CA0F3 /* Gems */ = {
 			isa = PBXGroup;
 			children = (
+				5288A158176E7A79005CA0F3 /* four_gem.png */,
 				5288A145176C0B8F005CA0F3 /* five_gem.png */,
 				5288A146176C0B8F005CA0F3 /* green_gem.png */,
 				5288A147176C0B8F005CA0F3 /* purple_gem.png */,
@@ -1563,6 +1566,7 @@
 				5288A155176C0B98005CA0F3 /* excellent.png in Resources */,
 				5288A156176C0B98005CA0F3 /* good.png in Resources */,
 				5288A157176C0B98005CA0F3 /* great.png in Resources */,
+				5288A159176E7A79005CA0F3 /* four_gem.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

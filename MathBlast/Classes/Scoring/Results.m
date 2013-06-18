@@ -16,6 +16,8 @@
     int totalGems;
     int combo;
     int secsLeft;
+    int roundScore;
+    int gameScore;
 }
 
 -(id) init
@@ -29,11 +31,13 @@
     return self;
 }
 
--(void) displayResultBoard:(int)totalGemsCollected :(int)longestCombo :(int)timeLeft
+-(void) displayResultBoard:(int)totalGemsCollected :(int)longestCombo :(int)timeLeft :(int)levelScore :(int)targetScore
 {
     secsLeft = timeLeft;
     combo = longestCombo;
     totalGems = totalGemsCollected;
+    roundScore = levelScore;
+    gameScore = targetScore;
     CCSprite *results = [CCSprite spriteWithFile:@"resultBoard.png"];
     results.scale = 1.05;
     results.position = ccp(winSize.width/2 , -500);
@@ -78,7 +82,7 @@
     //animate totalGems score
     [longCombo runAction:
      [CCSequence actions:
-      [CCDelayTime actionWithDuration:1.5],
+      [CCDelayTime actionWithDuration:1.2],
       [CCScaleTo actionWithDuration:0 scale:10],
       [CCScaleTo actionWithDuration:.5 scale:1], nil]];
     
@@ -93,7 +97,7 @@
     //animate totalGems score
     [timeLeft runAction:
      [CCSequence actions:
-      [CCDelayTime actionWithDuration:2.0],
+      [CCDelayTime actionWithDuration:1.4],
       [CCScaleTo actionWithDuration:0 scale:10],
       [CCScaleTo actionWithDuration:.5 scale:1], nil]];
 
@@ -113,7 +117,7 @@
     //animate totalGems score
     [totalGemsLabel runAction:
      [CCSequence actions:
-      [CCDelayTime actionWithDuration:3],
+      [CCDelayTime actionWithDuration:1.8],
       [CCScaleTo actionWithDuration:0 scale:10],
       [CCScaleTo actionWithDuration:.5 scale:1], nil]];
     
@@ -129,7 +133,7 @@
     //animate totalGems score
     [longCombo runAction:
      [CCSequence actions:
-      [CCDelayTime actionWithDuration:3.5],
+      [CCDelayTime actionWithDuration:2],
       [CCScaleTo actionWithDuration:0 scale:10],
       [CCScaleTo actionWithDuration:.5 scale:1], nil]];
     
@@ -145,15 +149,15 @@
     //animate totalGems score
     [timeLeft runAction:
      [CCSequence actions:
-      [CCDelayTime actionWithDuration:4.0],
+      [CCDelayTime actionWithDuration:2.2],
       [CCScaleTo actionWithDuration:0 scale:10],
       [CCScaleTo actionWithDuration:.5 scale:1], nil]];
     
     int tot = totGems + totSecs + totCombo;
-    CCLabelTTF *total = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"+%d" , tot] fontName:@"Avenir-Heavy" fontSize:50];
+    CCLabelTTF *total = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"+%d" , tot] fontName:@"Avenir-Heavy" fontSize:40];
     total.anchorPoint = ccp(0,0.5f);
     total.color = ccGREEN;
-    total.position = ccp(740 , 315);
+    total.position = ccp(740 , 342);
     total.scale = 0;
     total.tag = 10;
     [self addChild:total];
@@ -163,7 +167,37 @@
     //animate totalGems score
     [total runAction:
      [CCSequence actions:
-      [CCDelayTime actionWithDuration:5],
+      [CCDelayTime actionWithDuration:3],
+      [CCScaleTo actionWithDuration:0 scale:20],
+      [CCScaleTo actionWithDuration:.5 scale:1], nil]];
+    
+    CCLabelTTF *roundTotal = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"+%d" , roundScore] fontName:@"Avenir-Heavy" fontSize:40];
+    roundTotal.anchorPoint = ccp(0,0.5f);
+    roundTotal.color = ccGREEN;
+    roundTotal.position = ccp(740 , 292);
+    roundTotal.scale = 0;
+    roundTotal.tag = 10;
+    [self addChild:roundTotal];
+    
+    //animate totalGems score
+    [roundTotal runAction:
+     [CCSequence actions:
+      [CCDelayTime actionWithDuration:3.3],
+      [CCScaleTo actionWithDuration:0 scale:20],
+      [CCScaleTo actionWithDuration:.5 scale:1], nil]];
+    
+    CCLabelTTF *overallScore = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"=%d" , gameScore + tot] fontName:@"Avenir-Heavy" fontSize:40];
+    overallScore.anchorPoint = ccp(0,0.5f);
+    overallScore.color = ccGREEN;
+    overallScore.position = ccp(740 , 247);
+    overallScore.scale = 0;
+    overallScore.tag = 10;
+    [self addChild:overallScore];
+    
+    //animate totalGems score
+    [overallScore runAction:
+     [CCSequence actions:
+      [CCDelayTime actionWithDuration:3.6],
       [CCScaleTo actionWithDuration:0 scale:20],
       [CCScaleTo actionWithDuration:.5 scale:1], nil]];
 }

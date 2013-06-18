@@ -407,7 +407,6 @@
 -(void) startNextLevel
 {
     [self scheduleOnce:@selector(startLevel) delay:10];
-    timer.totalSeconds = 120;
     [timer startTimer];
     
     //clear gamegrid of gems so that a new level can start
@@ -418,6 +417,7 @@
     //start level again
     [self scheduleUpdate];
     [levelManager nextStage];
+    timer.totalSeconds = [levelManager floatForProp:@"time"];//set timer based on plist value
     [self scheduleOnce:@selector(gemify) delay:10];
     [self scheduleOnce:@selector(makePowerupsLive) delay:11]; //makes powerups live
 }

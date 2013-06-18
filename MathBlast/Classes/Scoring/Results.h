@@ -13,7 +13,7 @@
 
 @property (nonatomic) int totalSum;
 
--(void) displayResultBoard:(int)totalGemsCollected :(int)longestCombo :(int)timeLeft;
+-(void) displayResultBoard:(int)totalGemsCollected :(int)longestCombo :(int)timeLeft :(int)levelScore :(int)targetScore;
 
 -(void) gameOver;
 

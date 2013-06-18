@@ -42,6 +42,10 @@
                 [self makeThreeGem];
                 _value = 3;
                 break;
+            case 4:
+                [self makeFourGem];
+                _value = 4;
+                break;
         }
     }
     return self;
@@ -73,6 +77,13 @@
 -(void) makeThreeGem
 {
     _gem = [CCSprite spriteWithFile:@"three_gem.png"];
+    
+    [self animateSprite];
+}
+
+-(void) makeFourGem
+{
+    _gem = [CCSprite spriteWithFile:@"four_gem.png"];
     
     [self animateSprite];
 }

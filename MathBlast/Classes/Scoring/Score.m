@@ -383,7 +383,7 @@
         gc = gameC;
         
         //display result screen
-        [result displayResultBoard:totalGemsCollected :combo :timeLeft];
+        [result displayResultBoard:totalGemsCollected :combo :timeLeft :levelScore :targetScore];
         
         //set powerup idle and remove used
         NSMutableArray *temp = [[NSMutableArray alloc] init];
@@ -485,6 +485,8 @@
     [self removeChild:progressDone];
     
     levelScore = 0;
+    totalGemsCollected = 0;
+    combo = 0;
     turnOffProgress = NO;
     [self fillProgressBar:0.0];
     
