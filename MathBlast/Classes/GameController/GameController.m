@@ -18,30 +18,30 @@
 #import "Title.h"
 @implementation GameController{
     
+    //draw line method's helper variables
     CGPoint locationBegin;
     CGPoint locationBeginSection;
     CGPoint locationEndLine;
     CGPoint locationEnd;
     CGPoint locationReset;
     
-    bool isHorizontal;
-    bool isVertical;
-    bool resetBool;
-    bool endLevel;
-    bool beginDrawHistory;
+    bool isHorizontal;//if draw line is currently horizontal
+    bool isVertical;//if draw line is currently vertical
+    bool endLevel;//if level has ended
+    bool beginDrawHistory;//save points into a draw array so all lines can be drawn from
     
-    NSMutableArray *drawArrayBegin;
-    NSMutableArray *drawArrayEnd;
+    NSMutableArray *drawArrayBegin;//stores line points
+    NSMutableArray *drawArrayEnd;//stores line points
     
-    GameBoard *gameBoard;
+    GameBoard *gameBoard;//reference to the gameboard
     
-    Background *bckLayer;
+    Background *bckLayer;//reference to the background
     
-    Timer *timer;
+    Timer *timer;//level timer
     
-    Score *score;
+    Score *score;//scoring
     
-    LevelManager *levelManager;
+    LevelManager *levelManager;//reference to the level manager
 }
 
 
@@ -89,6 +89,7 @@
         gameBoard = [[GameBoard alloc] init];
         NSLog(@"gameboard size: %d", [gameBoard.allPoints count]);
         
+        //add timer
         timer = [Timer node];
         [self addChild:timer z:-1];
         
@@ -96,9 +97,7 @@
         score = [Score node];
         [self addChild:score z:-1];
         
-        //DrawLayer *sand = [DrawLayer node];
-        //[self addChild:sand];
-   
+        //setup game
         _spriteArray = [[NSMutableArray alloc] init];
         drawArrayBegin = [[NSMutableArray alloc] init];
         drawArrayEnd = [[NSMutableArray alloc] init];
@@ -112,6 +111,14 @@
     return self;
 }
 
+/*******************************************************************************
+ * @method      setupLevelManager
+ * @abstract    
+ * @description
+ -------------------------------------------------------------------------------
+ Creates a level manager as a plist. Can change/add level and input params like
+ level duration, level target score, types of powerups, etc. 
+ *******************************************************************************/
 - (void)setupLevelManager {
     levelManager = [[LevelManager alloc] init];
     [levelManager nextStage];
@@ -122,18 +129,26 @@
     endLevel = NO;
 }
 
-//generates gems on the game board
+/*******************************************************************************
+ * @method      gemify
+ * @abstract    
+ * @description
+ -------------------------------------------------------------------------------
+ Generates the proper gems on the board. Loops through the gameboard to grab the
+ correct coordinates and if that space does not have gem on it, it generates
+ one.
+ *******************************************************************************/
 -(void) gemify
 {
     for (GameGrid *gg in gameBoard.allPoints) {
-        int gemran = [levelManager floatForProp:@"gem"];
-        int r = arc4random() % gemran;
+        int gemran = [levelManager floatForProp:@"gem"];//grab which gems to generate via level manager plist
+        int r = arc4random() % gemran;//generates a random value (type of gem)
         if(!gg.hasGem){
-            Gems *newGem = [[Gems alloc] initWithValueAndPosition:r :gg.gridPoint];
-            [self addChild:newGem.gem z:-2];
+            Gems *newGem = [[Gems alloc] initWithValueAndPosition:r :gg.gridPoint];//new gem
+            [self addChild:newGem.gem z:-2];//add gem to our scene
             gg.hasGem = YES;
             newGem.gem.scale = .8;
-            [_spriteArray addObject:newGem];
+            [_spriteArray addObject:newGem];//add gem to our array of gems (currently playing)
             
         }
     }
@@ -153,13 +168,13 @@
         locationBegin = [touch locationInView: [touch view]];
         locationBegin = [[CCDirector sharedDirector] convertToGL:locationBegin];
         
-        //find center of gem
+        //find center of gem to draw lines from
         for (Gems *sprite in _spriteArray) {
             if (CGRectContainsPoint(sprite.gem.boundingBox, ccp(locationBegin.x, locationBegin.y))) {
                 locationBegin = sprite.point;
             }
         }
-        //if touch is not a gem
+        //if touch is not a gem, reset touch to be in bounds
         if(locationBegin.x < 370){
             locationBegin.x = 370.0;
         }
@@ -197,8 +212,6 @@
         for (Gems *sprite in _spriteArray) {
             
             if (CGRectContainsPoint(sprite.gem.boundingBox, ccp(locationEnd.x, locationEnd.y))){
-                //NSLog(@"LocBeginSec : %f" , locationBeginSection.y);
-                //NSLog(@"LocEnd : %f" , locationEnd.x);
                 
                 sprite.gem.scale = 1.1;
                 sprite.touched = YES;
@@ -206,7 +219,7 @@
                 //check for orientation
                 //if horizontal
                 if((locationBeginSection.x < sprite.point.x || locationBeginSection.x > sprite.point.x) && (locationBeginSection.y == sprite.point.y)){
-                    if(isVertical){
+                    if(isVertical){//if the player changed orientation
                         isVertical = NO;
                         //add draw points for history
                         beginDrawHistory = YES;
@@ -220,7 +233,7 @@
                 }
                 //if vertical
                 else if((locationBeginSection.y < sprite.point.y || locationBeginSection.y > sprite.point.y) && (locationBeginSection.x == sprite.point.x)){
-                    if(isHorizontal){
+                    if(isHorizontal){//player changed orientation
                         isHorizontal = NO;
                         //add draw points for history
                         beginDrawHistory = YES;
@@ -232,7 +245,7 @@
                     locationBeginSection = sprite.point;
                     locationEndLine = locationBeginSection;
                 }
-                //if diagonal
+                //if diagonal do nothing
                 else if ((locationBeginSection.x < sprite.point.x || locationBeginSection.x > sprite.point.x) && (locationBeginSection.y < sprite.point.y || locationBeginSection.y > sprite.point.y)){
                     sprite.gem.scale = 1;
                     sprite.touched = NO;
@@ -256,7 +269,7 @@
         return;
     }
     else {
-        //[self removeAllChildren];
+        //reset locations for draw line
         locationBegin = locationReset;
         locationEnd = locationReset;
         
@@ -267,15 +280,22 @@
         [drawArrayBegin removeAllObjects];
         [drawArrayEnd removeAllObjects];
         
+        //apply some logic after player move
         [self gemLogic];
     }
 }
 
-//apply removal, regeneraton of gem, and scoring logic
+/*******************************************************************************
+ * @method      gemLogic
+ * @abstract
+ * @description
+ -------------------------------------------------------------------------------
+ apply removal, regeneraton of gem, and scoring logic
+ *******************************************************************************/
 -(void)gemLogic
 {
-    NSMutableArray *toDelete = [NSMutableArray array];
-    int totalGemsTouched = 0;
+    NSMutableArray *toDelete = [NSMutableArray array];//temporary array to remove used gems
+    int totalGemsTouched = 0;//scoring helper variables
     int totalGemsValue = 0;
     NSMutableArray *distinctGems = [[NSMutableArray alloc] init];
     
@@ -291,7 +311,7 @@
         }
     }
     
-    //do gem remove logic if sum is correct
+    //do gem remove logic if sum is correct- add to deletearray
     if(totalGemsValue == score.levelTarget){
         for (Gems *sprite in _spriteArray) {
             if(sprite.touched){
@@ -300,7 +320,7 @@
                 [sprite putGemInTreasureChest];
                 [toDelete addObject:sprite];
                 
-                //update board
+                //update board - tell gamegrid no gem exists at the correct coordinates
                 for (GameGrid *gg in gameBoard.allPoints) {
                     if(sprite.point.x == gg.gridPoint.x && sprite.point.y == gg.gridPoint.y){
                         gg.hasGem = NO;
@@ -315,8 +335,8 @@
         //calculate score if the right gem sum
         NSArray *distinctArray =  [[NSSet setWithArray:distinctGems] allObjects];
         int distinct = [distinctArray count];
-        int scoreForTurn = (score.levelTarget * totalGemsTouched) * distinct;
-        [score addScore:scoreForTurn :locationEndLine : totalGemsTouched :distinct :timer.totalSeconds :levelManager];
+        int scoreForTurn = (score.levelTarget * totalGemsTouched) * distinct;//scoring algorithm
+        [score addScore:scoreForTurn :locationEndLine : totalGemsTouched :distinct :timer.totalSeconds :levelManager];//send score to the score class
         
         //move gems down to empty spaces
         [self fillEmptySpacesWithGems];
@@ -332,6 +352,14 @@
     [self gemify];
 }
 
+/*******************************************************************************
+ * @method      resetGemSize
+ * @abstract
+ * @description
+ -------------------------------------------------------------------------------
+ Reset gems on the board. Scales them to proper size and makes sure they are still
+ untouched.
+ *******************************************************************************/
 -(void) resetGemSize
 {
     for (Gems *sprite in _spriteArray) {
@@ -340,6 +368,15 @@
     }
 }
 
+/*******************************************************************************
+ * @method      fillEmptySpacesWithGems
+ * @abstract
+ * @description
+ -------------------------------------------------------------------------------
+ After each turn, method checks each gem against the board. If the gem has an 
+ empty space below it, make that space empty and move the gem downwards. Repeats
+ this for every gem each time an action is performed. This is an n! algorithm.
+ *******************************************************************************/
 - (void)fillEmptySpacesWithGems
 {
     bool emptySpace = YES;
@@ -366,6 +403,7 @@
     }
 }
 
+//helper method to shake the screen if the players turn is not valid.
 - (void)shakeScreen:(int)times {
     if(locationBeginSection.x == 370) { return; }
     id shakeLow = [CCMoveBy
@@ -382,6 +420,14 @@
     [self runAction:shakeAction];
 }
 
+/*******************************************************************************
+ * @method      update
+ * @abstract
+ * @description
+ -------------------------------------------------------------------------------
+ Checks for endgame. If time expires, end the level. Lets score class know level
+ ended. Empties the gems on the board and any draw lines.
+ *******************************************************************************/
 -(void) update:(ccTime)delta //keeps track if level was completed
 {
     //do end level animations if level is over
@@ -404,6 +450,13 @@
     }
 }
 
+/*******************************************************************************
+ * @method      startNextLevel
+ * @abstract
+ * @description
+ -------------------------------------------------------------------------------
+ Schedules the next level. Sets up the board so 64 new gems can be generated.
+ *******************************************************************************/
 -(void) startNextLevel
 {
     [self scheduleOnce:@selector(startLevel) delay:10];
@@ -422,6 +475,7 @@
     [self scheduleOnce:@selector(makePowerupsLive) delay:11]; //makes powerups live
 }
 
+//turn on and off powerups
 -(void) makePowerupsLive
 {
     for (Powerups *powerup in score.arrayOfPowerups) {
@@ -431,6 +485,7 @@
     }
 }
 
+//Draws the line between gems
 -(void)draw
 {
     if(endLevel){ return; }
