@@ -28,12 +28,12 @@
     bool isHorizontal;//if draw line is currently horizontal
     bool isVertical;//if draw line is currently vertical
     bool endLevel;//if level has ended
-    bool beginDrawHistory;//save points into a draw array so all lines can be drawn from
+    bool beginDrawHistory;//save points into a draw array so all lines can be drawn from it
     
     NSMutableArray *drawArrayBegin;//stores line points
     NSMutableArray *drawArrayEnd;//stores line points
     
-    GameBoard *gameBoard;//reference to the gameboard
+    GameBoard *gameBoard;//reference to the gameboard- gameboard has all coordinates on the grid
     
     Background *bckLayer;//reference to the background
     
@@ -85,7 +85,7 @@
         bckLayer = [[Background node] initWithController:self];
         [self addChild:bckLayer z:-5];
         
-        //add logic to game (game grid)
+        //add logic to game (game grid and coordinates)
         gameBoard = [[GameBoard alloc] init];
         NSLog(@"gameboard size: %d", [gameBoard.allPoints count]);
         
@@ -117,7 +117,7 @@
  * @description
  -------------------------------------------------------------------------------
  Creates a level manager as a plist. Can change/add level and input params like
- level duration, level target score, types of powerups, etc. 
+ level duration, level target score, types of powerups, etc, all from a plist. 
  *******************************************************************************/
 - (void)setupLevelManager {
     levelManager = [[LevelManager alloc] init];
@@ -374,8 +374,9 @@
  * @description
  -------------------------------------------------------------------------------
  After each turn, method checks each gem against the board. If the gem has an 
- empty space below it, make that space empty and move the gem downwards. Repeats
- this for every gem each time an action is performed. This is an n! algorithm.
+ empty space below it, make the currently occupied space empty and moves the gem 
+ downwards. Repeats this for every gem each time an action is performed. 
+ This is an n! algorithm.
  *******************************************************************************/
 - (void)fillEmptySpacesWithGems
 {
@@ -426,7 +427,7 @@
  * @description
  -------------------------------------------------------------------------------
  Checks for endgame. If time expires, end the level. Lets score class know level
- ended. Empties the gems on the board and any draw lines.
+ ended. Empties the gems on the board and any lines drawn.
  *******************************************************************************/
 -(void) update:(ccTime)delta //keeps track if level was completed
 {
