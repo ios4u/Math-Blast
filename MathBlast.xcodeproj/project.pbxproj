@@ -236,6 +236,9 @@
 		5288A156176C0B98005CA0F3 /* good.png in Resources */ = {isa = PBXBuildFile; fileRef = 5288A153176C0B98005CA0F3 /* good.png */; };
 		5288A157176C0B98005CA0F3 /* great.png in Resources */ = {isa = PBXBuildFile; fileRef = 5288A154176C0B98005CA0F3 /* great.png */; };
 		5288A159176E7A79005CA0F3 /* four_gem.png in Resources */ = {isa = PBXBuildFile; fileRef = 5288A158176E7A79005CA0F3 /* four_gem.png */; };
+		5288A15B17729254005CA0F3 /* gem_collect.caf in Resources */ = {isa = PBXBuildFile; fileRef = 5288A15A17729253005CA0F3 /* gem_collect.caf */; };
+		5288A160177292D0005CA0F3 /* Sounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 5288A15F177292D0005CA0F3 /* Sounds.m */; };
+		5288A16517729E90005CA0F3 /* gem_collectmedium.caf in Resources */ = {isa = PBXBuildFile; fileRef = 5288A16417729E90005CA0F3 /* gem_collectmedium.caf */; };
 		528D2DA317639B3300108BC0 /* Gems.m in Sources */ = {isa = PBXBuildFile; fileRef = 528D2DA217639B3300108BC0 /* Gems.m */; };
 		528D2DA91763BE1C00108BC0 /* GameBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 528D2DA81763BE1C00108BC0 /* GameBoard.m */; };
 		528D2DAC1763C3F300108BC0 /* GameGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = 528D2DAB1763C3F300108BC0 /* GameGrid.m */; };
@@ -674,6 +677,10 @@
 		5288A153176C0B98005CA0F3 /* good.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = good.png; sourceTree = "<group>"; };
 		5288A154176C0B98005CA0F3 /* great.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = great.png; sourceTree = "<group>"; };
 		5288A158176E7A79005CA0F3 /* four_gem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = four_gem.png; sourceTree = "<group>"; };
+		5288A15A17729253005CA0F3 /* gem_collect.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = gem_collect.caf; path = MathBlast/Sounds/gem_collect.caf; sourceTree = "<group>"; };
+		5288A15E177292D0005CA0F3 /* Sounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sounds.h; path = MathBlast/Classes/Sounds/Sounds.h; sourceTree = "<group>"; };
+		5288A15F177292D0005CA0F3 /* Sounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Sounds.m; path = MathBlast/Classes/Sounds/Sounds.m; sourceTree = "<group>"; };
+		5288A16417729E90005CA0F3 /* gem_collectmedium.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = gem_collectmedium.caf; path = MathBlast/Sounds/gem_collectmedium.caf; sourceTree = "<group>"; };
 		528D2DA117639B3300108BC0 /* Gems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gems.h; path = Gems/Gems.h; sourceTree = "<group>"; };
 		528D2DA217639B3300108BC0 /* Gems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Gems.m; path = Gems/Gems.m; sourceTree = "<group>"; };
 		528D2DA71763BE1C00108BC0 /* GameBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameBoard.h; path = GameBoard/GameBoard.h; sourceTree = "<group>"; };
@@ -807,8 +814,8 @@
 				528D2DB217641CBE00108BC0 /* Gems */,
 				528D2DB117641C9F00108BC0 /* GameBoard */,
 				526F7B1A1767C3A000817C61 /* Scoring */,
-				526F7B051766EE7B00817C61 /* Emitters */,
-				5278837B1721F2C100EF9AD4 /* images */,
+				5288A161177292E7005CA0F3 /* Sounds */,
+				5288A15D1772929C005CA0F3 /* Media */,
 				527881481721E98E00EF9AD4 /* Resources */,
 				527881601721E98F00EF9AD4 /* libs */,
 				527883641721E99400EF9AD4 /* Supporting Files */,
@@ -1433,6 +1440,36 @@
 			path = Labels;
 			sourceTree = "<group>";
 		};
+		5288A15C1772926C005CA0F3 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				5288A16417729E90005CA0F3 /* gem_collectmedium.caf */,
+				5288A15A17729253005CA0F3 /* gem_collect.caf */,
+			);
+			name = Sounds;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		5288A15D1772929C005CA0F3 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				526F7B051766EE7B00817C61 /* Emitters */,
+				5288A15C1772926C005CA0F3 /* Sounds */,
+				5278837B1721F2C100EF9AD4 /* images */,
+			);
+			name = Media;
+			sourceTree = "<group>";
+		};
+		5288A161177292E7005CA0F3 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				5288A15E177292D0005CA0F3 /* Sounds.h */,
+				5288A15F177292D0005CA0F3 /* Sounds.m */,
+			);
+			name = Sounds;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		528D2DB117641C9F00108BC0 /* GameBoard */ = {
 			isa = PBXGroup;
 			children = (
@@ -1567,6 +1604,8 @@
 				5288A156176C0B98005CA0F3 /* good.png in Resources */,
 				5288A157176C0B98005CA0F3 /* great.png in Resources */,
 				5288A159176E7A79005CA0F3 /* four_gem.png in Resources */,
+				5288A15B17729254005CA0F3 /* gem_collect.caf in Resources */,
+				5288A16517729E90005CA0F3 /* gem_collectmedium.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1744,6 +1783,7 @@
 				526F7B28176828B600817C61 /* Powerups.m in Sources */,
 				52889ED5176917F2005CA0F3 /* GameController.m in Sources */,
 				52889EE6176B271E005CA0F3 /* LevelManager.m in Sources */,
+				5288A160177292D0005CA0F3 /* Sounds.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

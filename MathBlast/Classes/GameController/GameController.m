@@ -16,6 +16,7 @@
 #import "Score.h"
 #import "Powerups.h"
 #import "Title.h"
+#import "Sounds.h"
 @implementation GameController{
     
     //draw line method's helper variables
@@ -42,6 +43,8 @@
     Score *score;//scoring
     
     LevelManager *levelManager;//reference to the level manager
+    
+    Sounds *sounds;
 }
 
 
@@ -96,6 +99,9 @@
         //add scoring
         score = [Score node];
         [self addChild:score z:-1];
+        
+        //setup sounds
+        sounds = [[Sounds alloc] init];
         
         //setup game
         _spriteArray = [[NSMutableArray alloc] init];
@@ -338,6 +344,8 @@
         int scoreForTurn = (score.levelTarget * totalGemsTouched) * distinct;//scoring algorithm
         [score addScore:scoreForTurn :locationEndLine : totalGemsTouched :distinct :timer.totalSeconds :levelManager];//send score to the score class
         
+        //play sound according to gems collected
+        [self playSound:totalGemsTouched];
         //move gems down to empty spaces
         [self fillEmptySpacesWithGems];
         
@@ -350,6 +358,16 @@
     
     //replace empty spaces with new gems
     [self gemify];
+}
+
+-(void) playSound:(int)gems
+{
+    if(gems < 5){
+        [sounds playGemCollect];
+    }
+    else{
+        [sounds playGemCollectMedium];
+    }
 }
 
 /*******************************************************************************
