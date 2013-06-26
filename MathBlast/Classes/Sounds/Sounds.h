@@ -15,5 +15,6 @@
 
 -(void) playGemCollect;
 -(void) playGemCollectMedium;
+-(void) playClock;
 
 @end

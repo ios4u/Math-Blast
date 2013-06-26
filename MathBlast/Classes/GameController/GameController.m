@@ -30,6 +30,7 @@
     bool isVertical;//if draw line is currently vertical
     bool endLevel;//if level has ended
     bool beginDrawHistory;//save points into a draw array so all lines can be drawn from it
+    bool timeExpiring;//flag that keeps track if time expiration sound should play
     
     NSMutableArray *drawArrayBegin;//stores line points
     NSMutableArray *drawArrayEnd;//stores line points
@@ -449,6 +450,13 @@
  *******************************************************************************/
 -(void) update:(ccTime)delta //keeps track if level was completed
 {
+    //play timer sound
+    if(timer.totalSeconds == 10){
+        if(!timeExpiring){
+            [sounds playClock];
+            timeExpiring = YES;
+        }
+    }
     //do end level animations if level is over
     if(timer.totalSeconds == 0){
         endLevel = YES;
@@ -466,6 +474,7 @@
         locationEnd = locationReset;
         isHorizontal = NO;
         isVertical = NO;
+        timeExpiring = NO;
     }
 }
 

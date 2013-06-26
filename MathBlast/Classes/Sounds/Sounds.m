@@ -28,17 +28,23 @@
 {
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"gem_collect.caf"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"gem_collectmedium.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"clock.caf"];
+
 }
 
 -(void) playGemCollect
 {
-    [[SimpleAudioEngine sharedEngine] playEffect:@"gem_collect.caf"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"gem_collect.caf" pitch:1 pan:1 gain:.1];
 }
 
 -(void) playGemCollectMedium
 {
-    NSLog(@"playing");
-    [[SimpleAudioEngine sharedEngine] playEffect:@"gem_collectmedium.caf"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"gem_collectmedium.caf" pitch:1 pan:1 gain:.1];
+}
+
+-(void) playClock
+{
+    [[SimpleAudioEngine sharedEngine] playEffect:@"clock.caf"];
 }
 
 @end

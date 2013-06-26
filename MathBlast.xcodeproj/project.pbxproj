@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52664E64177A196E00988278 /* clock.caf in Resources */ = {isa = PBXBuildFile; fileRef = 52664E63177A196E00988278 /* clock.caf */; };
+		52664E66177A303200988278 /* mathblastLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 52664E65177A303200988278 /* mathblastLogo.png */; };
+		52664E6B177A462F00988278 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 52664E6A177A462F00988278 /* play.png */; };
+		52664E6D177A47CE00988278 /* back4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 52664E6C177A47CE00988278 /* back4.jpg */; };
+		52664E70177A4CB700988278 /* scores.png in Resources */ = {isa = PBXBuildFile; fileRef = 52664E6E177A4CB700988278 /* scores.png */; };
+		52664E71177A4CB700988278 /* tutorial.png in Resources */ = {isa = PBXBuildFile; fileRef = 52664E6F177A4CB700988278 /* tutorial.png */; };
+		52664E74177A545C00988278 /* Common.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52664E73177A545C00988278 /* Common.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		526F7AEF176504AC00817C61 /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = 526F7AEE176504AC00817C61 /* Timer.m */; };
 		526F7AFA17653B5200817C61 /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = 526F7AF917653B5200817C61 /* Score.m */; };
 		526F7B111767090B00817C61 /* clear.plist in Resources */ = {isa = PBXBuildFile; fileRef = 526F7B101767090B00817C61 /* clear.plist */; };
@@ -246,6 +253,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52664E63177A196E00988278 /* clock.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = clock.caf; path = MathBlast/Sounds/clock.caf; sourceTree = "<group>"; };
+		52664E65177A303200988278 /* mathblastLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mathblastLogo.png; path = ../Title/mathblastLogo.png; sourceTree = "<group>"; };
+		52664E6A177A462F00988278 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		52664E6C177A47CE00988278 /* back4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = back4.jpg; sourceTree = "<group>"; };
+		52664E6E177A4CB700988278 /* scores.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scores.png; sourceTree = "<group>"; };
+		52664E6F177A4CB700988278 /* tutorial.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial.png; sourceTree = "<group>"; };
+		52664E72177A545C00988278 /* Common.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = Common.h; sourceTree = "<group>"; };
+		52664E73177A545C00988278 /* Common.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Common.mm; sourceTree = "<group>"; };
 		526F7AED176504AC00817C61 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Timer.h; path = GameBoard/Timer.h; sourceTree = "<group>"; };
 		526F7AEE176504AC00817C61 /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Timer.m; path = GameBoard/Timer.m; sourceTree = "<group>"; };
 		526F7AF917653B5200817C61 /* Score.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Score.m; sourceTree = "<group>"; };
@@ -742,6 +757,18 @@
 			);
 			name = GameController;
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		52664E69177A43DA00988278 /* Title */ = {
+			isa = PBXGroup;
+			children = (
+				52664E6E177A4CB700988278 /* scores.png */,
+				52664E6F177A4CB700988278 /* tutorial.png */,
+				52664E65177A303200988278 /* mathblastLogo.png */,
+				52664E6A177A462F00988278 /* play.png */,
+			);
+			name = Title;
+			path = Backgrounds;
 			sourceTree = "<group>";
 		};
 		526F7B051766EE7B00817C61 /* Emitters */ = {
@@ -1355,6 +1382,8 @@
 		527883641721E99400EF9AD4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				52664E72177A545C00988278 /* Common.h */,
+				52664E73177A545C00988278 /* Common.mm */,
 				527883711721E99400EF9AD4 /* GLES-Render.h */,
 				527883721721E99400EF9AD4 /* GLES-Render.mm */,
 				527883681721E99400EF9AD4 /* AppDelegate.h */,
@@ -1371,6 +1400,7 @@
 				5288A151176C0B98005CA0F3 /* Labels */,
 				5288A144176C0B8F005CA0F3 /* Gems */,
 				5288A137176C0B84005CA0F3 /* Introimages */,
+				52664E69177A43DA00988278 /* Title */,
 				52889EF9176C0B39005CA0F3 /* Backgrounds */,
 			);
 			path = images;
@@ -1379,6 +1409,7 @@
 		52889EF9176C0B39005CA0F3 /* Backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				52664E6C177A47CE00988278 /* back4.jpg */,
 				52889EFA176C0B39005CA0F3 /* back1.jpg */,
 				52889EFB176C0B39005CA0F3 /* back2.jpg */,
 				52889EFC176C0B39005CA0F3 /* back3.jpg */,
@@ -1444,6 +1475,7 @@
 			isa = PBXGroup;
 			children = (
 				5288A16417729E90005CA0F3 /* gem_collectmedium.caf */,
+				52664E63177A196E00988278 /* clock.caf */,
 				5288A15A17729253005CA0F3 /* gem_collect.caf */,
 			);
 			name = Sounds;
@@ -1606,6 +1638,12 @@
 				5288A159176E7A79005CA0F3 /* four_gem.png in Resources */,
 				5288A15B17729254005CA0F3 /* gem_collect.caf in Resources */,
 				5288A16517729E90005CA0F3 /* gem_collectmedium.caf in Resources */,
+				52664E64177A196E00988278 /* clock.caf in Resources */,
+				52664E66177A303200988278 /* mathblastLogo.png in Resources */,
+				52664E6B177A462F00988278 /* play.png in Resources */,
+				52664E6D177A47CE00988278 /* back4.jpg in Resources */,
+				52664E70177A4CB700988278 /* scores.png in Resources */,
+				52664E71177A4CB700988278 /* tutorial.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1784,6 +1822,7 @@
 				52889ED5176917F2005CA0F3 /* GameController.m in Sources */,
 				52889EE6176B271E005CA0F3 /* LevelManager.m in Sources */,
 				5288A160177292D0005CA0F3 /* Sounds.m in Sources */,
+				52664E74177A545C00988278 /* Common.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
