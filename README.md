@@ -5,7 +5,7 @@ iOS Addition matching game (like Bejeweled)
 
 ## Overview
 
-Math-Blast is an educational, addition matching game. Much like Bejeweled, where you have to match gems of a certain color, in Math Blast, you have to match gems of different (or same) values that adds up to a determined amount (determined by what level you are playing). For example, in level one of the game, you have to match gems that add up to 4. If you swipe across the following gems, 2 1 0 1, you successfully captured those gems giving you points. Bonuses are awarded for the number of gems you used, and the number of distinct numbers you used (2,1,1 is better than 2,2). 0 is a very popular gem that you can use to build up combos. For example, in level one, 2 2 will give you a score of 8 (look below for scoring algorithm) while 2 1 1 will give you a score of 24.
+Math-Blast is an educational, addition matching game. Much like Bejeweled, where you have to match gems of a certain color, in Math Blast, you have to match gems with values that adds up to a determined amount. For example, in level one of the game, you have to match gems that add up to 4. If you swipe across the following gems, 2 1 0 1, you successfully captured those gems giving you points. Bonuses are awarded for the number of gems you used, and the number of distinct numbers you used (2,1,1 is better than 2,2). 0 is a very popular gem that you can use to build up combos. For example, in level one, 2 2 will give you a score of 8 (look below for scoring algorithm) while 2 1 1 will give you a score of 24.
 
 Scoring algorithm is as follows:
 
