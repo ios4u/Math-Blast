@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5227CA4517875D8000D80872 /* Tutorial.m in Sources */ = {isa = PBXBuildFile; fileRef = 5227CA4417875D8000D80872 /* Tutorial.m */; };
 		52664E64177A196E00988278 /* clock.caf in Resources */ = {isa = PBXBuildFile; fileRef = 52664E63177A196E00988278 /* clock.caf */; };
 		52664E66177A303200988278 /* mathblastLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 52664E65177A303200988278 /* mathblastLogo.png */; };
 		52664E6B177A462F00988278 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 52664E6A177A462F00988278 /* play.png */; };
@@ -253,6 +254,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5227CA4317875D8000D80872 /* Tutorial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tutorial.h; path = Tutorial/Tutorial.h; sourceTree = "<group>"; };
+		5227CA4417875D8000D80872 /* Tutorial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tutorial.m; path = Tutorial/Tutorial.m; sourceTree = "<group>"; };
 		52664E63177A196E00988278 /* clock.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = clock.caf; path = MathBlast/Sounds/clock.caf; sourceTree = "<group>"; };
 		52664E65177A303200988278 /* mathblastLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mathblastLogo.png; path = ../Title/mathblastLogo.png; sourceTree = "<group>"; };
 		52664E6A177A462F00988278 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
@@ -759,6 +762,16 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		5227CA4217875D2A00D80872 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				5227CA4317875D8000D80872 /* Tutorial.h */,
+				5227CA4417875D8000D80872 /* Tutorial.m */,
+			);
+			name = Tutorial;
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		52664E69177A43DA00988278 /* Title */ = {
 			isa = PBXGroup;
 			children = (
@@ -837,6 +850,7 @@
 			children = (
 				520136AA175BE6C8001AFECF /* IntroScreen */,
 				520136AB175BE6DA001AFECF /* TitleScreen */,
+				5227CA4217875D2A00D80872 /* Tutorial */,
 				520136AF175BF4DF001AFECF /* GameController */,
 				528D2DB217641CBE00108BC0 /* Gems */,
 				528D2DB117641C9F00108BC0 /* GameBoard */,
@@ -1823,6 +1837,7 @@
 				52889EE6176B271E005CA0F3 /* LevelManager.m in Sources */,
 				5288A160177292D0005CA0F3 /* Sounds.m in Sources */,
 				52664E74177A545C00988278 /* Common.mm in Sources */,
+				5227CA4517875D8000D80872 /* Tutorial.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
