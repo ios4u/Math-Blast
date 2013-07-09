@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5227CA4517875D8000D80872 /* Tutorial.m in Sources */ = {isa = PBXBuildFile; fileRef = 5227CA4417875D8000D80872 /* Tutorial.m */; };
+		5227CA471787633000D80872 /* back4blur.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5227CA461787633000D80872 /* back4blur.jpg */; };
 		52664E64177A196E00988278 /* clock.caf in Resources */ = {isa = PBXBuildFile; fileRef = 52664E63177A196E00988278 /* clock.caf */; };
 		52664E66177A303200988278 /* mathblastLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 52664E65177A303200988278 /* mathblastLogo.png */; };
 		52664E6B177A462F00988278 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 52664E6A177A462F00988278 /* play.png */; };
@@ -256,6 +257,7 @@
 /* Begin PBXFileReference section */
 		5227CA4317875D8000D80872 /* Tutorial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tutorial.h; path = Tutorial/Tutorial.h; sourceTree = "<group>"; };
 		5227CA4417875D8000D80872 /* Tutorial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tutorial.m; path = Tutorial/Tutorial.m; sourceTree = "<group>"; };
+		5227CA461787633000D80872 /* back4blur.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = back4blur.jpg; sourceTree = "<group>"; };
 		52664E63177A196E00988278 /* clock.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = clock.caf; path = MathBlast/Sounds/clock.caf; sourceTree = "<group>"; };
 		52664E65177A303200988278 /* mathblastLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mathblastLogo.png; path = ../Title/mathblastLogo.png; sourceTree = "<group>"; };
 		52664E6A177A462F00988278 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
@@ -1424,6 +1426,7 @@
 			isa = PBXGroup;
 			children = (
 				52664E6C177A47CE00988278 /* back4.jpg */,
+				5227CA461787633000D80872 /* back4blur.jpg */,
 				52889EFA176C0B39005CA0F3 /* back1.jpg */,
 				52889EFB176C0B39005CA0F3 /* back2.jpg */,
 				52889EFC176C0B39005CA0F3 /* back3.jpg */,
@@ -1658,6 +1661,7 @@
 				52664E6D177A47CE00988278 /* back4.jpg in Resources */,
 				52664E70177A4CB700988278 /* scores.png in Resources */,
 				52664E71177A4CB700988278 /* tutorial.png in Resources */,
+				5227CA471787633000D80872 /* back4blur.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

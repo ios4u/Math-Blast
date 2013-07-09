@@ -10,5 +10,48 @@
 
 
 @implementation Tutorial
+{
+    CGSize winSize;
+}
+
++(CCScene *) scene
+{
+	// 'scene' is an autorelease object.
+	CCScene *scene = [CCScene node];
+	
+	// 'layer' is an autorelease object.
+	Tutorial *layer = [Tutorial node];
+    
+	// add layer as a child to scene
+	[scene addChild: layer];
+    //[scene addChild:sand];
+	
+	// return the scene
+	return scene;
+}
+
+-(id) init
+{
+    if( (self=[super init])) {
+        
+        winSize = [CCDirector sharedDirector].winSize;
+        
+        //[self scheduleOnce:@selector(exitScene) delay:3];
+        [self setupBackground];
+        
+    }
+    
+    return self;
+}
+
+-(void) setupBackground
+{
+    
+    CCSprite *bck = [CCSprite spriteWithFile:@"back4blur.jpg"];
+    bck.position = ccp(winSize.width/2, winSize.height/2);
+    [self addChild:bck z:-5];
+    
+}
+
 
 @end
