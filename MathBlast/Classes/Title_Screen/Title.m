@@ -10,6 +10,7 @@
 #import "GameController.h"
 #import "Gems.h"
 #import "Tutorial.h"
+#import "Leaderboards.h"
 
 
 @implementation Title
@@ -190,17 +191,44 @@
 //      [CCFadeIn actionWithDuration:.5],
 //      nil]];
     
-    CCSprite *scores = [CCSprite spriteWithFile:@"scores.png"];
-    scores.position = ccp(winSize.width/2, winSize.height * .29);
-    scores.opacity = 0;
-    scores.scale = .8;
-    [self addChild: scores z:1];
+   
     
-    [scores runAction:
+    
+    
+    
+    CCSprite *highscores = [CCSprite spriteWithFile:@"scores.png"];
+    
+    CCMenuItemSprite *menuSpriteHighScores = [CCMenuItemSprite itemWithNormalSprite:highscores selectedSprite:nil target:self selector:@selector(highScoresTapped)];
+    
+    CCMenu *highScoresMenuButton = [CCMenu menuWithItems:menuSpriteHighScores, nil];
+    
+    highScoresMenuButton.position = ccp(winSize.width * .4, winSize.height * .19);
+    highScoresMenuButton.scale = .8;
+    highScoresMenuButton.opacity = 0;
+    highScoresMenuButton.tag = 10;
+    
+    [self addChild:highScoresMenuButton z:1];
+    
+    
+    [highScoresMenuButton runAction:
      [CCSequence actions:
       [CCDelayTime actionWithDuration:3.6],
       [CCFadeIn actionWithDuration:.5],
       nil]];
+    
+    
+    
+//    CCSprite *scores = [CCSprite spriteWithFile:@"scores.png"];
+//    scores.position = ccp(winSize.width/2, winSize.height * .29);
+//    scores.opacity = 0;
+//    scores.scale = .8;
+//    [self addChild: scores z:1];
+//    
+//    [scores runAction:
+//     [CCSequence actions:
+//      [CCDelayTime actionWithDuration:3.6],
+//      [CCFadeIn actionWithDuration:.5],
+//      nil]];
 }
 
 -(void) animateFallingGems
@@ -244,8 +272,15 @@
 -(void) tutorialTapped
 {
     [[CCDirector sharedDirector] replaceScene:
-     [CCTransitionFadeDown transitionWithDuration:2
+     [CCTransitionCrossFade transitionWithDuration:1
                                         scene:[Tutorial node]]];
+}
+
+-(void) highScoresTapped
+{
+    [[CCDirector sharedDirector] replaceScene:
+     [CCTransitionCrossFade transitionWithDuration:1
+                                            scene:[Leaderboards node]]];
 }
 
 //This function to give you a random number between two floats.

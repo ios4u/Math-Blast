@@ -252,6 +252,9 @@
 		528D2DA91763BE1C00108BC0 /* GameBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 528D2DA81763BE1C00108BC0 /* GameBoard.m */; };
 		528D2DAC1763C3F300108BC0 /* GameGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = 528D2DAB1763C3F300108BC0 /* GameGrid.m */; };
 		528D2DB517641CEA00108BC0 /* Background.m in Sources */ = {isa = PBXBuildFile; fileRef = 528D2DB417641CEA00108BC0 /* Background.m */; };
+		52B2BA051794BB1A003BF16C /* highscores.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B2BA041794BB1A003BF16C /* highscores.png */; };
+		52B2BA081794BB63003BF16C /* Leaderboards.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B2BA071794BB63003BF16C /* Leaderboards.m */; };
+		52B2BA0B1794BE95003BF16C /* longbackbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B2BA0A1794BE95003BF16C /* longbackbutton.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -709,6 +712,10 @@
 		528D2DAB1763C3F300108BC0 /* GameGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameGrid.m; path = GameBoard/GameGrid.m; sourceTree = "<group>"; };
 		528D2DB317641CEA00108BC0 /* Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Background.h; path = GameBoard/Background.h; sourceTree = "<group>"; };
 		528D2DB417641CEA00108BC0 /* Background.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Background.m; path = GameBoard/Background.m; sourceTree = "<group>"; };
+		52B2BA041794BB1A003BF16C /* highscores.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = highscores.png; sourceTree = "<group>"; };
+		52B2BA061794BB63003BF16C /* Leaderboards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Leaderboards.h; sourceTree = "<group>"; };
+		52B2BA071794BB63003BF16C /* Leaderboards.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Leaderboards.m; sourceTree = "<group>"; };
+		52B2BA0A1794BE95003BF16C /* longbackbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = longbackbutton.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -853,6 +860,7 @@
 				520136AA175BE6C8001AFECF /* IntroScreen */,
 				520136AB175BE6DA001AFECF /* TitleScreen */,
 				5227CA4217875D2A00D80872 /* Tutorial */,
+				52B2BA091794BB68003BF16C /* Leaderboards */,
 				520136AF175BF4DF001AFECF /* GameController */,
 				528D2DB217641CBE00108BC0 /* Gems */,
 				528D2DB117641C9F00108BC0 /* GameBoard */,
@@ -1429,12 +1437,14 @@
 				5227CA461787633000D80872 /* back4blur.jpg */,
 				52889EFA176C0B39005CA0F3 /* back1.jpg */,
 				52889EFB176C0B39005CA0F3 /* back2.jpg */,
+				52B2BA0A1794BE95003BF16C /* longbackbutton.png */,
 				52889EFC176C0B39005CA0F3 /* back3.jpg */,
 				5288A02E176C0B3A005CA0F3 /* bckgrid.png */,
 				5288A02F176C0B3A005CA0F3 /* bigArrow.png */,
 				5288A030176C0B3A005CA0F3 /* black.jpg */,
 				5288A031176C0B3A005CA0F3 /* detailBorder.png */,
 				5288A032176C0B3A005CA0F3 /* detailMenu.png */,
+				52B2BA041794BB1A003BF16C /* highscores.png */,
 				5288A033176C0B3A005CA0F3 /* gameoverMenu.png */,
 				5288A034176C0B3A005CA0F3 /* mainMenuButton.png */,
 				5288A035176C0B3A005CA0F3 /* pauseMenu.png */,
@@ -1542,6 +1552,16 @@
 				528D2DA217639B3300108BC0 /* Gems.m */,
 			);
 			name = Gems;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		52B2BA091794BB68003BF16C /* Leaderboards */ = {
+			isa = PBXGroup;
+			children = (
+				52B2BA061794BB63003BF16C /* Leaderboards.h */,
+				52B2BA071794BB63003BF16C /* Leaderboards.m */,
+			);
+			name = Leaderboards;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -1662,6 +1682,8 @@
 				52664E70177A4CB700988278 /* scores.png in Resources */,
 				52664E71177A4CB700988278 /* tutorial.png in Resources */,
 				5227CA471787633000D80872 /* back4blur.jpg in Resources */,
+				52B2BA051794BB1A003BF16C /* highscores.png in Resources */,
+				52B2BA0B1794BE95003BF16C /* longbackbutton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1842,6 +1864,7 @@
 				5288A160177292D0005CA0F3 /* Sounds.m in Sources */,
 				52664E74177A545C00988278 /* Common.mm in Sources */,
 				5227CA4517875D8000D80872 /* Tutorial.m in Sources */,
+				52B2BA081794BB63003BF16C /* Leaderboards.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
