@@ -36,7 +36,7 @@ Math Blast allows children and adults to practice various skills and become more
 
   * Sound
   * ~~Menu~~
-  * High Score
+  * Leaderboards
   * Game Center
   * Hints & Tips / Instructions
   * Track player progress
