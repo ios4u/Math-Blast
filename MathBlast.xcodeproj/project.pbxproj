@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5208B6F117985CED001DFF38 /* single_lightning_bolt.caf in Resources */ = {isa = PBXBuildFile; fileRef = 5208B6F017985CED001DFF38 /* single_lightning_bolt.caf */; };
+		5208B6F417985D4D001DFF38 /* SplashOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 5208B6F317985D4D001DFF38 /* SplashOne.m */; };
+		5208B6F717985FD0001DFF38 /* jr_productions_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 5208B6F517985FD0001DFF38 /* jr_productions_red.png */; };
+		5208B6F817985FD0001DFF38 /* jr_productions_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 5208B6F617985FD0001DFF38 /* jr_productions_white.png */; };
 		5227CA4517875D8000D80872 /* Tutorial.m in Sources */ = {isa = PBXBuildFile; fileRef = 5227CA4417875D8000D80872 /* Tutorial.m */; };
 		5227CA471787633000D80872 /* back4blur.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5227CA461787633000D80872 /* back4blur.jpg */; };
 		52664E64177A196E00988278 /* clock.caf in Resources */ = {isa = PBXBuildFile; fileRef = 52664E63177A196E00988278 /* clock.caf */; };
@@ -258,6 +262,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5208B6F017985CED001DFF38 /* single_lightning_bolt.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = single_lightning_bolt.caf; path = MathBlast/Sounds/single_lightning_bolt.caf; sourceTree = "<group>"; };
+		5208B6F217985D4D001DFF38 /* SplashOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SplashOne.h; path = Intro_Screen/SplashOne.h; sourceTree = "<group>"; };
+		5208B6F317985D4D001DFF38 /* SplashOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplashOne.m; path = Intro_Screen/SplashOne.m; sourceTree = "<group>"; };
+		5208B6F517985FD0001DFF38 /* jr_productions_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jr_productions_red.png; sourceTree = "<group>"; };
+		5208B6F617985FD0001DFF38 /* jr_productions_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jr_productions_white.png; sourceTree = "<group>"; };
 		5227CA4317875D8000D80872 /* Tutorial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tutorial.h; path = Tutorial/Tutorial.h; sourceTree = "<group>"; };
 		5227CA4417875D8000D80872 /* Tutorial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tutorial.m; path = Tutorial/Tutorial.m; sourceTree = "<group>"; };
 		5227CA461787633000D80872 /* back4blur.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = back4blur.jpg; sourceTree = "<group>"; };
@@ -741,6 +750,8 @@
 		520136AA175BE6C8001AFECF /* IntroScreen */ = {
 			isa = PBXGroup;
 			children = (
+				5208B6F217985D4D001DFF38 /* SplashOne.h */,
+				5208B6F317985D4D001DFF38 /* SplashOne.m */,
 				5278836E1721E99400EF9AD4 /* IntroLayer.h */,
 				5278836F1721E99400EF9AD4 /* IntroLayer.m */,
 			);
@@ -1464,6 +1475,8 @@
 		5288A137176C0B84005CA0F3 /* Introimages */ = {
 			isa = PBXGroup;
 			children = (
+				5208B6F517985FD0001DFF38 /* jr_productions_red.png */,
+				5208B6F617985FD0001DFF38 /* jr_productions_white.png */,
 				5288A138176C0B84005CA0F3 /* cemse.png */,
 				5288A139176C0B84005CA0F3 /* cemse_c-ipadhd.png */,
 				5288A13A176C0B84005CA0F3 /* cemse_c.png */,
@@ -1503,6 +1516,7 @@
 			children = (
 				5288A16417729E90005CA0F3 /* gem_collectmedium.caf */,
 				52664E63177A196E00988278 /* clock.caf */,
+				5208B6F017985CED001DFF38 /* single_lightning_bolt.caf */,
 				5288A15A17729253005CA0F3 /* gem_collect.caf */,
 			);
 			name = Sounds;
@@ -1684,6 +1698,9 @@
 				5227CA471787633000D80872 /* back4blur.jpg in Resources */,
 				52B2BA051794BB1A003BF16C /* highscores.png in Resources */,
 				52B2BA0B1794BE95003BF16C /* longbackbutton.png in Resources */,
+				5208B6F117985CED001DFF38 /* single_lightning_bolt.caf in Resources */,
+				5208B6F717985FD0001DFF38 /* jr_productions_red.png in Resources */,
+				5208B6F817985FD0001DFF38 /* jr_productions_white.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1865,6 +1882,7 @@
 				52664E74177A545C00988278 /* Common.mm in Sources */,
 				5227CA4517875D8000D80872 /* Tutorial.m in Sources */,
 				52B2BA081794BB63003BF16C /* Leaderboards.m in Sources */,
+				5208B6F417985D4D001DFF38 /* SplashOne.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
