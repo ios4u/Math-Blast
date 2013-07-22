@@ -9,6 +9,7 @@
 #import "SplashOne.h"
 #import "IntroLayer.h"
 #import "SimpleAudioEngine.h"
+#import "Title.h"
 
 
 @implementation SplashOne
@@ -86,7 +87,7 @@
     // Reload the current scene
     [[CCDirector sharedDirector] replaceScene:
      [CCTransitionFade transitionWithDuration:2
-                                        scene:[IntroLayer node]]];
+                                        scene:[Title node]]];
     //[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
 }
 

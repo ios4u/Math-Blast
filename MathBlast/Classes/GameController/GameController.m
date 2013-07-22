@@ -111,8 +111,8 @@
         endLevel = YES;
         [self setupLevelManager];
         [self scheduleUpdate];
-        [self scheduleOnce:@selector(gemify) delay:10];
-        [self scheduleOnce:@selector(startLevel) delay:10];
+        [self scheduleOnce:@selector(gemify) delay:12];
+        [self scheduleOnce:@selector(startLevel) delay:12];
         
     }
     return self;
@@ -487,7 +487,7 @@
  *******************************************************************************/
 -(void) startNextLevel
 {
-    [self scheduleOnce:@selector(startLevel) delay:10];
+    [self scheduleOnce:@selector(startLevel) delay:12];
     [timer startTimer];
     
     //clear gamegrid of gems so that a new level can start
@@ -499,8 +499,8 @@
     [self scheduleUpdate];
     [levelManager nextStage];
     timer.totalSeconds = [levelManager floatForProp:@"time"];//set timer based on plist value
-    [self scheduleOnce:@selector(gemify) delay:10];
-    [self scheduleOnce:@selector(makePowerupsLive) delay:11]; //makes powerups live
+    [self scheduleOnce:@selector(gemify) delay:12];
+    [self scheduleOnce:@selector(makePowerupsLive) delay:13]; //makes powerups live
 }
 
 //turn on and off powerups

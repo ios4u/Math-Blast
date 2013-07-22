@@ -17,6 +17,7 @@
     CCLabelTTF *levelTargetLabel;
     
     CCLabelTTF *score;
+    UITextField *textField;
     int targetScore;
     int scoreForTurn;
     int totalGemsCollected;
@@ -366,13 +367,13 @@
 -(void) didEndLevel:(GameController*) gameC
 {
     
-    if(!turnOffProgress){//level target not met - lose
+    if(!turnOffProgress){//level target not met - lose - game reset
         NSLog(@"You lose");
         gameC.isGameOver = YES;
         result = [Results node];
         [self addChild:result z:2];
         result.tag = 20;
-        [result gameOver];
+        [self recordHighScore];
     }
     else{
         result = [Results node];
@@ -491,6 +492,103 @@
     [self fillProgressBar:0.0];
     
     
+}
+
+-(void) recordHighScore
+{
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSMutableArray *highScores = [NSMutableArray arrayWithArray:[defaults arrayForKey:@"scores"]];
+
+    for (int i = 0; i < [highScores count]; i++)
+    {
+        if (targetScore >= [[highScores objectAtIndex:i] intValue])
+        {
+            
+            [self addText];
+            // Bust out of the loop
+            break;
+        }
+        
+        if(i == [highScores count] - 1)
+        {
+            [result gameOver];
+        }
+    }
+    
+}
+
+-(void) addText
+{
+//    // This label will change depending on text input.
+//    nameLabel = [CCLabelTTF labelWithString:@"My name is..."
+//                                   fontName:@"Marker Felt"
+//                                   fontSize:32];
+//    CGSize size = [[CCDirector sharedDirector] winSize];
+//    nameLabel.position =  ccp( size.width /2 , size.height/2 );
+//    [self addChild: nameLabel];
+    
+    // Create textfield
+    textField = [[UITextField alloc] initWithFrame:CGRectMake(winSize.width*.4,winSize.height*.4,200,25)];
+    textField.placeholder = @"Enter name here." ;
+    textField.borderStyle = UITextBorderStyleRoundedRect;
+    CGRect frameRect = textField.frame;
+    frameRect.size.height = 50;
+    textField.frame = frameRect;
+    textField.autocorrectionType = UITextAutocorrectionTypeNo ;
+    textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    textField.font = [UIFont fontWithName:@"Verdana" size:42.0f];
+    textField.font = [UIFont systemFontOfSize:44.0];
+    textField.clearButtonMode = UITextFieldViewModeWhileEditing ;
+    textField.adjustsFontSizeToFitWidth = YES;
+    textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    textField.returnKeyType = UIReturnKeyDone ;
+    textField.textColor = [UIColor blackColor];
+    
+    // Workaround to dismiss keyboard when Done/Return is tapped
+    [textField addTarget:self action:@selector(textFieldEditingDidEndOnExit:) forControlEvents:UIControlEventEditingDidEndOnExit];
+    
+    // Add textfield into cocos2d view
+    [[[CCDirector sharedDirector] view] addSubview:textField];
+}
+
+-(void) textFieldEditingDidEndOnExit:(UITextField*) tf {
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSMutableArray *highScores = [NSMutableArray arrayWithArray:[defaults arrayForKey:@"scores"]];
+    NSMutableArray *level = [NSMutableArray arrayWithArray:[defaults arrayForKey:@"level"]];
+    NSMutableArray *name = [NSMutableArray arrayWithArray:[defaults arrayForKey:@"name"]];
+    
+    for (int i = 0; i < [highScores count]; i++)
+    {
+        if (targetScore >= [[highScores objectAtIndex:i] intValue])
+        {
+            
+            // Insert new high score, which pushes all others down
+            [highScores insertObject:[NSNumber numberWithInt:targetScore] atIndex:i];
+            [level insertObject:[NSNumber numberWithInt:_level] atIndex:i];
+            [name insertObject:textField.text atIndex:i];
+            
+            // Remove last score, so as to ensure only 10 entries in the high score array
+            [highScores removeLastObject];
+            [level removeLastObject];
+            [name removeLastObject];
+            
+            // Re-save scores array to user defaults
+            [defaults setObject:highScores forKey:@"scores"];
+            [defaults setObject:level forKey:@"level"];
+            [defaults setObject:name forKey:@"name"];
+            [defaults synchronize];
+            NSLog(@"Saved new high score of %i", targetScore);
+            // Bust out of the loop
+            [textField removeFromSuperview];
+            [result gameOver];
+            break;
+        }
+    }
+
 }
 
 -(void) removeLabel

@@ -13,6 +13,7 @@
     
     CCLabelTTF *timer;
     int countDown;
+    int level;
     CCLabelTTF *countDownTimer;
     CGSize winSize;
 }
@@ -24,8 +25,9 @@
     if( (self=[super init] )) {
         
         winSize = [CCDirector sharedDirector].winSize;
-        _totalSeconds = 120;
-        countDown = 3;
+        _totalSeconds = 30;
+        countDown = 4;
+        level = 1;
 
         [self setupTimer];
         
@@ -47,7 +49,7 @@
       [CCMoveTo actionWithDuration:3 position:ccp(215, 682)],
       nil]];
     
-    countDownTimer = [CCLabelTTF labelWithString:@"3" fontName:@"MarkerFelt-Wide" fontSize:70];
+    countDownTimer = [CCLabelTTF labelWithString:@"Level 1" fontName:@"MarkerFelt-Wide" fontSize:70];
     countDownTimer.color = ccBLUE;
     countDownTimer.position = ccp(winSize.width/2, winSize.height/2);
     countDownTimer.scale = 0;
@@ -64,6 +66,10 @@
     [countDownTimer runAction:
      [CCSequence actions:
       [CCCallFuncN actionWithTarget:self selector:@selector(changeCountDown)],
+      [CCScaleTo actionWithDuration:0 scale:1],
+      [CCDelayTime actionWithDuration:2],
+      [CCScaleTo actionWithDuration:0 scale:0],
+      [CCCallFuncN actionWithTarget:self selector:@selector(changeCountDown)],
       [CCScaleTo actionWithDuration:0 scale:5],
       [CCScaleTo actionWithDuration:1 scale:0],
       [CCCallFuncN actionWithTarget:self selector:@selector(changeCountDown)],
@@ -73,23 +79,30 @@
       [CCScaleTo actionWithDuration:0 scale:5],
       [CCScaleTo actionWithDuration:1 scale:0],
       nil]];
-    [self schedule:@selector(countTime) interval:1 repeat:-1 delay:4];
+    [self schedule:@selector(countTime) interval:1 repeat:-1 delay:6];
 }
 
 -(void) changeCountDown
 {
-    if(countDown == 3){
-        countDownTimer.color = ccRED;
+    if(countDown == 4){
+        countDownTimer.color = ccBLUE;
         timer.color = ccGREEN;
         timer.string = @"2:00";
+        countDownTimer.string = [NSString stringWithFormat:@"Level %d",level];
+        
+    }
+    else if (countDown == 3){
+        countDownTimer.color = ccRED;
+        countDownTimer.string = [NSString stringWithFormat:@"%d",countDown];
     }
     else if(countDown == 2){
         countDownTimer.color = ccYELLOW;
+        countDownTimer.string = [NSString stringWithFormat:@"%d",countDown];
     }
     else if(countDown == 1){
         countDownTimer.color = ccGREEN;
+        countDownTimer.string = [NSString stringWithFormat:@"%d",countDown];
     }
-    countDownTimer.string = [NSString stringWithFormat:@"%d",countDown];
     countDown --;
 }
 
@@ -125,7 +138,8 @@
     
     if(_totalSeconds == 0){
         [self unscheduleAllSelectors];
-        countDown = 3;
+        countDown = 4;
+        level++;
     }
 }
 

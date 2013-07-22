@@ -208,6 +208,8 @@
 		527883731721E99400EF9AD4 /* GLES-Render.mm in Sources */ = {isa = PBXBuildFile; fileRef = 527883721721E99400EF9AD4 /* GLES-Render.mm */; };
 		527883751721E99400EF9AD4 /* blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = 527883741721E99400EF9AD4 /* blocks.png */; };
 		527885DE1723193100EF9AD4 /* Title.m in Sources */ = {isa = PBXBuildFile; fileRef = 527885DD1723193100EF9AD4 /* Title.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		527C42BB179DF3D600DB1258 /* backbutton.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 527C42BA179DF3D600DB1258 /* backbutton.jpg */; };
+		527C42BD179DF62F00DB1258 /* backbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 527C42BC179DF62F00DB1258 /* backbutton.png */; };
 		52889ED5176917F2005CA0F3 /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52889ED4176917F2005CA0F3 /* GameController.m */; };
 		52889EE2176A8202005CA0F3 /* powerupSet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52889EE0176A8202005CA0F3 /* powerupSet.plist */; };
 		52889EE3176A8202005CA0F3 /* powerupSet.png in Resources */ = {isa = PBXBuildFile; fileRef = 52889EE1176A8202005CA0F3 /* powerupSet.png */; };
@@ -665,6 +667,8 @@
 		527883741721E99400EF9AD4 /* blocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blocks.png; path = Resources/blocks.png; sourceTree = "<group>"; };
 		527885DC1723193100EF9AD4 /* Title.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Title.h; path = Title_Screen/Title.h; sourceTree = "<group>"; };
 		527885DD1723193100EF9AD4 /* Title.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Title.m; path = Title_Screen/Title.m; sourceTree = "<group>"; };
+		527C42BA179DF3D600DB1258 /* backbutton.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = backbutton.jpg; sourceTree = "<group>"; };
+		527C42BC179DF62F00DB1258 /* backbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backbutton.png; sourceTree = "<group>"; };
 		52889ED3176917F2005CA0F3 /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameController.h; path = GameController/GameController.h; sourceTree = "<group>"; };
 		52889ED4176917F2005CA0F3 /* GameController.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; name = GameController.m; path = GameController/GameController.m; sourceTree = "<group>"; };
 		52889EE0176A8202005CA0F3 /* powerupSet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = powerupSet.plist; path = emitters/powerupSet.plist; sourceTree = "<group>"; };
@@ -1444,6 +1448,8 @@
 		52889EF9176C0B39005CA0F3 /* Backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				527C42BA179DF3D600DB1258 /* backbutton.jpg */,
+				527C42BC179DF62F00DB1258 /* backbutton.png */,
 				52664E6C177A47CE00988278 /* back4.jpg */,
 				5227CA461787633000D80872 /* back4blur.jpg */,
 				52889EFA176C0B39005CA0F3 /* back1.jpg */,
@@ -1701,6 +1707,8 @@
 				5208B6F117985CED001DFF38 /* single_lightning_bolt.caf in Resources */,
 				5208B6F717985FD0001DFF38 /* jr_productions_red.png in Resources */,
 				5208B6F817985FD0001DFF38 /* jr_productions_white.png in Resources */,
+				527C42BB179DF3D600DB1258 /* backbutton.jpg in Resources */,
+				527C42BD179DF62F00DB1258 /* backbutton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

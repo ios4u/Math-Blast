@@ -88,11 +88,14 @@
 //
 //
     
+    
     if([defaults objectForKey:@"scores"]){//scores user defaults exists
         
         NSLog(@"Scoring exists");
         // Get high scores array from "defaults" object
         NSArray *highScores = [defaults arrayForKey:@"scores"];
+        NSArray *levels = [defaults arrayForKey:@"level"];
+        NSArray *name = [defaults arrayForKey:@"name"];
         
         //create label for #1
         CCLabelTTF *scoreLabelOne = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d" , [[highScores objectAtIndex:0] intValue]] fontName:@"Avenir-Heavy" fontSize:35];
@@ -110,7 +113,7 @@
           [CCScaleTo actionWithDuration:0 scale:10],
           [CCScaleTo actionWithDuration:.5 scale:1], nil]];
         
-        CCLabelTTF *levelLabelOne = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d" , 35] fontName:@"Avenir-Heavy" fontSize:35];
+        CCLabelTTF *levelLabelOne = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d" , [[levels objectAtIndex:0] intValue]] fontName:@"Avenir-Heavy" fontSize:35];
         levelLabelOne.anchorPoint = ccp(0.5f,0.5f);
         levelLabelOne.color = ccYELLOW;
         levelLabelOne.position = ccp(515 , 515);
@@ -125,10 +128,10 @@
           [CCScaleTo actionWithDuration:0 scale:10],
           [CCScaleTo actionWithDuration:.5 scale:1], nil]];
         
-        CCLabelTTF *nameLabelOne = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%@" , @"1. jonny"] fontName:@"Avenir-Heavy" fontSize:35];
+        CCLabelTTF *nameLabelOne = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"1. %@" , [name objectAtIndex:0]] fontName:@"Avenir-Heavy" fontSize:35];
         nameLabelOne.anchorPoint = ccp(0.0f,0.5f);
         nameLabelOne.color = ccYELLOW;
-        nameLabelOne.position = ccp(80 , 515);
+        nameLabelOne.position = ccp(77 , 515);
         nameLabelOne.scale = 0;
         nameLabelOne.tag = 10;
         [self addChild:nameLabelOne];
@@ -153,6 +156,21 @@
                 scoreLabels.color = ccWHITE;
                 scoreLabels.position = ccp(790 , yCoord);
                 [self addChild:scoreLabels];
+                
+                
+                CCLabelTTF *levelLabels = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d" , [[levels objectAtIndex:i] intValue]] fontName:@"Avenir-Heavy" fontSize:25];
+                levelLabels.anchorPoint = ccp(0.5f,0.5f);
+                levelLabels.color = ccWHITE;
+                levelLabels.position = ccp(515 , yCoord);
+                [self addChild:levelLabels];
+                
+                
+                CCLabelTTF *nameLabels = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d. %@" , i+1, [name objectAtIndex:i]] fontName:@"Avenir-Heavy" fontSize:25];
+                nameLabels.anchorPoint = ccp(0.0f,0.5f);
+                nameLabels.color = ccWHITE;
+                nameLabels.position = ccp(80 , yCoord);
+                [self addChild:nameLabels];
+                
                 yCoord = yCoord - 41;
             }
         }
@@ -178,6 +196,38 @@
         [highScores removeLastObject];
         // Re-save scores array to user defaults
         [defaults setObject:highScores forKey:@"scores"];
+        [defaults synchronize];
+        
+        
+        //Register highest levels
+        NSDictionary *levelDefaults = [NSDictionary dictionaryWithObject:[NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], nil] forKey:@"level"];
+        
+        [defaults registerDefaults:levelDefaults];
+        [defaults synchronize];
+        
+        NSMutableArray *levels = [NSMutableArray arrayWithArray:[defaults arrayForKey:@"level"]];
+        
+        [levels insertObject:[NSNumber numberWithInt:0] atIndex:0];
+        // Remove last level, so as to ensure only 10 entries in the high level array
+        [levels removeLastObject];
+        // Re-save scores array to user defaults
+        [defaults setObject:levels forKey:@"level"];
+        [defaults synchronize];
+        
+        
+        //Register names
+        NSDictionary *namesDefaults = [NSDictionary dictionaryWithObject:[NSArray arrayWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", @"", nil] forKey:@"name"];
+        
+        [defaults registerDefaults:namesDefaults];
+        [defaults synchronize];
+        
+        NSMutableArray *names = [NSMutableArray arrayWithArray:[defaults arrayForKey:@"name"]];
+        
+        [names insertObject:@"" atIndex:0];
+        // Remove last level, so as to ensure only 10 entries in the high level array
+        [names removeLastObject];
+        // Re-save scores array to user defaults
+        [defaults setObject:names forKey:@"name"];
         [defaults synchronize];
     }
 

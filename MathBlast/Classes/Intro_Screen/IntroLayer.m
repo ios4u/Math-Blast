@@ -94,31 +94,31 @@
     
     [_cemse_c runAction:
      [CCSequence actions:
-      [CCDelayTime actionWithDuration:.4],
+      [CCDelayTime actionWithDuration:1.5],
       [CCMoveTo actionWithDuration:2 position:ccp(_winSize.width * .41, _winSize.height * .53)],
       nil]];
     
     [_cemse_e runAction:
      [CCSequence actions:
-      [CCDelayTime actionWithDuration:.4],
+      [CCDelayTime actionWithDuration:1.5],
       [CCMoveTo actionWithDuration:1.5 position:ccp(_winSize.width * .455, _winSize.height * .53)],
       nil]];
     
     [_cemse_e2 runAction:
      [CCSequence actions:
-      [CCDelayTime actionWithDuration:.4],
+      [CCDelayTime actionWithDuration:1.5],
       [CCMoveTo actionWithDuration:2 position:ccp(_winSize.width * .59, _winSize.height * .53)],
       nil]];
     
     [_cemse_s runAction:
      [CCSequence actions:
-      [CCDelayTime actionWithDuration:.4],
+      [CCDelayTime actionWithDuration:1.5],
       [CCMoveTo actionWithDuration:1.5 position:ccp(_winSize.width * .545, _winSize.height * .53)],
       nil]];
     
     [_cemse runAction:
      [CCSequence actions:
-      [CCDelayTime actionWithDuration:2.3],
+      [CCDelayTime actionWithDuration:3],
       [CCFadeIn actionWithDuration:.2],
       nil]];
 
@@ -143,7 +143,7 @@
     
     [label2 runAction:
      [CCSequence actions:
-      [CCDelayTime actionWithDuration:2.3],
+      [CCDelayTime actionWithDuration:3],
       [CCFadeIn actionWithDuration:1],
       nil]];
     
@@ -155,11 +155,11 @@
     
     [label3 runAction:
      [CCSequence actions:
-      [CCDelayTime actionWithDuration:4],
+      [CCDelayTime actionWithDuration:5],
       [CCFadeIn actionWithDuration:2],
       nil]];
     
-    [self scheduleOnce:@selector(exitScene) delay:6];
+    [self scheduleOnce:@selector(exitScene) delay:7];
 
 }
 

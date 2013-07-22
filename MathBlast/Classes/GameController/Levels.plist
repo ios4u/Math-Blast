@@ -135,7 +135,7 @@
 				<key>bonus</key>
 				<integer>11000</integer>
 				<key>target</key>
-				<real>5</real>
+				<integer>5500</integer>
 			</dict>
 			<dict>
 				<key>time</key>
@@ -147,7 +147,7 @@
 				<key>bonus</key>
 				<integer>12000</integer>
 				<key>target</key>
-				<real>6</real>
+				<integer>6000</integer>
 			</dict>
 			<dict>
 				<key>time</key>
@@ -255,7 +255,7 @@
 				<key>bonus</key>
 				<real>20</real>
 				<key>target</key>
-				<integer>10000</integer>
+				<integer>11000</integer>
 			</dict>
 			<dict>
 				<key>time</key>
@@ -265,9 +265,9 @@
 				<key>gem</key>
 				<integer>5</integer>
 				<key>bonus</key>
-				<real>20</real>
+				<integer>20</integer>
 				<key>target</key>
-				<integer>10000</integer>
+				<integer>12000</integer>
 			</dict>
 			<dict>
 				<key>time</key>
@@ -277,9 +277,9 @@
 				<key>gem</key>
 				<integer>5</integer>
 				<key>bonus</key>
-				<real>20</real>
+				<integer>20</integer>
 				<key>target</key>
-				<integer>10000</integer>
+				<integer>13000</integer>
 			</dict>
 			<dict>
 				<key>time</key>
@@ -289,9 +289,9 @@
 				<key>gem</key>
 				<integer>5</integer>
 				<key>bonus</key>
-				<real>20</real>
+				<integer>20</integer>
 				<key>target</key>
-				<integer>10000</integer>
+				<integer>14000</integer>
 			</dict>
 			<dict>
 				<key>time</key>
@@ -301,9 +301,9 @@
 				<key>gem</key>
 				<integer>5</integer>
 				<key>bonus</key>
-				<real>20</real>
+				<integer>20</integer>
 				<key>target</key>
-				<integer>10000</integer>
+				<integer>15000</integer>
 			</dict>
 			<dict>
 				<key>time</key>
@@ -313,9 +313,9 @@
 				<key>gem</key>
 				<integer>5</integer>
 				<key>bonus</key>
-				<real>20</real>
+				<integer>20</integer>
 				<key>target</key>
-				<integer>10000</integer>
+				<integer>16000</integer>
 			</dict>
 			<dict>
 				<key>time</key>
@@ -325,9 +325,9 @@
 				<key>gem</key>
 				<integer>5</integer>
 				<key>bonus</key>
-				<real>20</real>
+				<integer>20</integer>
 				<key>target</key>
-				<integer>10000</integer>
+				<integer>17000</integer>
 			</dict>
 			<dict>
 				<key>time</key>
@@ -337,9 +337,9 @@
 				<key>gem</key>
 				<integer>5</integer>
 				<key>bonus</key>
-				<real>20</real>
+				<integer>20</integer>
 				<key>target</key>
-				<integer>10000</integer>
+				<integer>18000</integer>
 			</dict>
 			<dict>
 				<key>time</key>
@@ -349,9 +349,9 @@
 				<key>gem</key>
 				<integer>5</integer>
 				<key>bonus</key>
-				<real>20</real>
+				<integer>20</integer>
 				<key>target</key>
-				<integer>10000</integer>
+				<integer>19000</integer>
 			</dict>
 			<dict>
 				<key>time</key>
@@ -361,9 +361,81 @@
 				<key>gem</key>
 				<integer>5</integer>
 				<key>bonus</key>
-				<real>20</real>
+				<integer>20</integer>
 				<key>target</key>
-				<integer>10000</integer>
+				<integer>20000</integer>
+			</dict>
+			<dict>
+				<key>time</key>
+				<integer>110</integer>
+				<key>transform</key>
+				<true/>
+				<key>gem</key>
+				<integer>5</integer>
+				<key>bonus</key>
+				<integer>20</integer>
+				<key>target</key>
+				<integer>20000</integer>
+			</dict>
+			<dict>
+				<key>time</key>
+				<integer>100</integer>
+				<key>transform</key>
+				<true/>
+				<key>gem</key>
+				<integer>5</integer>
+				<key>bonus</key>
+				<integer>20</integer>
+				<key>target</key>
+				<integer>20000</integer>
+			</dict>
+			<dict>
+				<key>time</key>
+				<integer>90</integer>
+				<key>transform</key>
+				<true/>
+				<key>gem</key>
+				<integer>5</integer>
+				<key>bonus</key>
+				<integer>20</integer>
+				<key>target</key>
+				<integer>20000</integer>
+			</dict>
+			<dict>
+				<key>time</key>
+				<integer>80</integer>
+				<key>transform</key>
+				<true/>
+				<key>gem</key>
+				<integer>5</integer>
+				<key>bonus</key>
+				<integer>20</integer>
+				<key>target</key>
+				<integer>20000</integer>
+			</dict>
+			<dict>
+				<key>time</key>
+				<integer>70</integer>
+				<key>transform</key>
+				<true/>
+				<key>gem</key>
+				<integer>5</integer>
+				<key>bonus</key>
+				<integer>20</integer>
+				<key>target</key>
+				<integer>20000</integer>
+			</dict>
+			<dict>
+				<key>time</key>
+				<integer>60</integer>
+				<key>transform</key>
+				<true/>
+				<key>gem</key>
+				<integer>5</integer>
+				<key>bonus</key>
+				<integer>20</integer>
+				<key>target</key>
+				<integer>20000</integer>
 			</dict>
 		</array>
 		<array>

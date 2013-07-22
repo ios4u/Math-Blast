@@ -7,6 +7,7 @@
 //
 
 #import "Tutorial.h"
+#import "Title.h"
 
 
 @implementation Tutorial
@@ -51,6 +52,24 @@
     bck.position = ccp(winSize.width/2, winSize.height/2);
     [self addChild:bck z:-5];
     
+    CCSprite *backbutton = [CCSprite spriteWithFile:@"longbackbutton.png"];
+    
+    CCMenuItemSprite *backSpriteHighScores = [CCMenuItemSprite itemWithNormalSprite:backbutton selectedSprite:nil target:self selector:@selector(backButtonTapped)];
+    
+    CCMenu *backMenuButton = [CCMenu menuWithItems:backSpriteHighScores, nil];
+    
+    backMenuButton.position = ccp(winSize.width * .5, winSize.height * .05);
+    backMenuButton.tag = 10;
+    
+    [self addChild:backMenuButton z:1];
+    
+}
+
+-(void) backButtonTapped
+{
+    [[CCDirector sharedDirector] replaceScene:
+     [CCTransitionCrossFade transitionWithDuration:.5
+                                             scene:[Title node]]];
 }
 
 
