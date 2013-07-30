@@ -36,12 +36,12 @@ Math Blast allows children and adults to practice various skills and become more
 
   * Sound
   * ~~Menu~~
-  * Leaderboards
-  * Game Center
+  * Leaderboards / Global
+  * Game Center / Achievements
   * Hints & Tips / Instructions
   * Track player progress
   * More powerups
-  * Menu Button
+  * ~~Menu Button~~
 
 ## ScreenShots
 
