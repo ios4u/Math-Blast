@@ -42,6 +42,7 @@ Math Blast allows children and adults to practice various skills and become more
   * Track player progress
   * More powerups
   * ~~Menu Button~~
+  * Retina Display Support
 
 ## ScreenShots
 
