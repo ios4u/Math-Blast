@@ -1,7 +1,7 @@
 Math-Blast
 ==========
 
-iOS Addition matching game (like Bejeweled)
+iOS Addition matching game (like Bejeweled/Candy Crush)
 
 ## Overview
 
