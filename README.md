@@ -43,6 +43,7 @@ Math Blast allows children and adults to practice various skills and become more
   * More powerups
   * ~~Menu Button~~
   * Retina Display Support
+  * Difficulty levels
 
 ## ScreenShots
 
